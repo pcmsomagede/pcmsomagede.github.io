@@ -1,125 +1,209 @@
-/* PCM Somagede — real Supabase login/register UI */
+/* PCM Somagede — Supabase Auth without external JS dependency */
 (() => {
   'use strict';
-  const URL = 'https://yjergotkwxxrmhtziwo.supabase.co';
-  const KEY = 'sb_publishable_Af1OUCyR5kOMOzXnPGDp5w_ucoze69A';
-
-  const load = src => new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = src;
-    s.onload = resolve;
-    s.onerror = reject;
-    document.head.appendChild(s);
-  });
+  const SUPABASE_URL = 'https://yjergotkwxxrmhtziwo.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_Af1OUCyR5kOMOzXnPGDp5w_ucoze69A';
+  const SESSION_KEY = 'pcm_supabase_session';
 
   const q = (sel, root=document) => root.querySelector(sel);
+  const authHeaders = (token) => ({
+    apikey: SUPABASE_KEY,
+    Authorization: `Bearer ${token || SUPABASE_KEY}`,
+    'Content-Type': 'application/json'
+  });
 
-  async function boot() {
-    if (!window.supabase?.createClient) {
-      await load('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+  async function api(path, options={}) {
+    const res = await fetch(`${SUPABASE_URL}${path}`, options);
+    let body = null;
+    try { body = await res.json(); } catch (_) {}
+    if (!res.ok) {
+      const message = body?.msg || body?.message || body?.error_description || body?.error || `HTTP ${res.status}`;
+      throw new Error(message);
     }
-    const client = window.supabase.createClient(URL, KEY);
-    window.PCMSupabase = client;
+    return body;
+  }
 
-    function fields(view) {
-      return [...view.querySelectorAll('input')];
-    }
+  function saveSession(session) {
+    if (session) localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+    else localStorage.removeItem(SESSION_KEY);
+  }
 
-    function message(view, text, ok=false) {
-      let el = q('.pcm-auth-message', view);
-      if (!el) {
-        el = document.createElement('div');
-        el.className = 'pcm-auth-message';
-        el.style.cssText = 'margin-top:12px;padding:10px 12px;border-radius:10px;font-size:.88rem;font-weight:700;background:#eef8ff;color:#17436f';
-        view.appendChild(el);
+  function readSession() {
+    try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); }
+    catch (_) { return null; }
+  }
+
+  async function getProfile(session) {
+    if (!session?.access_token || !session?.user?.id) return null;
+    const rows = await api(`/rest/v1/profiles?select=role,aktif,nama&id=eq.${encodeURIComponent(session.user.id)}&limit=1`, {
+      headers: authHeaders(session.access_token)
+    });
+    return Array.isArray(rows) ? (rows[0] || null) : null;
+  }
+
+  async function getSession() {
+    const session = readSession();
+    if (!session?.access_token) return { data: { session: null } };
+    try {
+      const user = await api('/auth/v1/user', { headers: authHeaders(session.access_token) });
+      session.user = user;
+      saveSession(session);
+      return { data: { session } };
+    } catch (_) {
+      if (!session.refresh_token) { saveSession(null); return { data: { session: null } }; }
+      try {
+        const refreshed = await api('/auth/v1/token?grant_type=refresh_token', {
+          method: 'POST',
+          headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ refresh_token: session.refresh_token })
+        });
+        saveSession(refreshed);
+        return { data: { session: refreshed } };
+      } catch (__) {
+        saveSession(null);
+        return { data: { session: null } };
       }
-      el.textContent = text;
-      el.style.background = ok ? '#e9f8ef' : '#fff4e5';
-      el.style.color = ok ? '#17663b' : '#7a4a00';
     }
+  }
 
-    async function refreshRole() {
-      const { data: { session } } = await client.auth.getSession();
-      let role = null;
-      if (session?.user) {
-        const { data } = await client.from('profiles').select('role,aktif,nama').eq('id', session.user.id).maybeSingle();
-        if (data?.aktif) role = data.role;
+  const auth = {
+    async signInWithPassword({ email, password }) {
+      try {
+        const session = await api('/auth/v1/token?grant_type=password', {
+          method: 'POST',
+          headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        saveSession(session);
+        return { data: { session, user: session.user }, error: null };
+      } catch (error) {
+        return { data: { session: null, user: null }, error };
       }
-      window.PCMUser = { session, role };
-      const editor = document.getElementById('editorBtn');
-      if (editor) editor.classList.toggle('hidden', !['admin','editor'].includes(role));
-      return { session, role };
-    }
+    },
+    async signUp({ email, password }) {
+      try {
+        const data = await api('/auth/v1/signup', {
+          method: 'POST',
+          headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        if (data?.access_token) saveSession(data);
+        return { data, error: null };
+      } catch (error) { return { data: null, error }; }
+    },
+    async signOut() {
+      const session = readSession();
+      if (session?.access_token) {
+        try { await fetch(`${SUPABASE_URL}/auth/v1/logout`, { method: 'POST', headers: authHeaders(session.access_token) }); } catch (_) {}
+      }
+      saveSession(null);
+      return { error: null };
+    },
+    getSession
+  };
 
-    async function bindLogin() {
-      const view = document.getElementById('login');
-      if (!view || view.dataset.supabaseBound) return;
-      view.dataset.supabaseBound = '1';
-      const inputs = fields(view);
-      const email = inputs.find(x => x.type === 'email') || inputs[0];
-      const password = inputs.find(x => x.type === 'password') || inputs[1];
-      const button = [...view.querySelectorAll('button')].find(b => /masuk|login/i.test(b.textContent));
-      if (!email || !password || !button) return;
-      button.addEventListener('click', async e => {
-        e.preventDefault();
-        button.disabled = true;
-        button.textContent = 'Memproses…';
-        const { error } = await client.auth.signInWithPassword({ email: email.value.trim(), password: password.value });
-        if (error) {
-          message(view, 'Login gagal: ' + error.message);
+  async function refreshRole() {
+    const { data: { session } } = await getSession();
+    let role = null;
+    let profile = null;
+    if (session) {
+      try { profile = await getProfile(session); } catch (error) { console.warn('Profile check failed:', error); }
+      if (profile?.aktif) role = profile.role;
+    }
+    window.PCMUser = { session, role, profile };
+    const editor = document.getElementById('editorBtn');
+    if (editor) editor.classList.toggle('hidden', !['admin','editor'].includes(role));
+    document.dispatchEvent(new CustomEvent('pcm-auth-changed', { detail: { session, role, profile } }));
+    return { session, role, profile };
+  }
+
+  function message(view, text, ok=false) {
+    let el = q('.pcm-auth-message', view);
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'pcm-auth-message';
+      el.style.cssText = 'margin-top:12px;padding:10px 12px;border-radius:10px;font-size:.88rem;font-weight:700;background:#fff4e5;color:#7a4a00';
+      view.appendChild(el);
+    }
+    el.textContent = text;
+    el.style.background = ok ? '#e9f8ef' : '#fff4e5';
+    el.style.color = ok ? '#17663b' : '#7a4a00';
+  }
+
+  function bindLogin() {
+    const view = document.getElementById('login');
+    if (!view || view.dataset.supabaseBound) return;
+    const inputs = [...view.querySelectorAll('input')];
+    const email = inputs.find(x => x.type === 'email') || inputs[0];
+    const password = inputs.find(x => x.type === 'password') || inputs[1];
+    const button = [...view.querySelectorAll('button')].find(b => /masuk|login/i.test(b.textContent));
+    if (!email || !password || !button) return;
+    view.dataset.supabaseBound = '1';
+    button.addEventListener('click', async e => {
+      e.preventDefault();
+      button.disabled = true;
+      const original = button.textContent;
+      button.textContent = 'Memproses…';
+      const { error } = await auth.signInWithPassword({ email: email.value.trim(), password: password.value });
+      if (error) {
+        message(view, 'Login gagal: ' + error.message);
+      } else {
+        const { role } = await refreshRole();
+        if (!['admin','editor'].includes(role)) {
+          message(view, 'Login berhasil, tetapi akun belum memiliki otoritas Editor.');
         } else {
-          const { role } = await refreshRole();
-          if (!['admin','editor'].includes(role)) {
-            message(view, 'Login berhasil, tetapi akun belum memiliki otoritas Editor.');
-          } else {
-            message(view, 'Login berhasil. Otoritas Editor aktif.', true);
-            setTimeout(() => { if (typeof window.go === 'function') window.go('editor'); }, 250);
-          }
+          message(view, 'Login berhasil. Otoritas Editor aktif.', true);
+          setTimeout(() => { if (typeof window.go === 'function') window.go('editor'); else location.reload(); }, 250);
         }
-        button.disabled = false;
-        button.textContent = 'Masuk';
-      });
-    }
-
-    async function bindRegister() {
-      const view = document.getElementById('register');
-      if (!view || view.dataset.supabaseBound) return;
-      view.dataset.supabaseBound = '1';
-      const inputs = fields(view);
-      const email = inputs.find(x => x.type === 'email') || inputs[0];
-      const password = inputs.find(x => x.type === 'password') || inputs[1];
-      const button = [...view.querySelectorAll('button')].find(b => /daftar|register|buat/i.test(b.textContent));
-      if (!email || !password || !button) return;
-      button.addEventListener('click', async e => {
-        e.preventDefault();
-        button.disabled = true;
-        const { error } = await client.auth.signUp({ email: email.value.trim(), password: password.value });
-        message(view, error ? 'Pendaftaran gagal: ' + error.message : 'Pendaftaran berhasil. Silakan cek email jika verifikasi diminta.', !error);
-        button.disabled = false;
-      });
-    }
-
-    async function bindLogout() {
-      document.addEventListener('click', async e => {
-        const b = e.target.closest('[data-route="logout"]');
-        if (!b) return;
-        e.preventDefault();
-        await client.auth.signOut();
-        location.reload();
-      });
-    }
-
-    await refreshRole();
-    client.auth.onAuthStateChange(() => { refreshRole(); });
-    await bindLogin();
-    await bindRegister();
-    await bindLogout();
-
-    // The existing single-page router may reveal the login view after boot.
-    document.addEventListener('click', () => {
-      setTimeout(() => { bindLogin(); bindRegister(); }, 50);
+      }
+      button.disabled = false;
+      button.textContent = original;
     });
   }
 
-  boot().catch(err => console.error('PCM Auth UI failed:', err));
+  function bindRegister() {
+    const view = document.getElementById('register');
+    if (!view || view.dataset.supabaseBound) return;
+    const inputs = [...view.querySelectorAll('input')];
+    const email = inputs.find(x => x.type === 'email') || inputs[0];
+    const password = inputs.find(x => x.type === 'password') || inputs[1];
+    const button = [...view.querySelectorAll('button')].find(b => /daftar|register|buat/i.test(b.textContent));
+    if (!email || !password || !button) return;
+    view.dataset.supabaseBound = '1';
+    button.addEventListener('click', async e => {
+      e.preventDefault();
+      button.disabled = true;
+      const { error } = await auth.signUp({ email: email.value.trim(), password: password.value });
+      message(view, error ? 'Pendaftaran gagal: ' + error.message : 'Pendaftaran berhasil. Silakan cek email jika verifikasi diminta.', !error);
+      button.disabled = false;
+    });
+  }
+
+  function bindLogout() {
+    document.addEventListener('click', async e => {
+      const b = e.target.closest('[data-route="logout"]');
+      if (!b) return;
+      e.preventDefault();
+      await auth.signOut();
+      location.reload();
+    });
+  }
+
+  async function boot() {
+    window.PCMSupabase = { auth };
+    window.PCMSupabaseAuth = {
+      signIn: (email,password) => auth.signInWithPassword({email,password}),
+      signUp: (email,password) => auth.signUp({email,password}),
+      signOut: () => auth.signOut(),
+      getSession,
+      getRole: async () => (await refreshRole()).role
+    };
+    await refreshRole();
+    bindLogin();
+    bindRegister();
+    bindLogout();
+    document.addEventListener('click', () => setTimeout(() => { bindLogin(); bindRegister(); }, 50));
+  }
+
+  boot().catch(error => console.error('PCM Auth UI failed:', error));
 })();
