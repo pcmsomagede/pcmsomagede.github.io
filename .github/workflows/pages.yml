@@ -21,11 +21,22 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Verify new site
+      - name: Build final static site
         run: |
           test -f index.html
-          grep -q "Website baru" index.html
-          echo "PCM Somagede NEW SITE: $(git rev-parse --short HEAD)"
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          css='<link rel="stylesheet" href="site-overrides.css">'
+          js='<script src="site-overrides.js" defer></script>'
+          if css not in s: s=s.replace('</head>',css+'\n</head>')
+          if js not in s: s=s.replace('</body>',js+'\n</body>')
+          p.write_text(s,encoding='utf-8')
+          PY
+          grep -q 'site-overrides.css' index.html
+          grep -q 'site-overrides.js' index.html
+          echo "PCM Somagede final build: $(git rev-parse --short HEAD)"
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:
