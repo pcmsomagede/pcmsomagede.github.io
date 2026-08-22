@@ -1,58 +1,72 @@
-/* PCM Somagede — persistent form input UX + password preview */
+/* PCM Somagede — login UX: remember email + password visibility */
 (() => {
   'use strict';
-  const PREFIX = 'pcm_form_';
-  const keyFor = (el) => PREFIX + (el.id || el.name || el.placeholder || 'field').replace(/\s+/g, '_').toLowerCase();
+  const EMAIL_KEY = 'pcm_login_email';
+  const fieldKey = el => 'pcm_form_' + (el.id || el.name || el.placeholder || 'field').replace(/\s+/g, '_').toLowerCase();
 
-  function remember(el) {
-    if (!el || el.type === 'password' || el.type === 'file' || el.type === 'hidden') return;
-    const key = keyFor(el);
+  function rememberField(el) {
+    if (!el || ['password','file','hidden'].includes(el.type)) return;
+    const key = fieldKey(el);
     try { if (!el.value) el.value = localStorage.getItem(key) || ''; } catch (_) {}
-    if (el.dataset.pcmRememberBound) return;
-    el.dataset.pcmRememberBound = '1';
+    if (el.dataset.pcmRemember) return;
+    el.dataset.pcmRemember = '1';
     const save = () => { try { localStorage.setItem(key, el.value); } catch (_) {} };
     el.addEventListener('input', save);
     el.addEventListener('change', save);
   }
 
-  function passwordPreview(el) {
-    if (!el || el.type !== 'password' || el.dataset.pcmPreviewBound) return;
-    el.dataset.pcmPreviewBound = '1';
+  function addPasswordToggle(el) {
+    if (!el || el.type !== 'password' || el.dataset.pcmPasswordToggle) return;
+    el.dataset.pcmPasswordToggle = '1';
     el.autocomplete = 'current-password';
     const wrap = el.parentElement;
     if (!wrap) return;
     wrap.style.position = 'relative';
+    el.style.paddingRight = '125px';
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'pcm-password-toggle';
-    btn.textContent = 'Preview password';
-    btn.setAttribute('aria-label', 'Preview password');
-    btn.style.cssText = 'position:absolute;right:10px;top:50%;transform:translateY(-50%);padding:7px 10px;border:1px solid #dbe7f3;border-radius:8px;background:#fff;color:#062a63;font-weight:800;cursor:pointer;z-index:2';
+    btn.textContent = '👁 Lihat';
+    btn.setAttribute('aria-label','Tampilkan password');
+    btn.style.cssText = 'position:absolute;right:8px;top:50%;transform:translateY(-50%);padding:6px 9px;border:1px solid #dbe7f3;border-radius:8px;background:#fff;color:#062a63;font-weight:800;cursor:pointer;z-index:5;line-height:1.2';
     btn.addEventListener('click', () => {
-      const hidden = el.type === 'password';
-      el.type = hidden ? 'text' : 'password';
-      btn.textContent = hidden ? 'Sembunyikan password' : 'Preview password';
+      const show = el.type === 'password';
+      el.type = show ? 'text' : 'password';
+      btn.textContent = show ? '🙈 Sembunyikan' : '👁 Lihat';
+      btn.setAttribute('aria-label', show ? 'Sembunyikan password' : 'Tampilkan password');
     });
     wrap.appendChild(btn);
   }
 
   function apply() {
-    document.querySelectorAll('input, textarea').forEach(el => {
-      if (el.type === 'password') passwordPreview(el);
-      else remember(el);
-    });
-    const user = document.getElementById('loginUser');
-    const pass = document.getElementById('loginPass');
-    if (user) {
-      user.type = 'email';
-      user.name = 'email';
-      user.autocomplete = 'username';
-      remember(user);
+    const login = document.getElementById('login');
+    if (login) {
+      const inputs = [...login.querySelectorAll('input')];
+      const email = document.getElementById('loginUser') || inputs.find(x => x.type === 'email') || inputs[0];
+      const password = document.getElementById('loginPass') || inputs.find(x => x.type === 'password') || inputs[1];
+      if (email) {
+        email.id = email.id || 'loginUser';
+        email.name = 'email';
+        email.type = 'email';
+        email.autocomplete = 'username';
+        try { if (!email.value) email.value = localStorage.getItem(EMAIL_KEY) || ''; } catch (_) {}
+        if (!email.dataset.pcmEmailRemember) {
+          email.dataset.pcmEmailRemember = '1';
+          email.addEventListener('input', () => { try { localStorage.setItem(EMAIL_KEY, email.value); } catch (_) {} });
+          email.addEventListener('change', () => { try { localStorage.setItem(EMAIL_KEY, email.value); } catch (_) {} });
+        }
+      }
+      if (password) addPasswordToggle(password);
     }
-    if (pass) passwordPreview(pass);
+    document.querySelectorAll('textarea').forEach(rememberField);
+    document.querySelectorAll('input').forEach(el => {
+      if (el.type === 'password') addPasswordToggle(el);
+      else rememberField(el);
+    });
   }
 
   apply();
-  document.addEventListener('click', () => setTimeout(apply, 40));
-  new MutationObserver(apply).observe(document.body, { childList: true, subtree: true });
+  document.addEventListener('DOMContentLoaded', apply);
+  document.addEventListener('click', () => setTimeout(apply, 80));
+  new MutationObserver(apply).observe(document.documentElement, {childList:true, subtree:true});
 })();
