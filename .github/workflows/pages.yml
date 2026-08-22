@@ -31,22 +31,21 @@ jobs:
           css='<link rel="stylesheet" href="site-overrides.css">'
           js='<script src="site-overrides.js" defer></script>'
           qori='<script src="qori-player.js" defer></script>'
-          supa='<script src="supabase-integration.js" defer></script>\n<script src="auth-ui.js" defer></script>'
-          sw='<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>'
+          supa='<script src="supabase-integration.js?v=20260822" defer></script>\n<script src="auth-ui.js?v=1084ed83" defer></script>'
+          sw='<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=20260822").catch(()=>{}));}</script>'
           art='<script>window.addEventListener("DOMContentLoaded",()=>{const h=document.querySelector(".hero");if(h&&!h.querySelector(".pcm-header-art")){h.style.background="none";const i=document.createElement("img");i.className="pcm-header-art";i.src="header-bg.jpg";i.alt="Header PCM Somagede";h.prepend(i)}});</script>'
           if css not in s: s=s.replace('</head>',css+'\n</head>')
           if js not in s: s=s.replace('</body>',js+'\n</body>')
           if qori not in s: s=s.replace('</body>',qori+'\n</body>')
-          if supa not in s: s=s.replace('</body>',supa+'\n</body>')
-          if 'serviceWorker.register("./sw.js")' not in s: s=s.replace('</body>',sw+'\n</body>')
+          if 'auth-ui.js?v=1084ed83' not in s: s=s.replace('</body>',supa+'\n</body>')
+          if 'serviceWorker.register("./sw.js?v=20260822")' not in s: s=s.replace('</body>',sw+'\n</body>')
           if 'pcm-header-art' not in s: s=s.replace('</body>',art+'\n</body>')
           p.write_text(s,encoding='utf-8')
           PY
           grep -q 'site-overrides.css' index.html
           grep -q 'site-overrides.js' index.html
           grep -q 'qori-player.js' index.html
-          grep -q 'supabase-integration.js' index.html
-          grep -q 'auth-ui.js' index.html
+          grep -q 'auth-ui.js?v=1084ed83' index.html
           grep -q 'pcm-header-art' index.html
           echo "PCM Somagede final build: $(git rev-parse --short HEAD)"
       - name: Upload static site
