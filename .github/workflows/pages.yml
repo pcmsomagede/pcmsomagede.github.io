@@ -30,12 +30,15 @@ jobs:
           s=p.read_text(encoding='utf-8')
           css='<link rel="stylesheet" href="site-overrides.css">'
           js='<script src="site-overrides.js" defer></script>'
+          sw='<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>'
           if css not in s: s=s.replace('</head>',css+'\n</head>')
           if js not in s: s=s.replace('</body>',js+'\n</body>')
+          if 'serviceWorker.register("./sw.js")' not in s: s=s.replace('</body>',sw+'\n</body>')
           p.write_text(s,encoding='utf-8')
           PY
           grep -q 'site-overrides.css' index.html
           grep -q 'site-overrides.js' index.html
+          grep -q 'serviceWorker.register("./sw.js")' index.html
           echo "PCM Somagede final build: $(git rev-parse --short HEAD)"
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
