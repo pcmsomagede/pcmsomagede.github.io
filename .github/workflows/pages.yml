@@ -22,37 +22,68 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Build final static site
+        shell: bash
         run: |
+          set -euo pipefail
           test -f index.html
+          test -f auth-ui.js
           test -f auth-ux.js
           test -f login-fix.js
+          test -f supabase-integration.js
           test -f sw.js
           python3 - <<'PY'
           from pathlib import Path
           import re
-          p=Path('index.html')
-          s=p.read_text(encoding='utf-8')
-          css='<link rel="stylesheet" href="site-overrides.css?v=20260822-6">'
-          supa='<script src="supabase-integration.js?v=20260822-6" defer></script>\n<script src="auth-ui.js?v=20260822-6" defer></script>'
-          ux='<script src="auth-ux.js?v=20260822-6" defer></script>'
-          loginfix='<script src="login-fix.js?v=20260822-6" defer></script>'
-          sw='<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=20260822-6").catch(()=>{}));}</script>'
-          art='<script>window.addEventListener("DOMContentLoaded",()=>{const h=document.querySelector(".hero");if(h&&!h.querySelector(".pcm-header-art")){h.style.background="none";const i=document.createElement("img");i.className="pcm-header-art";i.src="header-bg.jpg?v=20260822-6";i.alt="Header PCM Somagede";h.prepend(i)}});</script>'
-          s=re.sub(r'<link rel="stylesheet" href="site-overrides\.css(?:\?[^\"]*)?">',css,s)
-          s=re.sub(r'<script src="auth-ui\.js[^>]*></script>',supa.split('\n')[1],s)
-          s=re.sub(r'<script src="auth-ux\.js[^>]*></script>',ux,s)
-          s=re.sub(r'<script src="login-fix\.js[^>]*></script>',loginfix,s)
-          if 'supabase-integration.js?v=20260822-6' not in s:s=s.replace('</body>',supa+'\n</body>')
-          if 'serviceWorker.register("./sw.js?v=20260822-6")' not in s:s=s.replace('</body>',sw+'\n</body>')
-          if 'pcm-header-art' not in s:s=s.replace('</body>',art+'\n</body>')
-          p.write_text(s,encoding='utf-8')
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          version = '20260823-1'
+
+          # Keep exactly one reference for each runtime asset. Do not depend on
+          # a previous commit having already injected these tags.
+          patterns = {
+              'site-overrides.js': r'<script\s+src=["\']site-overrides\.js(?:\?[^"\']*)?["\'][^>]*></script>',
+              'supabase-integration.js': r'<script\s+src=["\']supabase-integration\.js(?:\?[^"\']*)?["\'][^>]*></script>',
+              'auth-ui.js': r'<script\s+src=["\']auth-ui\.js(?:\?[^"\']*)?["\'][^>]*></script>',
+              'auth-ux.js': r'<script\s+src=["\']auth-ux\.js(?:\?[^"\']*)?["\'][^>]*></script>',
+              'login-fix.js': r'<script\s+src=["\']login-fix\.js(?:\?[^"\']*)?["\'][^>]*></script>',
+          }
+
+          tags = {
+              'site-overrides.js': f'<script src="site-overrides.js?v={version}" defer></script>',
+              'supabase-integration.js': f'<script src="supabase-integration.js?v={version}" defer></script>',
+              'auth-ui.js': f'<script src="auth-ui.js?v={version}" defer></script>',
+              'auth-ux.js': f'<script src="auth-ux.js?v={version}" defer></script>',
+              'login-fix.js': f'<script src="login-fix.js?v={version}" defer></script>',
+          }
+
+          for name, pattern in patterns.items():
+              s = re.sub(pattern, '', s, flags=re.I)
+
+          sw_tag = f'<script>if("serviceWorker" in navigator){{window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v={version}").catch(()=>{{}}));}}</script>'
+          s = re.sub(r'<script>if\("serviceWorker" in navigator\).*?</script>', '', s, flags=re.S)
+
+          injection = '\n'.join([
+              tags['site-overrides.js'],
+              tags['supabase-integration.js'],
+              tags['auth-ui.js'],
+              tags['auth-ux.js'],
+              tags['login-fix.js'],
+              sw_tag,
+          ])
+
+          if '</body>' not in s:
+              raise SystemExit('index.html has no </body> marker')
+          s = s.replace('</body>', injection + '\n</body>', 1)
+          p.write_text(s, encoding='utf-8')
           PY
-          grep -q 'auth-ui.js?v=20260822-6' index.html
-          grep -q 'auth-ux.js?v=20260822-6' index.html
-          grep -q 'login-fix.js?v=20260822-6' index.html
-          grep -q 'site-overrides.css?v=20260822-6' index.html
-          grep -q 'sw.js?v=20260822-6' index.html
-          grep -q 'pcm-header-art' index.html
+
+          grep -q 'site-overrides.js?v=20260823-1' index.html
+          grep -q 'supabase-integration.js?v=20260823-1' index.html
+          grep -q 'auth-ui.js?v=20260823-1' index.html
+          grep -q 'auth-ux.js?v=20260823-1' index.html
+          grep -q 'login-fix.js?v=20260823-1' index.html
+          grep -q 'sw.js?v=20260823-1' index.html
           echo "PCM Somagede final build: $(git rev-parse --short HEAD)"
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
