@@ -30,30 +30,27 @@ jobs:
           from pathlib import Path
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          css='<link rel="stylesheet" href="site-overrides.css">'
+          css='<link rel="stylesheet" href="site-overrides.css?v=20260822-4">'
           js='<script src="site-overrides.js" defer></script>'
           qori='<script src="qori-player.js" defer></script>'
           supa='<script src="supabase-integration.js?v=20260822" defer></script>\n<script src="auth-ui.js?v=1084ed83" defer></script>'
-          ux='<script src="auth-ux.js?v=db7e6d9c" defer></script>'
-          loginfix='<script src="login-fix.js?v=20260822-2" defer></script>'
-          sw='<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=20260822").catch(()=>{}));}</script>'
-          art='<script>window.addEventListener("DOMContentLoaded",()=>{const h=document.querySelector(".hero");if(h&&!h.querySelector(".pcm-header-art")){h.style.background="none";const i=document.createElement("img");i.className="pcm-header-art";i.src="header-bg.jpg";i.alt="Header PCM Somagede";h.prepend(i)}});</script>'
-          if css not in s: s=s.replace('</head>',css+'\n</head>')
-          if js not in s: s=s.replace('</body>',js+'\n</body>')
-          if qori not in s: s=s.replace('</body>',qori+'\n</body>')
+          ux='<script src="auth-ux.js?v=20260822-3" defer></script>'
+          loginfix='<script src="login-fix.js?v=20260822-3" defer></script>'
+          sw='<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=20260822-4").catch(()=>{}));}</script>'
+          art='<script>window.addEventListener("DOMContentLoaded",()=>{const h=document.querySelector(".hero");if(h&&!h.querySelector(".pcm-header-art")){h.style.background="none";const i=document.createElement("img");i.className="pcm-header-art";i.src="header-bg.jpg?v=20260822-4";i.alt="Header PCM Somagede";h.prepend(i)}});</script>'
+          import re
+          s=re.sub(r'<link rel="stylesheet" href="site-overrides\.css(?:\?[^\"]*)?">',css,s)
+          for pattern,replacement in [(r'<script src="auth-ux\.js[^>]*></script>',ux),(r'<script src="login-fix\.js[^>]*></script>',loginfix)]:
+              s=re.sub(pattern,replacement,s)
           if 'auth-ui.js?v=1084ed83' not in s: s=s.replace('</body>',supa+'\n</body>')
-          if 'auth-ux.js?v=db7e6d9c' not in s: s=s.replace('</body>',ux+'\n</body>')
-          if 'login-fix.js?v=20260822-2' not in s: s=s.replace('</body>',loginfix+'\n</body>')
-          if 'serviceWorker.register("./sw.js?v=20260822")' not in s: s=s.replace('</body>',sw+'\n</body>')
+          if 'site-overrides.css?v=20260822-4' not in s: s=s.replace('</head>',css+'\n</head>')
+          if 'serviceWorker.register("./sw.js?v=20260822-4")' not in s: s=s.replace('</body>',sw+'\n</body>')
           if 'pcm-header-art' not in s: s=s.replace('</body>',art+'\n</body>')
           p.write_text(s,encoding='utf-8')
           PY
-          grep -q 'site-overrides.css' index.html
-          grep -q 'site-overrides.js' index.html
-          grep -q 'qori-player.js' index.html
-          grep -q 'auth-ui.js?v=1084ed83' index.html
-          grep -q 'auth-ux.js?v=db7e6d9c' index.html
-          grep -q 'login-fix.js?v=20260822-2' index.html
+          grep -q 'auth-ux.js?v=20260822-3' index.html
+          grep -q 'login-fix.js?v=20260822-3' index.html
+          grep -q 'site-overrides.css?v=20260822-4' index.html
           grep -q 'pcm-header-art' index.html
           echo "PCM Somagede final build: $(git rev-parse --short HEAD)"
       - name: Upload static site
