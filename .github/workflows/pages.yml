@@ -31,7 +31,7 @@ jobs:
           css='<link rel="stylesheet" href="site-overrides.css">'
           js='<script src="site-overrides.js" defer></script>'
           qori='<script src="qori-player.js" defer></script>'
-          supa='<script src="supabase-integration.js" defer></script>'
+          supa='<script src="supabase-integration.js" defer></script>\n<script src="auth-ui.js" defer></script>'
           sw='<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>'
           art='<script>window.addEventListener("DOMContentLoaded",()=>{const h=document.querySelector(".hero");if(h&&!h.querySelector(".pcm-header-art")){h.style.background="none";const i=document.createElement("img");i.className="pcm-header-art";i.src="header-bg.jpg";i.alt="Header PCM Somagede";h.prepend(i)}});</script>'
           if css not in s: s=s.replace('</head>',css+'\n</head>')
@@ -46,6 +46,7 @@ jobs:
           grep -q 'site-overrides.js' index.html
           grep -q 'qori-player.js' index.html
           grep -q 'supabase-integration.js' index.html
+          grep -q 'auth-ui.js' index.html
           grep -q 'pcm-header-art' index.html
           echo "PCM Somagede final build: $(git rev-parse --short HEAD)"
       - name: Upload static site
