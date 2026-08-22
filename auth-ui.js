@@ -1,4 +1,4 @@
-/* PCM Somagede — Supabase Auth without external JS dependency */
+/* PCM Somagede — Supabase Auth UI */
 (() => {
   'use strict';
   const SUPABASE_URL = 'https://yjergotkwxxrmhtziwo.supabase.co';
@@ -138,19 +138,35 @@
     const password = inputs.find(x => x.type === 'password') || inputs[1];
     const button = [...view.querySelectorAll('button')].find(b => /masuk|login/i.test(b.textContent));
     if (!email || !password || !button) return;
+
+    // The original page had onclick="login()", which used an old hard-coded
+    // password check. Remove it so Supabase is the only authentication source.
+    button.removeAttribute('onclick');
     view.dataset.supabaseBound = '1';
+
+    email.type = 'email';
+    email.autocomplete = 'username';
+    password.type = 'password';
+    password.autocomplete = 'current-password';
+
     button.addEventListener('click', async e => {
       e.preventDefault();
+      const enteredEmail = email.value.trim();
+      const enteredPassword = password.value;
+      if (!enteredEmail || !enteredPassword) {
+        message(view, 'Email dan password wajib diisi.');
+        return;
+      }
       button.disabled = true;
       const original = button.textContent;
       button.textContent = 'Memproses…';
-      const { error } = await auth.signInWithPassword({ email: email.value.trim(), password: password.value });
+      const { error } = await auth.signInWithPassword({ email: enteredEmail, password: enteredPassword });
       if (error) {
         message(view, 'Login gagal: ' + error.message);
       } else {
         const { role } = await refreshRole();
         if (!['admin','editor'].includes(role)) {
-          message(view, 'Login berhasil, tetapi akun belum memiliki otoritas Editor.');
+          message(view, 'Password benar dan login berhasil, tetapi akun belum memiliki otoritas Editor.');
         } else {
           message(view, 'Login berhasil. Otoritas Editor aktif.', true);
           setTimeout(() => { if (typeof window.go === 'function') window.go('editor'); else location.reload(); }, 250);
@@ -169,6 +185,7 @@
     const password = inputs.find(x => x.type === 'password') || inputs[1];
     const button = [...view.querySelectorAll('button')].find(b => /daftar|register|buat/i.test(b.textContent));
     if (!email || !password || !button) return;
+    button.removeAttribute('onclick');
     view.dataset.supabaseBound = '1';
     button.addEventListener('click', async e => {
       e.preventDefault();
