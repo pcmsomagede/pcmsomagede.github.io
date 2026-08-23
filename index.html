@@ -8,51 +8,52 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="topline"><div class="inner">Hidup-hiduplah Muhammadiyah • Carilah penghidupan yang layak untuk menghidupkan Muhammadiyah</div></div>
-<div class="brandbar"><div class="inner"><strong>PCM Somagede · Banyumas</strong><span class="clock"><span data-clock></span> · Minggu, 23 Agustus 2026</span></div></div>
+<div class="topline" aria-label="running text"><div class="ticker"><span>Hidup-hiduplah Muhammadiyah • Carilah penghidupan yang layak untuk menghidupkan Muhammadiyah</span><span aria-hidden="true">Hidup-hiduplah Muhammadiyah • Carilah penghidupan yang layak untuk menghidupkan Muhammadiyah</span></div></div>
 
-<section class="hero" aria-label="Pimpinan Cabang Muhammadiyah Somagede">
+<div class="brandbar"><div class="inner">
+  <strong>PCM Somagede · Banyumas</strong>
+  <span class="clock"><span data-clock></span> · <span data-date></span></span>
+</div></div>
+
+<section class="hero" aria-label="PCM Somagede">
   <div class="hero-cover" aria-hidden="true"></div>
-  <div class="hero-content">
-    <span class="hero-badge">WEBSITE RESMI</span>
-    <h1>Pimpinan Cabang Muhammadiyah Somagede</h1>
-    <p>Kabupaten Banyumas • Informasi, kegiatan, pustaka dan layanan PCM Somagede</p>
-  </div>
+  <div class="hero-content"><span class="hero-badge">WEBSITE RESMI</span></div>
+
+  <aside class="prayer-widget" aria-label="Jadwal sholat Somagede">
+    <div class="prayer-head"><strong>Jadwal Sholat</strong><button type="button" id="gpsPrayer">GPS</button></div>
+    <div class="prayer-grid">
+      <div><b>Subuh</b><span data-prayer="Fajr">--:--</span></div>
+      <div><b>Terbit</b><span data-prayer="Sunrise">--:--</span></div>
+      <div><b>Dzuhur</b><span data-prayer="Dhuhr">--:--</span></div>
+      <div><b>Ashar</b><span data-prayer="Asr">--:--</span></div>
+      <div><b>Maghrib</b><span data-prayer="Maghrib">--:--</span></div>
+      <div><b>Isya</b><span data-prayer="Isha">--:--</span></div>
+    </div>
+    <small id="prayerStatus">Memuat jadwal Somagede…</small>
+  </aside>
 </section>
 
 <nav class="nav" aria-label="Navigasi utama"><div class="inner">
-  <a href="#beranda">Beranda</a>
-  <a href="#berita">BeritaMu</a>
-  <a href="#pustaka">PustakaMu</a>
-  <a href="#kta">KTAMu</a>
-  <a href="#suara">SuaraMu</a>
-  <a href="#arsip">ArsipMu</a>
-  <a href="#kontak">Kontak</a>
+  <a href="#beranda">Beranda</a><a href="#berita">BeritaMu</a><a href="#pustaka">PustakaMu</a>
+  <a href="#kta">KTAMu</a><a href="#suara">SuaraMu</a><a href="#arsip">ArsipMu</a><a href="#kontak">Kontak</a>
 </div></nav>
 
 <main id="beranda">
   <h2 class="section-title">Pusat Informasi PCM Somagede</h2>
-  <p class="section-lead">Website statis yang ringan, responsif, dan mudah dirawat. Tidak memakai Supabase dan tidak memakai workflow build yang mengubah file halaman.</p>
-
+  <p class="section-lead">Website resmi PCM Somagede untuk informasi, kegiatan, pustaka dan layanan organisasi.</p>
   <section class="cards" aria-label="Layanan utama">
     <article class="card" id="berita"><h3>BeritaMu</h3><p>Berita dan kegiatan terbaru PCM Somagede.</p></article>
     <article class="card" id="pustaka"><h3>PustakaMu</h3><p>Pusat pustaka digital dan bahan bacaan Muhammadiyah.</p></article>
     <article class="card" id="kta"><h3>KTAMu</h3><p>Informasi layanan dan administrasi keanggotaan.</p></article>
     <article class="card" id="arsip"><h3>ArsipMu</h3><p>Dokumen, arsip kegiatan, dan publikasi organisasi.</p></article>
   </section>
-
-  <section class="cta" id="suara">
-    <div><h2>SuaraMu & Kontak</h2><p>Ruang komunikasi dan informasi PCM Somagede.</p></div>
-    <a href="#kontak">Lihat Kontak</a>
-  </section>
+  <section class="cta" id="suara"><div><h2>SuaraMu & Kontak</h2><p>Ruang komunikasi dan informasi PCM Somagede.</p></div><a href="#kontak">Lihat Kontak</a></section>
 </main>
 
-<footer id="kontak">
-  <div class="footer-inner">
-    <div><strong>PCM Somagede · Banyumas</strong><br><span class="muted">Website resmi Pimpinan Cabang Muhammadiyah Somagede.</span></div>
-    <div class="muted">© <span data-year></span> PCM Somagede</div>
-  </div>
-</footer>
+<footer id="kontak"><div class="footer-inner">
+  <div><strong>PCM Somagede · Banyumas</strong><br><span class="muted">Website resmi Pimpinan Cabang Muhammadiyah Somagede.</span></div>
+  <div class="muted">© <span data-year></span> PCM Somagede</div>
+</div></footer>
 <script src="script.js" defer></script>
 </body>
 </html>
