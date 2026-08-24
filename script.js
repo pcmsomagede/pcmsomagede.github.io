@@ -13,13 +13,13 @@
  <div id="bmContent"></div></div>`;
  const content=document.querySelector('#bmContent');
  const people=[
-  ['Ketua 1','Drs. Bambang Budiarso','665.636','pimpinan-1.png'],
-  ['Ketua 2','H. Hari Indra Kustiwa, S.IP, S.Pd.','665.640','pimpinan-2.png'],
-  ['Ketua 3','H. Moch El Badrun, S.Pd.I','660.987','pimpinan-3.png'],
-  ['Sekretaris 1','Sunarso, S.Pd.I, Gr.','1030.113','pimpinan-4.png'],
-  ['Sekretaris 2','Sukirman, S.Pd.M.Pd.','-','pimpinan-5.png'],
-  ['Bendahara 1','H. Haris Cahyadi','-','pimpinan-6.jpeg'],
-  ['Bendahara 2','H. Arief Ritade Aswas, S.Pd.I, M.Pd.I.','1030.180','pimpinan-7.jpeg']
+  ['Ketua 1','Drs. Bambang Budiarso','665.636','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-1.png'],
+  ['Ketua 2','H. Hari Indra Kustiwa, S.IP, S.Pd.','665.640','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-2.png'],
+  ['Ketua 3','H. Moch El Badrun, S.Pd.I','660.987','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-3.png'],
+  ['Sekretaris 1','Sunarso, S.Pd.I, Gr.','1030.113','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-4.png'],
+  ['Sekretaris 2','Sukirman, S.Pd.M.Pd.','-','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-5.png'],
+  ['Bendahara 1','H. Haris Cahyadi','-','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-6.jpeg'],
+  ['Bendahara 2','H. Arief Ritade Aswas, S.Pd.I, M.Pd.I.','1030.180','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-7.jpeg']
  ];
  function box(){return 'background:#fff;border:1px solid #dce6ef;border-radius:18px;box-shadow:0 8px 24px rgba(14,55,93,.06)'}
  function renderProfil(){content.innerHTML=`<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">${people.map(p=>`<article style="${box()};padding:16px;text-align:center"><div style="height:250px;border:1px solid #edf2f7;border-radius:14px;display:grid;place-items:center;overflow:hidden;background:#fff"><img src="${p[3]}" alt="${p[1]}" style="width:100%;height:100%;object-fit:contain"></div><div style="margin-top:13px;color:#0a7091;text-transform:uppercase;letter-spacing:.07em;font-size:.76rem;font-weight:900">${p[0]}</div><h3 style="margin:5px 0 3px;color:#092b55;font-size:1.05rem;line-height:1.35">${p[1]}</h3><p style="margin:0;color:#5b7085;font-size:.9rem">NBM : ${p[2]}</p></article>`).join('')}</div>`}
@@ -31,5 +31,5 @@
  const map={profil:'profil',kajian:'kajian',agenda:'agenda'};
  function subRoute(){const h=(location.hash||'').slice(1);if(map[h]){history.replaceState(null,'','#berita');activate(map[h]);}}
  addEventListener('hashchange',subRoute); subRoute();
- addEventListener('resize',()=>{document.querySelector('#bmContent > div')?.style.setProperty('grid-template-columns',innerWidth<600?'1fr':innerWidth<900?'repeat(2,minmax(0,1fr))':'repeat(3,minmax(0,1fr)'));});
+ addEventListener('resize',()=>{const g=document.querySelector('#bmContent > div');if(g)g.style.gridTemplateColumns=innerWidth<600?'1fr':innerWidth<900?'repeat(2,minmax(0,1fr))':'repeat(3,minmax(0,1fr))';});
 })();
