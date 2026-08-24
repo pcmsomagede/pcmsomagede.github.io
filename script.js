@@ -1,1 +1,19 @@
 (()=>{const $=s=>document.querySelector(s),panels=[...document.querySelectorAll('.panel')];function show(id){const p=$('#'+id)||$('#beranda');panels.forEach(x=>x.classList.toggle('active',x===p));document.querySelectorAll('details').forEach(x=>x.removeAttribute('open'))}function route(){show((location.hash||'#beranda').slice(1))}route();addEventListener('hashchange',route);const tick=()=>{$('#clock').textContent=new Intl.DateTimeFormat('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' WIB · '+new Intl.DateTimeFormat('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date())};tick();setInterval(tick,1000);$('#year').textContent=new Date().getFullYear();const ps=$('#ps'),fallback={lat:-7.527,lon:109.334},names=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];async function pray(lat,lon,label){ps.textContent='Memuat jadwal…';let d=new Date(),k=String(d.getDate()).padStart(2,'0')+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+d.getFullYear();try{let r=await fetch(`https://api.aladhan.com/v1/timings/${k}?latitude=${lat}&longitude=${lon}&method=20`),j=await r.json();if(!r.ok)throw 0;names.forEach(n=>$(`[data-p="${n}"]`).textContent=(j.data.timings[n]||'--:--').split(' ')[0]);ps.textContent='Lokasi '+label+' · jadwal diperbarui'}catch(e){ps.textContent='Jadwal belum dapat dimuat'}}pray(fallback.lat,fallback.lon,'Somagede');$('#gps').onclick=()=>navigator.geolocation?.getCurrentPosition(p=>pray(p.coords.latitude,p.coords.longitude,'GPS'),()=>ps.textContent='GPS ditolak · menampilkan Somagede');const key='pcmSuaraLocalCount',count=$('#localCount');count.textContent=localStorage.getItem(key)||0;$('#voice').onsubmit=e=>{e.preventDefault();let d=new FormData(e.target),sub=encodeURIComponent('[SuaraMu] '+d.get('jenis')+' dari '+d.get('nama')),body=encodeURIComponent(`Nama: ${d.get('nama')}\nEmail: ${d.get('email')}\nJenis: ${d.get('jenis')}\n\n${d.get('pesan')}`);location.href=`mailto:pcmsomagede@gmail.com?subject=${sub}&body=${body}`;let n=+(localStorage.getItem(key)||0)+1;localStorage.setItem(key,n);count.textContent=n}})();
+
+
+/* BERITAMU_TABS_V2 */
+document.querySelectorAll('[data-berita-tab]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const name=btn.dataset.beritaTab;
+    document.querySelectorAll('[data-berita-tab]').forEach(b=>{
+      const active=b.dataset.beritaTab===name;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-selected',String(active));
+    });
+    document.querySelectorAll('[data-berita-panel]').forEach(panel=>{
+      const active=panel.dataset.beritaPanel===name;
+      panel.classList.toggle('active',active);
+      panel.hidden=!active;
+    });
+  });
+});
