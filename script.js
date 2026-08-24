@@ -1,19 +1,35 @@
 (()=>{const $=s=>document.querySelector(s),panels=[...document.querySelectorAll('.panel')];function show(id){const p=$('#'+id)||$('#beranda');panels.forEach(x=>x.classList.toggle('active',x===p));document.querySelectorAll('details').forEach(x=>x.removeAttribute('open'))}function route(){show((location.hash||'#beranda').slice(1))}route();addEventListener('hashchange',route);const tick=()=>{$('#clock').textContent=new Intl.DateTimeFormat('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' WIB · '+new Intl.DateTimeFormat('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date())};tick();setInterval(tick,1000);$('#year').textContent=new Date().getFullYear();const ps=$('#ps'),fallback={lat:-7.527,lon:109.334},names=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];async function pray(lat,lon,label){ps.textContent='Memuat jadwal…';let d=new Date(),k=String(d.getDate()).padStart(2,'0')+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+d.getFullYear();try{let r=await fetch(`https://api.aladhan.com/v1/timings/${k}?latitude=${lat}&longitude=${lon}&method=20`),j=await r.json();if(!r.ok)throw 0;names.forEach(n=>$(`[data-p="${n}"]`).textContent=(j.data.timings[n]||'--:--').split(' ')[0]);ps.textContent='Lokasi '+label+' · jadwal diperbarui'}catch(e){ps.textContent='Jadwal belum dapat dimuat'}}pray(fallback.lat,fallback.lon,'Somagede');$('#gps').onclick=()=>navigator.geolocation?.getCurrentPosition(p=>pray(p.coords.latitude,p.coords.longitude,'GPS'),()=>ps.textContent='GPS ditolak · menampilkan Somagede');const key='pcmSuaraLocalCount',count=$('#localCount');count.textContent=localStorage.getItem(key)||0;$('#voice').onsubmit=e=>{e.preventDefault();let d=new FormData(e.target),sub=encodeURIComponent('[SuaraMu] '+d.get('jenis')+' dari '+d.get('nama')),body=encodeURIComponent(`Nama: ${d.get('nama')}\nEmail: ${d.get('email')}\nJenis: ${d.get('jenis')}\n\n${d.get('pesan')}`);location.href=`mailto:pcmsomagede@gmail.com?subject=${sub}&body=${body}`;let n=+(localStorage.getItem(key)||0)+1;localStorage.setItem(key,n);count.textContent=n}})();
 
-
-/* BERITAMU_TABS_V2 */
-document.querySelectorAll('[data-berita-tab]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const name=btn.dataset.beritaTab;
-    document.querySelectorAll('[data-berita-tab]').forEach(b=>{
-      const active=b.dataset.beritaTab===name;
-      b.classList.toggle('active',active);
-      b.setAttribute('aria-selected',String(active));
-    });
-    document.querySelectorAll('[data-berita-panel]').forEach(panel=>{
-      const active=panel.dataset.beritaPanel===name;
-      panel.classList.toggle('active',active);
-      panel.hidden=!active;
-    });
-  });
-});
+/* BERITAMU_LIVE_V3 */
+(()=>{
+ const section=document.querySelector('#berita'); if(!section) return;
+ section.innerHTML=`<div style="max-width:1120px;margin:0 auto;padding:4px 0 24px">
+ <div style="text-align:center;margin-bottom:24px"><h2 style="margin:0 0 6px;color:#092b55;font-size:clamp(1.8rem,3vw,2.5rem)">BeritaMu</h2><p style="margin:0;color:#526b84">Informasi kepemimpinan, kajian, dan agenda persyarikatan PCM Somagede.</p></div>
+ <div id="bmTabs" style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:24px">
+ <button data-bm="profil" style="border:1px solid #075aa4;background:#075aa4;color:#fff;padding:10px 17px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer">Profil Pimpinan</button>
+ <button data-bm="kajian" style="border:1px solid #cbdceb;background:#fff;color:#163b62;padding:10px 17px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer">Kajian Rutin</button>
+ <button data-bm="agenda" style="border:1px solid #cbdceb;background:#fff;color:#163b62;padding:10px 17px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer">Agenda Persyarikatan</button>
+ </div>
+ <div id="bmContent"></div></div>`;
+ const content=document.querySelector('#bmContent');
+ const people=[
+  ['Ketua 1','Drs. Bambang Budiarso','665.636','pimpinan-1.png'],
+  ['Ketua 2','H. Hari Indra Kustiwa, S.IP, S.Pd.','665.640','pimpinan-2.png'],
+  ['Ketua 3','H. Moch El Badrun, S.Pd.I','660.987','pimpinan-3.png'],
+  ['Sekretaris 1','Sunarso, S.Pd.I, Gr.','1030.113','pimpinan-4.png'],
+  ['Sekretaris 2','Sukirman, S.Pd.M.Pd.','-','pimpinan-5.png'],
+  ['Bendahara 1','H. Haris Cahyadi','-','pimpinan-6.jpeg'],
+  ['Bendahara 2','H. Arief Ritade Aswas, S.Pd.I, M.Pd.I.','1030.180','pimpinan-7.jpeg']
+ ];
+ function box(){return 'background:#fff;border:1px solid #dce6ef;border-radius:18px;box-shadow:0 8px 24px rgba(14,55,93,.06)'}
+ function renderProfil(){content.innerHTML=`<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">${people.map(p=>`<article style="${box()};padding:16px;text-align:center"><div style="height:250px;border:1px solid #edf2f7;border-radius:14px;display:grid;place-items:center;overflow:hidden;background:#fff"><img src="${p[3]}" alt="${p[1]}" style="width:100%;height:100%;object-fit:contain"></div><div style="margin-top:13px;color:#0a7091;text-transform:uppercase;letter-spacing:.07em;font-size:.76rem;font-weight:900">${p[0]}</div><h3 style="margin:5px 0 3px;color:#092b55;font-size:1.05rem;line-height:1.35">${p[1]}</h3><p style="margin:0;color:#5b7085;font-size:.9rem">NBM : ${p[2]}</p></article>`).join('')}</div>`}
+ function renderKajian(){content.innerHTML=`<article style="${box()};padding:28px"><div style="font-size:.76rem;color:#0a7091;font-weight:900;letter-spacing:.08em;text-transform:uppercase">Majelis Tabligh • Pengajian Rutin Ahad Wage</div><h3 style="margin:6px 0 13px;font-size:1.65rem;color:#092b55">Pengajian Rutin Ahad Wage PCM Somagede</h3><p style="color:#29496b">Majelis Tabligh Pimpinan Cabang Muhammadiyah Somagede mengundang warga persyarikatan untuk mengikuti pengajian rutin Ahad Wage sebagai ruang pembinaan keislaman, penguatan silaturahmi, dan pendalaman pemahaman agama secara berkala.</p><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0">${[['Hari','Ahad Wage'],['Tanggal','30 Agustus 2026'],['Waktu','08.30 WIB s.d. selesai'],['Tempat','Masjid Baitul Arqom SMK Muhammadiyah Somagede'],['Pembicara','Ust. Drs. H. M. Sunhaji'],['Penyelenggara','Majelis Tabligh PCM Somagede']].map(x=>`<div style="padding:15px;border:1px solid #dfe8f0;border-radius:12px;background:#fbfdff"><span style="display:block;color:#6f8192;font-size:.74rem">${x[0]}</span><strong style="display:block;margin-top:4px;color:#123e69">${x[1]}</strong></div>`).join('')}</div><p style="font-size:.86rem;color:#647b92">Keterangan ini disusun dari surat Majlis Tabligh PCM Somagede tertanggal 24 Agustus 2026, Nomor 15/IV/2026.</p></article>`}
+ function renderAgenda(){content.innerHTML=`<article style="${box()};padding:28px"><div style="font-size:.76rem;color:#0a7091;font-weight:900;letter-spacing:.08em;text-transform:uppercase">Agenda Persyarikatan</div><h3 style="margin:6px 0 13px;font-size:1.65rem;color:#092b55">Rapat Periodik PDM Banyumas di PCM Somagede</h3><p style="color:#29496b">PCM Somagede menjadi tuan rumah pelaksanaan Rapat Periodik Pimpinan Daerah Muhammadiyah (PDM) Banyumas. Agenda ini menjadi ruang koordinasi pimpinan untuk meninjau pelaksanaan program, menyelaraskan agenda persyarikatan, mengevaluasi perkembangan kegiatan, dan memperkuat sinergi antara pimpinan daerah dengan unsur Muhammadiyah di tingkat cabang dan ranting.</p><p style="color:#29496b">Penyelenggaraan rapat di PCM Somagede menegaskan peran cabang sebagai bagian aktif dari tata kelola persyarikatan tingkat daerah dan menjadi momentum untuk mempertemukan evaluasi, perencanaan, serta keputusan organisasi dalam suasana musyawarah yang tertib dan konstruktif.</p><div style="margin:20px 0;padding:18px;border:1px solid #cddfeb;border-radius:14px;background:#f6fbff"><span style="display:block;font-size:.75rem;text-transform:uppercase;color:#0a7091;font-weight:900;letter-spacing:.06em">Tempat</span><strong style="display:block;margin-top:4px;color:#0b4f8e">PCM Somagede • Kabupaten Banyumas</strong></div></article>`}
+ function activate(name){document.querySelectorAll('[data-bm]').forEach(b=>{const on=b.dataset.bm===name;b.style.background=on?'#075aa4':'#fff';b.style.color=on?'#fff':'#163b62';b.style.borderColor=on?'#075aa4':'#cbdceb'});if(name==='kajian')renderKajian();else if(name==='agenda')renderAgenda();else renderProfil()}
+ document.querySelectorAll('[data-bm]').forEach(b=>b.addEventListener('click',()=>activate(b.dataset.bm)));
+ renderProfil();
+ const map={profil:'profil',kajian:'kajian',agenda:'agenda'};
+ function subRoute(){const h=(location.hash||'').slice(1);if(map[h]){history.replaceState(null,'','#berita');activate(map[h]);}}
+ addEventListener('hashchange',subRoute); subRoute();
+ addEventListener('resize',()=>{document.querySelector('#bmContent > div')?.style.setProperty('grid-template-columns',innerWidth<600?'1fr':innerWidth<900?'repeat(2,minmax(0,1fr))':'repeat(3,minmax(0,1fr)'));});
+})();
