@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -24,13 +24,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Apply V9 content visual layer
+      - name: Apply V9 content visual layer and V22 ticker
         shell: bash
         run: |
           set -e
           if ! grep -q 'VISUAL-UPGRADE-V9' style.css; then
             printf '\n/* VISUAL-UPGRADE-V9 */\n' >> style.css
             cat visual-upgrade-v9.css >> style.css
+          fi
+          if ! grep -q 'TICKER-V22' style.css; then
+            printf '\n/* TICKER-V22 */\n' >> style.css
+            cat ticker-v22.css >> style.css
           fi
           python - <<'PY'
           from pathlib import Path
