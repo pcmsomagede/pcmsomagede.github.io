@@ -33,3 +33,6 @@
  addEventListener('hashchange',subRoute); subRoute();
  addEventListener('resize',()=>{const g=document.querySelector('#bmContent > div');if(g)g.style.gridTemplateColumns=innerWidth<600?'1fr':innerWidth<900?'repeat(2,minmax(0,1fr))':'repeat(3,minmax(0,1fr))';});
 })();
+
+/* TICKER: measure one complete message so the two copies never overlap */
+(()=>{const track=document.querySelector('.ticker-track');const first=track?.querySelector('span');if(!track||!first)return;const sync=()=>{const w=Math.ceil(first.getBoundingClientRect().width);track.style.setProperty('--ticker-distance',`${w}px`)};sync();addEventListener('resize',sync,{passive:true});if('ResizeObserver'in window)new ResizeObserver(sync).observe(first);})();
