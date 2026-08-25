@@ -1,8 +1,8 @@
-const CACHE='pcm-somagede-v20';
+const CACHE='pcm-somagede-v21';
 const SHELL=['/','/index.html','/style.css','/script.js','/fast-ui.js','/repair-v11.js','/quran-modern.js','/hadits-ui.js','/pustaka-modern.js','/visual-upgrade-v10.css','/site-v6.js','/arsip-ui.js','/arsip-preview.js','/media-config.js','/media-manifest.js','/manifest.webmanifest','/ornamen-muhammadiyah.svg','/motif-sudut-somagede.svg','/hero.jpg','/data/arsip-somagede.json','/data/quran-offline.json','/data/pustaka-books.json'];
 
 self.addEventListener('install',event=>{
-  event.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(SHELL.map(u=>c.add(u+'?v=20').catch(()=>null)))).then(()=>self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(SHELL.map(u=>c.add(u+'?v=21').catch(()=>null)))).then(()=>self.skipWaiting()));
 });
 
 self.addEventListener('activate',event=>{
