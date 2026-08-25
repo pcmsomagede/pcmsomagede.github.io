@@ -1,4 +1,4 @@
-const CACHE='pcm-somagede-v7';
+const CACHE='pcm-somagede-v8';
 const ASSETS=['/','/index.html','/style.css','/script.js','/fast-ui.js','/arsip-ui.js','/hero.jpg','/pimpinan-1.png','/pimpinan-2.png','/pimpinan-3.png','/pimpinan-4.png','/pimpinan-5.png','/pimpinan-6.jpeg','/pimpinan-7.jpeg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS).catch(()=>{})).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
