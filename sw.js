@@ -1,16 +1,8 @@
-const CACHE='pcm-somagede-v8';
-const ASSETS=['/','/index.html','/style.css','/script.js','/fast-ui.js','/arsip-ui.js','/hero.jpg','/pimpinan-1.png','/pimpinan-2.png','/pimpinan-3.png','/pimpinan-4.png','/pimpinan-5.png','/pimpinan-6.jpeg','/pimpinan-7.jpeg'];
-self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS).catch(()=>{})).then(()=>self.skipWaiting())));
-self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-async function readBase(req,cache){const hit=await cache.match(req);if(hit)return hit;const res=await fetch(req,{cache:'no-store'});if(res.ok)cache.put(req,res.clone());return res}
-self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;const url=new URL(event.request.url);
-if(url.origin===location.origin){
- if(url.pathname==='/script.js'){
-  event.respondWith((async()=>{const cache=await caches.open(CACHE);try{const [base,fast,arsip]=await Promise.all([readBase(event.request,cache),readBase(new Request('/fast-ui.js'),cache),readBase(new Request('/arsip-ui.js'),cache)]);const [bt,ft,at]=await Promise.all([base.text(),fast.text(),arsip.text()]);return new Response(bt+'\n/* FAST_UI_RUNTIME */\n'+ft+'\n/* ARSIP_UI_RUNTIME */\n'+at,{headers:{'Content-Type':'application/javascript; charset=utf-8','Cache-Control':'no-store'}})}catch(_){return cache.match('/script.js')||new Response('',{status:503})}})());
-  return;
- }
- event.respondWith(caches.match(event.request).then(hit=>hit||fetch(event.request).then(res=>{if(res.ok)caches.open(CACHE).then(c=>c.put(event.request,res.clone()));return res}).catch(()=>caches.match('/'))));
- return;
-}
-if(url.origin==='https://api.aladhan.com'){event.respondWith(fetch(event.request,{cache:'no-store'}).then(res=>{caches.open(CACHE).then(c=>c.put(event.request,res.clone()));return res}).catch(()=>caches.match(event.request)||new Response('{}',{headers:{'Content-Type':'application/json'}})))}}
-});
+const CACHE='pcm-somagede-v9';
+const SHELL=['/','/index.html','/style.css','/script.js','/fast-ui.js','/quran-ui.js','/arsip-ui.js','/arsip-preview.js','/pustaka-ui.js','/pcmcepu-content-ui.js','/media-config.js','/media-manifest.js','/manifest.webmanifest','/data/arsip-somagede.json','/data/pcmcepu-content.json','/data/quran-offline.json'];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(SHELL.map(u=>c.add(u).catch(()=>null)))).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('pcm-somagede-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+const sameOrigin=req=>new URL(req.url).origin===self.location.origin;
+async function stale(req){const c=await caches.open(CACHE);const hit=await c.match(req);const net=fetch(req).then(r=>{if(r.ok)c.put(req,r.clone());return r}).catch(()=>null);return hit||await net||new Response('Offline',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}})}
+async function nav(req){const c=await caches.open(CACHE);try{const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),1200);const r=await fetch(req,{signal:ctl.signal,cache:'no-store'});clearTimeout(t);if(r.ok)c.put('/index.html',r.clone());return r}catch(e){return (await c.match('/index.html'))||new Response('<!doctype html><title>PCM Somagede Offline</title><h1>PCM Somagede</h1><p>Mode offline aktif.</p>',{headers:{'Content-Type':'text/html;charset=utf-8'}})}}
+self.addEventListener('fetch',event=>{const req=event.request;if(req.method!=='GET'||!sameOrigin(req))return;if(req.mode==='navigate'){event.respondWith(nav(req));return}const p=new URL(req.url).pathname;if(/\.(js|css|json|png|jpe?g|webp|svg|webmanifest)$/.test(p))event.respondWith(stale(req));});
