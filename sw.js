@@ -1,19 +1,33 @@
-const CACHE='pcm-somagede-v19';
+const CACHE='pcm-somagede-v20';
 const SHELL=['/','/index.html','/style.css','/script.js','/fast-ui.js','/repair-v11.js','/quran-modern.js','/hadits-ui.js','/pustaka-modern.js','/visual-upgrade-v10.css','/site-v6.js','/arsip-ui.js','/arsip-preview.js','/media-config.js','/media-manifest.js','/manifest.webmanifest','/ornamen-muhammadiyah.svg','/motif-sudut-somagede.svg','/hero.jpg','/data/arsip-somagede.json','/data/quran-offline.json','/data/pustaka-books.json'];
-const TICKER_CSS=`
-.ticker{height:42px!important;overflow:hidden!important;position:relative!important;display:block!important;background:linear-gradient(100deg,#062653 0%,#075aa4 42%,#0b7e8d 78%,#062653 100%)!important;border-top:2px solid #ffd33d!important;border-bottom:1px solid rgba(255,255,255,.28)!important;box-shadow:0 7px 22px rgba(6,38,83,.18)!important;color:#fff!important;white-space:nowrap!important;contain:paint!important;isolation:isolate!important}
-.ticker:before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(255,211,61,.18),transparent 18%,transparent 82%,rgba(255,211,61,.16));opacity:.9}
-.ticker:after{content:'';position:absolute;top:0;bottom:0;left:-35%;width:28%;z-index:3;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);transform:skewX(-18deg);animation:tickerShine 4.8s ease-in-out infinite}
-.ticker-track{position:relative!important;z-index:2!important;display:flex!important;align-items:center!important;width:max-content!important;min-width:max-content!important;height:40px!important;animation:none!important;animation-play-state:running!important;will-change:transform!important;transform:translate3d(0,0,0)!important}
-.ticker-track span{display:flex!important;align-items:center!important;flex:0 0 auto!important;width:max-content!important;min-width:max-content!important;height:40px!important;padding:0 58px 0 22px!important;color:#fff!important;font-weight:850!important;letter-spacing:.1px!important;text-shadow:0 1px 2px rgba(0,0,0,.22)!important}
-.ticker-track span:before{content:'✦'!important;display:inline-block!important;margin-right:11px!important;color:#ffd33d!important;font-size:15px!important;text-shadow:0 0 10px rgba(255,211,61,.55)!important}
-@keyframes tickerShine{0%,55%{left:-35%;opacity:0}65%{opacity:1}100%{left:115%;opacity:0}}
-@media(max-width:700px){.ticker{height:40px!important}.ticker-track{height:38px!important}.ticker-track span{height:38px!important;padding:0 46px 0 15px!important;font-size:13px!important}.ticker-track span:before{margin-right:8px!important;font-size:13px!important}}
-`;
-self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(SHELL.map(u=>c.add(u).catch(()=>null)))).then(()=>self.skipWaiting()))});
-self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('pcm-somagede-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+
+self.addEventListener('install',event=>{
+  event.waitUntil(caches.open(CACHE).then(c=>Promise.allSettled(SHELL.map(u=>c.add(u+'?v=20').catch(()=>null)))).then(()=>self.skipWaiting()));
+});
+
+self.addEventListener('activate',event=>{
+  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('pcm-somagede-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));
+});
+
 const sameOrigin=req=>new URL(req.url).origin===self.location.origin;
-const decorateStyle=async r=>{if(!r)return null;const css=await r.text();return new Response(css+'\n'+TICKER_CSS,{status:r.status,statusText:r.statusText,headers:{'Content-Type':'text/css;charset=utf-8','Cache-Control':'no-cache'}})};
-async function stale(req){const c=await caches.open(CACHE);const isStyle=new URL(req.url).pathname.endsWith('/style.css');const hit=await c.match(req);if(hit&&isStyle)return await decorateStyle(hit);const net=fetch(req,{cache:'no-store'}).then(async r=>{if(!r.ok)return r;const out=isStyle?await decorateStyle(r.clone()):r.clone();c.put(req,out.clone());return out}).catch(()=>null);return await net||await hit||new Response('Offline',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}})}
-async function nav(req){const c=await caches.open(CACHE);const net=fetch(req,{cache:'no-store'}).then(r=>{if(r.ok)c.put('/index.html',r.clone());return r}).catch(()=>null);return await net||await c.match('/index.html')||new Response('<!doctype html><title>PCM Somagede Offline</title><h1>PCM Somagede</h1><p>Mode offline aktif.</p>',{headers:{'Content-Type':'text/html;charset=utf-8'}})}
-self.addEventListener('fetch',event=>{const req=event.request;if(req.method!=='GET'||!sameOrigin(req))return;if(req.mode==='navigate'){event.respondWith(nav(req));return}const p=new URL(req.url).pathname;if(/\.(js|css|json|png|jpe?g|webp|svg|webmanifest|pdf|html)$/.test(p))event.respondWith(stale(req));});
+const networkFirst=async req=>{
+  const c=await caches.open(CACHE);
+  try{
+    const r=await fetch(req,{cache:'no-store'});
+    if(r.ok){c.put(req,r.clone()).catch(()=>{});return r;}
+    throw new Error('network '+r.status);
+  }catch(e){
+    return await c.match(req)||new Response('Offline',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}});
+  }
+};
+
+self.addEventListener('fetch',event=>{
+  const req=event.request;
+  if(req.method!=='GET'||!sameOrigin(req))return;
+  const p=new URL(req.url).pathname;
+  if(req.mode==='navigate'){
+    event.respondWith(networkFirst(new Request('/index.html',{method:'GET',headers:req.headers,credentials:'same-origin',cache:'no-store'})));
+    return;
+  }
+  if(/\.(js|css|json|png|jpe?g|webp|svg|webmanifest|pdf|html)$/.test(p))event.respondWith(networkFirst(req));
+});
