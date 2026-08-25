@@ -1,16 +1,14 @@
 {
-  "source":"PCM Cepu",
-  "source_home":"https://www.pcmcepu.com/",
   "generated":"2026-08-25",
   "total":8,
   "items":[
-    {"title":"Pustaka Digital Muhammadiyah PCM Cepu","description":"Katalog PDF, buku, booklet, khutbah Jumat, khutbah Id dan materi kultum dari PCM Cepu.","url":"https://www.pcmcepu.com/p/pustaka-digital-download-naskah-khutbah.html","category":"pustaka","published":"Katalog PCM Cepu"},
-    {"title":"Kajian Ahad Pagi: Memaknai Nuzulul Qur’an","description":"Kajian tentang fungsi Al-Qur’an sebagai petunjuk hidup dan empat tingkatan berinteraksi dengan Al-Qur’an.","url":"https://www.pcmcepu.com/2026/03/kajian-ahad-pagi-memaknai-nuzulul-quran.html","category":"kajian","published":"2026"},
-    {"title":"Kajian Ahad Pagi: Memperkokoh Tauhid","description":"Materi kajian PCM Cepu tentang tauhid sebagai fondasi kehidupan seorang Muslim.","url":"https://www.pcmcepu.com/2026/06/kajian-ahad-pagi-pcm-cepu-memperkokoh.html","category":"kajian","published":"2026"},
-    {"title":"Materi Kultum: Menjaga Lisan di Bulan Penuh Ampunan","description":"Teks kultum singkat tentang menjaga lisan, ghibah dan dusta lengkap dengan dalil.","url":"https://www.pcmcepu.com/2026/01/menjaga-lisan-bulan-penuh-ampunan.html","category":"kultum","published":"2026"},
-    {"title":"Materi Kultum: Menutup Ramadhan dengan Istiqamah","description":"Materi kultum tentang kesinambungan ibadah setelah Ramadhan dan pentingnya istiqamah.","url":"https://www.pcmcepu.com/2026/01/menutup-ramadhan-dengan-istiqamah.html","category":"kultum","published":"2026"},
-    {"title":"Materi Khutbah Jumat: Menyambut Ramadhan dengan Taubat, Ilmu dan Amal Shalih","description":"Naskah khutbah Jumat lengkap dari PCM Cepu.","url":"https://www.pcmcepu.com/2026/01/materi-khutbah-jumat-menyambut-ramadhan_01399912691.html","category":"khutbah","published":"2026"},
-    {"title":"Materi Khutbah Jumat: Akhlak Mulia sebagai Buah Iman dan Ibadah","description":"Naskah khutbah Jumat tentang hubungan iman, ibadah dan akhlak.","url":"https://www.pcmcepu.com/2026/02/akhlak-mulia-buah-iman-ibadah.html","category":"khutbah","published":"2026"},
-    {"title":"Tanya Tarjih PRM Nglanjuk: Panduan Salat HPT Muhammadiyah","description":"Kajian panduan salat berdasarkan Himpunan Putusan Tarjih Muhammadiyah.","url":"https://www.pcmcepu.com/2026/08/tanya-tarjih-prm-nglanjuk-panduan-salat-hpt.html","category":"kajian","published":"2026"}
+    {"title":"Pustaka Digital Muhammadiyah","description":"Katalog bacaan, buku, booklet, khutbah Jumat, khutbah Id dan materi kultum.","category":"pustaka","published":"Koleksi digital"},
+    {"title":"Kajian Ahad Pagi: Memaknai Nuzulul Qur’an","description":"Kajian tentang fungsi Al-Qur’an sebagai petunjuk hidup dan empat tingkatan berinteraksi dengan Al-Qur’an.","category":"kajian","published":"2026"},
+    {"title":"Kajian Ahad Pagi: Memperkokoh Tauhid","description":"Materi kajian tentang tauhid sebagai fondasi kehidupan seorang Muslim.","category":"kajian","published":"2026"},
+    {"title":"Materi Kultum: Menjaga Lisan di Bulan Penuh Ampunan","description":"Teks kultum singkat tentang menjaga lisan, ghibah dan dusta lengkap dengan dalil.","category":"kultum","published":"2026"},
+    {"title":"Materi Kultum: Menutup Ramadhan dengan Istiqamah","description":"Materi kultum tentang kesinambungan ibadah setelah Ramadhan dan pentingnya istiqamah.","category":"kultum","published":"2026"},
+    {"title":"Materi Khutbah Jumat: Menyambut Ramadhan dengan Taubat, Ilmu dan Amal Shalih","description":"Naskah khutbah Jumat lengkap.","category":"khutbah","published":"2026"},
+    {"title":"Materi Khutbah Jumat: Akhlak Mulia sebagai Buah Iman dan Ibadah","description":"Naskah khutbah Jumat tentang hubungan iman, ibadah dan akhlak.","category":"khutbah","published":"2026"},
+    {"title":"Tanya Tarjih: Panduan Salat HPT Muhammadiyah","description":"Kajian panduan salat berdasarkan Himpunan Putusan Tarjih Muhammadiyah.","category":"kajian","published":"2026"}
   ]
 }
