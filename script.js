@@ -1,61 +1,137 @@
-(()=>{const $=s=>document.querySelector(s),panels=[...document.querySelectorAll('.panel')];function show(id){const p=$('#'+id)||$('#beranda');panels.forEach(x=>x.classList.toggle('active',x===p));document.querySelectorAll('details').forEach(x=>x.removeAttribute('open'))}function route(){show((location.hash||'#beranda').slice(1))}route();addEventListener('hashchange',route);const tick=()=>{$('#clock').textContent=new Intl.DateTimeFormat('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' WIB · '+new Intl.DateTimeFormat('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date())};tick();setInterval(tick,1000);$('#year').textContent=new Date().getFullYear();const ps=$('#ps'),fallback={lat:-7.527,lon:109.334},names=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];async function pray(lat,lon,label){ps.textContent='Memuat jadwal…';let d=new Date(),k=String(d.getDate()).padStart(2,'0')+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+d.getFullYear();try{let r=await fetch(`https://api.aladhan.com/v1/timings/${k}?latitude=${lat}&longitude=${lon}&method=20`),j=await r.json();if(!r.ok)throw 0;names.forEach(n=>$(`[data-p="${n}"]`).textContent=(j.data.timings[n]||'--:--').split(' ')[0]);ps.textContent='Lokasi '+label+' · jadwal diperbarui'}catch(e){ps.textContent='Jadwal belum dapat dimuat'}}pray(fallback.lat,fallback.lon,'Somagede');$('#gps').onclick=()=>navigator.geolocation?.getCurrentPosition(p=>pray(p.coords.latitude,p.coords.longitude,'GPS'),()=>ps.textContent='GPS ditolak · menampilkan Somagede');const key='pcmSuaraLocalCount',count=$('#localCount');count.textContent=localStorage.getItem(key)||0;$('#voice').onsubmit=e=>{e.preventDefault();let d=new FormData(e.target),sub=encodeURIComponent('[SuaraMu] '+d.get('jenis')+' dari '+d.get('nama')),body=encodeURIComponent(`Nama: ${d.get('nama')}\nEmail: ${d.get('email')}\nJenis: ${d.get('jenis')}\n\n${d.get('pesan')}`);location.href=`mailto:pcmsomagede@gmail.com?subject=${sub}&body=${body}`;let n=+(localStorage.getItem(key)||0)+1;localStorage.setItem(key,n);count.textContent=n}})();
-
-/* BERITAMU_LIVE_V3 */
 (()=>{
- const section=document.querySelector('#berita'); if(!section) return;
- section.innerHTML=`<div style="max-width:1120px;margin:0 auto;padding:4px 0 24px">
- <div style="text-align:center;margin-bottom:24px"><h2 style="margin:0 0 6px;color:#092b55;font-size:clamp(1.8rem,3vw,2.5rem)">BeritaMu</h2><p style="margin:0;color:#526b84">Informasi kepemimpinan, kajian, dan agenda persyarikatan PCM Somagede.</p></div>
- <div id="bmTabs" style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:24px">
- <button data-bm="profil" style="border:1px solid #075aa4;background:#075aa4;color:#fff;padding:10px 17px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer">Profil Pimpinan</button>
- <button data-bm="kajian" style="border:1px solid #cbdceb;background:#fff;color:#163b62;padding:10px 17px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer">Kajian Rutin</button>
- <button data-bm="agenda" style="border:1px solid #cbdceb;background:#fff;color:#163b62;padding:10px 17px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer">Agenda Persyarikatan</button>
- </div>
- <div id="bmContent"></div></div>`;
- const content=document.querySelector('#bmContent');
- const people=[
-  ['Ketua 1','Drs. Bambang Budiarso','665.636','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-1.png'],
-  ['Ketua 2','H. Hari Indra Kustiwa, S.IP, S.Pd.','665.640','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-2.png'],
-  ['Ketua 3','H. Moch El Badrun, S.Pd.I','660.987','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-3.png'],
-  ['Sekretaris 1','Sunarso, S.Pd.I, Gr.','1030.113','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-4.png'],
-  ['Sekretaris 2','Sukirman, S.Pd.M.Pd.','-','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-5.png'],
-  ['Bendahara 1','H. Haris Cahyadi','-','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-6.jpeg'],
-  ['Bendahara 2','H. Arief Ritade Aswas, S.Pd.I, M.Pd.I.','1030.180','https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/main/pimpinan-7.jpeg']
- ];
- function box(){return 'background:#fff;border:1px solid #dce6ef;border-radius:18px;box-shadow:0 8px 24px rgba(14,55,93,.06)'}
- function renderProfil(){content.innerHTML=`<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">${people.map(p=>`<article style="${box()};padding:16px;text-align:center"><div style="height:250px;border:1px solid #edf2f7;border-radius:14px;display:grid;place-items:center;overflow:hidden;background:#fff"><img src="${p[3]}" alt="${p[1]}" style="width:100%;height:100%;object-fit:contain"></div><div style="margin-top:13px;color:#0a7091;text-transform:uppercase;letter-spacing:.07em;font-size:.76rem;font-weight:900">${p[0]}</div><h3 style="margin:5px 0 3px;color:#092b55;font-size:1.05rem;line-height:1.35">${p[1]}</h3><p style="margin:0;color:#5b7085;font-size:.9rem">NBM : ${p[2]}</p></article>`).join('')}</div>`}
- function renderKajian(){content.innerHTML=`<article style="${box()};padding:28px"><div style="font-size:.76rem;color:#0a7091;font-weight:900;letter-spacing:.08em;text-transform:uppercase">Majelis Tabligh • Pengajian Rutin Ahad Wage</div><h3 style="margin:6px 0 13px;font-size:1.65rem;color:#092b55">Pengajian Rutin Ahad Wage PCM Somagede</h3><p style="color:#29496b">Majelis Tabligh Pimpinan Cabang Muhammadiyah Somagede mengundang warga persyarikatan untuk mengikuti pengajian rutin Ahad Wage sebagai ruang pembinaan keislaman, penguatan silaturahmi, dan pendalaman pemahaman agama secara berkala.</p><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0">${[['Hari','Ahad Wage'],['Tanggal','30 Agustus 2026'],['Waktu','08.30 WIB s.d. selesai'],['Tempat','Masjid Baitul Arqom SMK Muhammadiyah Somagede'],['Pembicara','Ust. Drs. H. M. Sunhaji'],['Penyelenggara','Majelis Tabligh PCM Somagede']].map(x=>`<div style="padding:15px;border:1px solid #dfe8f0;border-radius:12px;background:#fbfdff"><span style="display:block;color:#6f8192;font-size:.74rem">${x[0]}</span><strong style="display:block;margin-top:4px;color:#123e69">${x[1]}</strong></div>`).join('')}</div><p style="font-size:.86rem;color:#647b92">Keterangan ini disusun dari surat Majlis Tabligh PCM Somagede tertanggal 24 Agustus 2026, Nomor 15/IV/2026.</p></article>`}
- function renderAgenda(){content.innerHTML=`<article style="${box()};padding:28px"><div style="font-size:.76rem;color:#0a7091;font-weight:900;letter-spacing:.08em;text-transform:uppercase">Agenda Persyarikatan</div><h3 style="margin:6px 0 13px;font-size:1.65rem;color:#092b55">Rapat Periodik PDM Banyumas di PCM Somagede</h3><p style="color:#29496b">PCM Somagede menjadi tuan rumah pelaksanaan Rapat Periodik Pimpinan Daerah Muhammadiyah (PDM) Banyumas. Agenda ini menjadi ruang koordinasi pimpinan untuk meninjau pelaksanaan program, menyelaraskan agenda persyarikatan, mengevaluasi perkembangan kegiatan, dan memperkuat sinergi antara pimpinan daerah dengan unsur Muhammadiyah di tingkat cabang dan ranting.</p><p style="color:#29496b">Penyelenggaraan rapat di PCM Somagede menegaskan peran cabang sebagai bagian aktif dari tata kelola persyarikatan tingkat daerah dan menjadi momentum untuk mempertemukan evaluasi, perencanaan, serta keputusan organisasi dalam suasana musyawarah yang tertib dan konstruktif.</p><div style="margin:20px 0;padding:18px;border:1px solid #cddfeb;border-radius:14px;background:#f6fbff"><span style="display:block;font-size:.75rem;text-transform:uppercase;color:#0a7091;font-weight:900;letter-spacing:.06em">Tempat</span><strong style="display:block;margin-top:4px;color:#0b4f8e">PCM Somagede • Kabupaten Banyumas</strong></div></article>`}
- function activate(name){document.querySelectorAll('[data-bm]').forEach(b=>{const on=b.dataset.bm===name;b.style.background=on?'#075aa4':'#fff';b.style.color=on?'#fff':'#163b62';b.style.borderColor=on?'#075aa4':'#cbdceb'});if(name==='kajian')renderKajian();else if(name==='agenda')renderAgenda();else renderProfil()}
- document.querySelectorAll('[data-bm]').forEach(b=>b.addEventListener('click',()=>activate(b.dataset.bm)));
- renderProfil();
- const map={profil:'profil',kajian:'kajian',agenda:'agenda'};
- function subRoute(){const h=(location.hash||'').slice(1);if(map[h]){history.replaceState(null,'','#berita');activate(map[h]);}}
- addEventListener('hashchange',subRoute); subRoute();
- addEventListener('resize',()=>{const g=document.querySelector('#bmContent > div');if(g)g.style.gridTemplateColumns=innerWidth<600?'1fr':innerWidth<900?'repeat(2,minmax(0,1fr))':'repeat(3,minmax(0,1fr))';});
-})();
+  'use strict';
 
-/* TICKER: measure one complete message so the two copies never overlap */
-(()=>{const track=document.querySelector('.ticker-track');const first=track?.querySelector('span');if(!track||!first)return;const sync=()=>{const w=Math.ceil(first.getBoundingClientRect().width);track.style.setProperty('--ticker-distance',`${w}px`)};sync();addEventListener('resize',sync,{passive:true});if('ResizeObserver'in window)new ResizeObserver(sync).observe(first);})();
+  const LEGACY='https://raw.githubusercontent.com/pcmsomagede/pcmsomagede.github.io/3b2322635ce06e956de78a411584373ff95b86e8/script.js';
+  const panelIds=['beranda','berita','pustaka','kta','arsip','suara','kontak'];
+  const beritaTabs=['profil','kajian','agenda','struktur'];
 
-/* STRUKTUR PCM SOMAGEDE PERIODE 2020-2026 */
-(()=>{
- const tabs=document.querySelector('#bmTabs'),content=document.querySelector('#bmContent'); if(!tabs||!content)return;
- const btn=document.createElement('button');btn.type='button';btn.dataset.bm='struktur';btn.textContent='Susunan Lengkap PCM Somagede';btn.setAttribute('aria-label','Susunan Lengkap PCM Somagede');Object.assign(btn.style,{border:'1px solid #cbdceb',background:'#fff',color:'#163b62',padding:'10px 17px',borderRadius:'999px',font:'inherit',fontWeight:'800',cursor:'pointer'});tabs.appendChild(btn);
- const style=document.createElement('style');style.textContent=`.pcm-org{display:grid;gap:18px}.pcm-org-root{text-align:center;padding:24px;border-radius:22px;background:linear-gradient(135deg,#062653,#075aa4);color:#fff;box-shadow:0 14px 34px rgba(6,38,83,.22)}.pcm-org-root .kicker{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;opacity:.8;font-weight:900}.pcm-org-root h3{margin:5px 0 2px;font-size:1.5rem}.pcm-org-root p{margin:0;opacity:.86}.pcm-org-line{height:26px;width:2px;background:#b7c9dc;margin:auto}.pcm-org-leadership{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.pcm-org-card{background:#fff;border:1px solid #dce6ef;border-radius:16px;padding:16px;text-align:center;box-shadow:0 8px 22px rgba(14,55,93,.06)}.pcm-org-card .role{font-size:.71rem;color:#0a7091;text-transform:uppercase;letter-spacing:.06em;font-weight:900}.pcm-org-card h4{margin:6px 0 2px;color:#092b55;font-size:1rem}.pcm-org-card p{margin:0;color:#647b92;font-size:.83rem}.pcm-org-branch{position:relative;border-top:2px solid #cbd8e5;padding-top:18px}.pcm-org-branch:before{content:"";position:absolute;left:50%;top:-18px;height:18px;border-left:2px solid #cbd8e5}.pcm-org-majelis-title{text-align:center;color:#092b55;margin:0 0 12px;font-size:1.18rem}.pcm-org-majelis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.pcm-org-unit{background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid #dce6ef;border-radius:16px;padding:17px;box-shadow:0 8px 22px rgba(14,55,93,.055)}.pcm-org-unit h4{margin:0 0 10px;color:#075aa4;font-size:1rem}.pcm-org-unit ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}.pcm-org-unit li{padding:7px 9px;border-radius:9px;background:#edf5fb;color:#254966;font-size:.86rem}.pcm-org-note{text-align:center;color:#6b8093;font-size:.8rem;margin:2px 0 0}@media(max-width:900px){.pcm-org-leadership{grid-template-columns:repeat(2,minmax(0,1fr))}.pcm-org-majelis{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.pcm-org-leadership,.pcm-org-majelis{grid-template-columns:1fr}.pcm-org-root{padding:20px 15px}.pcm-org-card,.pcm-org-unit{padding:14px}.pcm-org-unit li{font-size:.84rem}}`;document.head.appendChild(style);
- const esc=s=>String(s).replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
- const units=[
-  ['Tarjih dan Tajdid',['Muh.Prakoso,S.Pd.I','Pangarso Aminudin','Zaenal Musrofi']],
-  ['Tabligh',['Drs.H Sumuyut','H.Paryono,S.Pd.','Marino,S.Pd.']],
-  ['Disdasmen',['Sartim,S.Pd.','H. Sayudi,S.Pd.','Sarjono,S.Pd.']],
-  ['Pend.Kader',['Aji Gunadi,BA','Danang Demas']],
-  ['Pelayanan Kesehatan',['H.Yulianto B.P,M.Kep (Alm)','H.Triyono','Gandar A.,S.Kep']],
-  ['Pelayanan Sosial',['Saring Mulyadi','Pujo Mashuri','Nurdi']],
-  ['Ekonomi/Kewirausahaan',['Ardila Nugroho,S.Apt','Syahrir','Salud']],
-  ['Wakaf/Kehartabendaan',['Sulam','Budi Waluyo','Suwito']],
-  ['Penanggulangan Bencana',['Sutarjo','Ir.Udiarto,M.T','Kholid Ismawan,S.Sos']],
-  ['LAZISMU',['Muh.Anggun','Sumari']],
-  ['Seni & Olah raga',['Sudarno,S.Pd.','Andy Suyadi,S.Pd.','Rekarso,S.Pd.']]
- ];
- function renderStruktur(){content.innerHTML=`<div class="pcm-org"><div class="pcm-org-root"><div class="kicker">Pimpinan Cabang Muhammadiyah Somagede</div><h3>Susunan Lengkap PCM Somagede</h3><p>Periode 2020–2026</p></div><div class="pcm-org-line"></div><div class="pcm-org-leadership"><div class="pcm-org-card"><div class="role">Ketua</div><h4>Drs. Bambang Budiarso</h4></div><div class="pcm-org-card"><div class="role">Ketua 1</div><h4>H.Moch El Badrun,S.Pd.I</h4></div><div class="pcm-org-card"><div class="role">Ketua 2</div><h4>H. Hari Indra Kustiwa,S,IP,S.Pd (Alm)</h4></div><div class="pcm-org-card"><div class="role">Sekretaris</div><h4>Sunarso,S.Pd.I, Gr.</h4></div><div class="pcm-org-card"><div class="role">Wkl. Sekretaris</div><h4>Sukirman,S.Pd. M.Pd.</h4></div><div class="pcm-org-card"><div class="role">Bendahara</div><h4>H.Haris Cahyadi</h4></div><div class="pcm-org-card"><div class="role">Wkl. Bendahara</div><h4>H. Arief Ritade Aswas,S.Pd.I, M.Pd.I.</h4></div></div><div class="pcm-org-branch"><h3 class="pcm-org-majelis-title">Majelis dan Unsur Pelaksana</h3><div class="pcm-org-majelis">${units.map(([n,m])=>`<div class="pcm-org-unit"><h4>${esc(n)}</h4><ul>${m.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}</div></div><p class="pcm-org-note">Susunan mengikuti dokumen sumber periode 2020–2026.</p></div>`}
- btn.addEventListener('click',()=>{document.querySelectorAll('#bmTabs [data-bm]').forEach(b=>{b.style.background=b===btn?'#075aa4':'#fff';b.style.color=b===btn?'#fff':'#163b62';b.style.borderColor=b===btn?'#075aa4':'#cbdceb'});history.replaceState(null,'','#berita');renderStruktur()});
+  function openPanel(id){
+    const target=document.getElementById(id)||document.getElementById('beranda');
+    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p===target));
+    window.scrollTo({top:Math.max(0,(document.querySelector('main')?.offsetTop||0)-8),behavior:'instant'});
+  }
+
+  function selectBerita(name){
+    const btn=document.querySelector(`[data-bm="${name}"]`);
+    if(btn){btn.click();return true;}
+    return false;
+  }
+
+  function go(hash,tab){
+    const clean=hash.replace(/^#/,'');
+    history.pushState({tab:tab||null},'',tab?`#${hash.replace(/^#/,'')}`:`#${clean}`);
+    if(tab){
+      openPanel('berita');
+      selectBerita(tab);
+    }else if(panelIds.includes(clean)){
+      openPanel(clean);
+    }else{
+      openPanel('beranda');
+    }
+  }
+
+  function installNavigation(){
+    document.addEventListener('click',e=>{
+      const submenuLink=e.target.closest('.submenu a');
+      if(submenuLink){
+        const href=submenuLink.getAttribute('href')||'';
+        const id=href.replace(/^#/,'');
+        if(beritaTabs.includes(id)){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          history.pushState({tab:id},'',`#berita-${id}`);
+          openPanel('berita');
+          selectBerita(id);
+          return;
+        }
+        const parent=submenuLink.closest('.nav-drop')?.querySelector('.nav-parent');
+        const parentHref=parent?.getAttribute('href')||'';
+        const parentId=parentHref.replace(/^#/,'');
+        if(panelIds.includes(parentId)){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          history.pushState(null,'',`#${parentId}`);
+          openPanel(parentId);
+        }
+      }
+
+      const top=e.target.closest('.nav-item.nav-parent');
+      if(top){
+        const id=(top.getAttribute('href')||'').replace(/^#/,'');
+        if(panelIds.includes(id)){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          history.pushState(null,'',`#${id}`);
+          openPanel(id);
+          if(id==='berita')selectBerita('profil');
+        }
+      }
+    },true);
+
+    addEventListener('hashchange',()=>{
+      const raw=(location.hash||'#beranda').slice(1);
+      const m=raw.match(/^berita-(profil|kajian|agenda|struktur)$/);
+      if(m){openPanel('berita');selectBerita(m[1]);return;}
+      if(beritaTabs.includes(raw)){openPanel('berita');selectBerita(raw);history.replaceState({tab:raw},'',`#berita-${raw}`);return;}
+      openPanel(raw);
+    },true);
+
+    if(location.hash){
+      const raw=location.hash.slice(1);
+      const m=raw.match(/^berita-(profil|kajian|agenda|struktur)$/);
+      if(m){setTimeout(()=>{openPanel('berita');selectBerita(m[1]);},0);}
+    }else{
+      setTimeout(()=>openPanel('beranda'),0);
+    }
+  }
+
+  function normalizeImages(){
+    document.querySelectorAll('#bmContent img').forEach(img=>{
+      const src=img.getAttribute('src')||'';
+      const m=src.match(/https?:\/\/raw\.githubusercontent\.com\/pcmsomagede\/pcmsomagede\.github\.io\/[^/]+\/(.+)$/);
+      if(m) img.src='/'+m[1];
+      img.decoding='async';
+      img.loading='eager';
+    });
+  }
+
+  function installVisualPolish(){
+    if(document.getElementById('pcm-runtime-style')) return;
+    const s=document.createElement('style');
+    s.id='pcm-runtime-style';
+    s.textContent=`
+      .panel.active{animation:pcmPanelIn .16s ease-out both}
+      @keyframes pcmPanelIn{from{opacity:.72;transform:translateY(4px)}to{opacity:1;transform:none}}
+      .nav-item:focus-visible,.berita-tab:focus-visible{outline:3px solid rgba(255,211,61,.75);outline-offset:2px}
+      .nav-item,.berita-tab{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+      #bmContent img{content-visibility:auto}
+      @media(max-width:560px){.nav-inner{overflow:visible}.berita-tabs{position:sticky;top:0;z-index:20;padding:6px 0;background:rgba(245,249,253,.94);backdrop-filter:blur(8px)}}
+      @media(prefers-reduced-motion:reduce){.panel.active{animation:none}}
+    `;
+    document.head.appendChild(s);
+  }
+
+  function registerOffline(){
+    if(!('serviceWorker' in navigator)) return;
+    navigator.serviceWorker.register('/sw.js').catch(()=>{});
+  }
+
+  const legacy=document.createElement('script');
+  legacy.src=LEGACY;
+  legacy.async=false;
+  legacy.onload=()=>{
+    normalizeImages();
+    installVisualPolish();
+    installNavigation();
+    registerOffline();
+    setTimeout(normalizeImages,120);
+    setTimeout(normalizeImages,700);
+  };
+  legacy.onerror=()=>{
+    installNavigation();
+    installVisualPolish();
+    registerOffline();
+    openPanel('beranda');
+  };
+  document.head.appendChild(legacy);
 })();
