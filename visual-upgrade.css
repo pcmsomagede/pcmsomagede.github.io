@@ -1,53 +1,63 @@
-:root{--v-ink:#082d58;--v-blue:#0877b9;--v-cyan:#12a8b8;--v-teal:#087e8d;--v-gold:#ffd447;--v-pink:#d92f7a;--v-purple:#6d3fb5;--v-bg:#f7fbff;--v-line:#d6e8ef;--v-mint:#e9fbf7;--v-peach:#fff4e8;--v-lilac:#f6efff}
-/* Visual system: intentionally excludes header and hero. */
-.main-nav{position:relative!important;background:linear-gradient(120deg,#063774 0%,#0874a8 42%,#079b99 100%)!important;border-top:3px solid var(--v-gold)!important;border-bottom:1px solid rgba(255,255,255,.25)!important;box-shadow:0 12px 32px rgba(5,60,95,.18)!important;overflow:visible!important}
-.main-nav:before,.main-nav:after{content:"";position:absolute;pointer-events:none;z-index:0;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat}
-.main-nav:before{width:210px;height:210px;left:-62px;top:-62px;opacity:.075;filter:saturate(1.2)}
-.main-nav:after{width:180px;height:180px;right:-42px;bottom:-65px;opacity:.06}
-.nav-inner{position:relative!important;z-index:2;gap:9px!important;padding:10px 18px 12px!important}
-.nav-item{position:relative!important;isolation:isolate;color:#fff!important;border:1px solid rgba(255,255,255,.16)!important;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.07))!important;border-radius:16px!important;box-shadow:0 5px 15px rgba(0,35,70,.12),inset 0 1px 0 rgba(255,255,255,.18)!important;backdrop-filter:blur(5px)!important;overflow:hidden!important}
-.nav-item:before{content:"";position:absolute;z-index:-1;width:34px;height:34px;left:-9px;top:-10px;border-radius:50%;background:radial-gradient(circle,#ffd447 0 18%,#ff8b3d 20% 35%,transparent 38%);opacity:.7}
-.nav-item:after{content:"";position:absolute;z-index:-1;width:54px;height:20px;right:-16px;bottom:-7px;border-radius:50%;background:linear-gradient(90deg,transparent,#ff4f9a88,transparent);transform:rotate(-18deg)}
-.nav-item:hover,.nav-item:focus-visible,.nav-drop:hover>.nav-parent,.nav-drop:focus-within>.nav-parent{transform:translateY(-2px)!important;background:linear-gradient(145deg,rgba(255,255,255,.30),rgba(255,255,255,.12))!important;box-shadow:0 9px 20px rgba(0,38,74,.20),inset 0 1px 0 rgba(255,255,255,.25)!important}
-.nav-drop{position:relative!important}
-.nav-parent{border-radius:15px 0 0 15px!important}
-.nav-caret{border-radius:0 15px 15px 0!important;background:rgba(255,255,255,.13)!important;border-left:1px solid rgba(255,255,255,.20)!important}
-.nav-caret:hover{background:rgba(255,255,255,.26)!important}
-.submenu{top:calc(100% + 10px)!important;min-width:285px!important;padding:12px!important;border:1px solid #cfe5ed!important;border-radius:20px!important;background:linear-gradient(145deg,#fff,#f2fbff)!important;box-shadow:0 24px 55px rgba(2,46,78,.25)!important;overflow:hidden!important}
-.submenu:before{content:"";display:block;height:5px;margin:-12px -12px 10px;background:linear-gradient(90deg,#ffd447,#ff7a59,#d92f7a,#6d3fb5,#079b99);border-radius:20px 20px 0 0}
-.submenu:after{content:"";position:absolute;right:-38px;bottom:-42px;width:120px;height:120px;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat;opacity:.055;pointer-events:none}
-.submenu a{position:relative!important;display:flex!important;align-items:center!important;min-height:46px!important;margin:5px 0!important;padding:10px 13px 10px 40px!important;border:1px solid #dcecf2!important;border-radius:13px!important;background:linear-gradient(110deg,#f8fcff,#edf9f8)!important;color:var(--v-ink)!important;box-shadow:0 3px 9px rgba(6,70,100,.05)!important;overflow:hidden!important}
-.submenu a:before{content:"✦";position:absolute;left:13px;top:50%;transform:translateY(-50%);width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#ffd447,#ff7a59);color:#fff;font-size:.72rem;box-shadow:0 2px 6px #ff8b3d44}
-.submenu a:nth-child(2n):before{background:linear-gradient(135deg,#12a8b8,#0877b9)}
-.submenu a:nth-child(3n):before{background:linear-gradient(135deg,#d92f7a,#6d3fb5)}
+:root{--v-ink:#082d58;--v-blue:#0877b9;--v-cyan:#12a8b8;--v-teal:#087e8d;--v-gold:#ffd447;--v-pink:#d92f7a;--v-purple:#6d3fb5;--v-coral:#ff795e}
+/* V8: preserve the existing main header + hero exactly; style everything below it. */
+/* Remove every decorative layer that was accidentally allowed to intrude into the hero/header area. */
+.hero:before,.hero:after{content:none!important;background:none!important;display:none!important}
+/* Navigation becomes a transparent, colorful visual layer. Its ornaments stay INSIDE the bar. */
+.main-nav{position:relative!important;background:linear-gradient(115deg,#07366f 0%,#0879aa 38%,#079b91 72%,#176ba9 100%)!important;border-top:3px solid var(--v-gold)!important;border-bottom:1px solid rgba(255,255,255,.25)!important;box-shadow:0 12px 34px rgba(4,54,91,.18)!important;overflow:visible!important}
+.main-nav:before,.main-nav:after{content:""!important;position:absolute!important;pointer-events:none!important;z-index:0!important;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat!important}
+.main-nav:before{width:105px!important;height:105px!important;left:7px!important;top:5px!important;opacity:.055!important}
+.main-nav:after{width:95px!important;height:95px!important;right:8px!important;bottom:2px!important;opacity:.045!important}
+.nav-inner{position:relative!important;z-index:2!important;gap:9px!important;padding:10px 18px 12px!important}
+.nav-item{position:relative!important;isolation:isolate;color:#fff!important;border:1px solid rgba(255,255,255,.18)!important;background:linear-gradient(145deg,rgba(255,255,255,.20),rgba(255,255,255,.055))!important;border-radius:16px!important;box-shadow:0 5px 16px rgba(0,35,70,.13),inset 0 1px 0 rgba(255,255,255,.2)!important;backdrop-filter:blur(7px)!important;overflow:hidden!important;transition:transform .18s ease,box-shadow .18s ease,background .18s ease!important}
+.nav-item:before{content:""!important;position:absolute!important;z-index:-1!important;width:42px!important;height:42px!important;left:-11px!important;top:-12px!important;border-radius:50%!important;background:radial-gradient(circle,#ffd447 0 17%,#ff8b3d 19% 34%,transparent 38%)!important;opacity:.72!important}
+.nav-item:after{content:""!important;position:absolute!important;z-index:-1!important;width:58px!important;height:22px!important;right:-16px!important;bottom:-7px!important;border-radius:50%!important;background:linear-gradient(90deg,transparent,#ff4f9a88,transparent)!important;transform:rotate(-18deg)!important}
+.nav-item:hover,.nav-item:focus-visible,.nav-drop:hover>.nav-parent,.nav-drop:focus-within>.nav-parent{transform:translateY(-2px)!important;background:linear-gradient(145deg,rgba(255,255,255,.32),rgba(255,255,255,.12))!important;box-shadow:0 10px 22px rgba(0,38,74,.20),inset 0 1px 0 rgba(255,255,255,.28)!important}
+/* Submenus are attached to their parent and look like small ornamental palettes. */
+.submenu{top:calc(100% + 8px)!important;min-width:285px!important;padding:12px!important;border:1px solid #c9e1e9!important;border-radius:20px!important;background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(239,252,250,.96) 58%,rgba(249,243,255,.96))!important;box-shadow:0 24px 55px rgba(2,46,78,.25)!important;overflow:hidden!important;backdrop-filter:blur(12px)!important}
+.submenu:before{content:""!important;display:block!important;height:5px!important;margin:-12px -12px 10px!important;background:linear-gradient(90deg,#ffd447,#ff795e,#d92f7a,#6d3fb5,#079b99)!important;border-radius:20px 20px 0 0!important}
+.submenu:after{content:""!important;position:absolute!important;right:-30px!important;bottom:-35px!important;width:115px!important;height:115px!important;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat!important;opacity:.055!important;pointer-events:none!important}
+.submenu a{position:relative!important;display:flex!important;align-items:center!important;min-height:46px!important;margin:5px 0!important;padding:10px 13px 10px 40px!important;border:1px solid #d7eaf0!important;border-radius:13px!important;background:linear-gradient(110deg,rgba(250,253,255,.94),rgba(236,250,248,.94))!important;color:var(--v-ink)!important;box-shadow:0 3px 9px rgba(6,70,100,.05)!important;overflow:hidden!important;transition:transform .15s ease,box-shadow .15s ease,background .15s ease!important}
+.submenu a:before{content:"✦"!important;position:absolute!important;left:13px!important;top:50%!important;transform:translateY(-50%)!important;width:20px!important;height:20px!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:linear-gradient(135deg,#ffd447,#ff795e)!important;color:#fff!important;font-size:.72rem!important;box-shadow:0 2px 6px #ff8b3d44!important}
+.submenu a:nth-child(2n):before{background:linear-gradient(135deg,#12a8b8,#0877b9)!important}.submenu a:nth-child(3n):before{background:linear-gradient(135deg,#d92f7a,#6d3fb5)!important}
 .submenu a:hover,.submenu a:focus-visible{transform:translateX(3px)!important;background:linear-gradient(110deg,#fff8df,#edf8ff)!important;border-color:#b9dbe8!important;color:#075aa4!important;box-shadow:0 7px 15px rgba(6,80,120,.10)!important}
-/* Decorative tabs and common UI controls. */
-.berita-tabs{position:relative;gap:10px!important;padding:10px!important;border-radius:22px;background:linear-gradient(135deg,#effbff,#f8f3ff 55%,#fff8e9);border:1px solid #d9e9ef;box-shadow:0 8px 24px rgba(8,70,100,.07);overflow:hidden}
-.berita-tabs:before{content:"";position:absolute;inset:0;background:url('ornamen-muhammadiyah.svg') left -55px center/145px no-repeat;opacity:.035;pointer-events:none}
-.berita-tab{position:relative!important;border:1px solid #d4e6ed!important;background:linear-gradient(145deg,#fff,#f5fbfd)!important;color:#17456d!important;border-radius:999px!important;padding:10px 18px!important;box-shadow:0 4px 11px rgba(8,70,100,.06)!important;overflow:hidden!important}
-.berita-tab:before{content:"";display:inline-block;width:7px;height:7px;margin-right:7px;border-radius:50%;background:linear-gradient(135deg,#ffd447,#ff6b6b);box-shadow:0 0 0 3px #ffd44722;vertical-align:middle}
-.berita-tab:nth-child(2n):before{background:linear-gradient(135deg,#12a8b8,#0877b9)}
-.berita-tab:nth-child(3n):before{background:linear-gradient(135deg,#d92f7a,#6d3fb5)}
-.berita-tab.active{background:linear-gradient(135deg,#0877b9,#0b9b9b)!important;border-color:#0877b9!important;color:#fff!important;box-shadow:0 8px 18px rgba(8,119,185,.24)!important}
-/* Panels/cards receive restrained color and ornamental corners. */
-article,.content-card,.history,.leader-card{position:relative;overflow:hidden}
-article:before,.content-card:before,.history:before,.leader-card:before{content:"";position:absolute;right:-30px;top:-34px;width:110px;height:110px;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat;opacity:.035;pointer-events:none}
-article:after,.content-card:after,.history:after,.leader-card:after{content:"";position:absolute;left:0;bottom:0;width:105px;height:42px;background:linear-gradient(135deg,transparent 0 45%,#ffd447 46% 52%,#ff6b6b 53% 58%,#12a8b8 59% 64%,transparent 65%);opacity:.28;pointer-events:none}
-input,select,textarea{border-color:#cfe2ea!important;background:linear-gradient(#fff,#f8fcff)!important;box-shadow:inset 0 1px 3px rgba(8,70,100,.04)!important}
+/* Entire content area: airy, translucent, colorful, but reading remains the priority. */
+main{position:relative!important;background:radial-gradient(circle at 8% 10%,rgba(18,168,184,.09),transparent 27%),radial-gradient(circle at 94% 18%,rgba(217,47,122,.07),transparent 24%),radial-gradient(circle at 48% 92%,rgba(255,212,71,.08),transparent 28%)!important}
+main:before{content:"";position:absolute;inset:0;pointer-events:none;background:url('ornamen-muhammadiyah.svg') left -100px top 80px/230px no-repeat,url('ornamen-muhammadiyah.svg') right -105px bottom 80px/240px no-repeat;opacity:.025}
+.panel:not(#beranda)::before{content:""!important;position:absolute!important;right:2%!important;top:8px!important;width:125px!important;height:125px!important;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat!important;opacity:.045!important;pointer-events:none!important;z-index:0!important}
+.panel:not(#beranda)>*{position:relative!important;z-index:1!important}
+/* Glass cards vary gently by position instead of becoming identical white boxes. */
+article,.content-card,.history,.leader-card{position:relative!important;overflow:hidden!important;border:1px solid rgba(187,216,226,.78)!important;background:linear-gradient(145deg,rgba(255,255,255,.76),rgba(242,251,252,.60) 55%,rgba(250,245,255,.62))!important;box-shadow:0 12px 30px rgba(8,65,95,.08),inset 0 1px 0 rgba(255,255,255,.9)!important;backdrop-filter:blur(10px)!important}
+article:nth-child(3n),.content-card:nth-child(3n){background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(255,248,234,.58),rgba(243,249,255,.66))!important}
+article:nth-child(3n+2),.content-card:nth-child(3n+2){background:linear-gradient(145deg,rgba(255,255,255,.74),rgba(239,252,248,.58),rgba(248,242,255,.64))!important}
+article:before,.content-card:before,.history:before,.leader-card:before{content:""!important;position:absolute!important;right:-28px!important;top:-30px!important;width:105px!important;height:105px!important;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat!important;opacity:.035!important;pointer-events:none!important}
+article:after,.content-card:after,.history:after,.leader-card:after{content:""!important;position:absolute!important;left:0!important;bottom:0!important;width:115px!important;height:45px!important;background:linear-gradient(135deg,transparent 0 43%,#ffd447 44% 49%,#ff795e 50% 55%,#12a8b8 56% 61%,#d92f7a 62% 67%,transparent 68%)!important;opacity:.26!important;pointer-events:none!important}
+.history p,.content-card p,.leader-card p{position:relative;z-index:2}
+/* Reading controls stay visually dominant and clear. */
+.mushaf-reader,.pk-card{background:linear-gradient(145deg,rgba(255,255,255,.90),rgba(240,251,250,.80))!important;border:1px solid rgba(18,126,141,.25)!important;box-shadow:0 16px 36px rgba(6,75,92,.10)!important}
+input,select,textarea{border-color:#cfe2ea!important;background:linear-gradient(rgba(255,255,255,.9),rgba(248,252,255,.82))!important;box-shadow:inset 0 1px 3px rgba(8,70,100,.04)!important}
 button:not(.nav-caret){border:1px solid #f0c52d!important;background:linear-gradient(135deg,#ffd447,#ffb83d)!important;box-shadow:0 6px 15px rgba(255,174,45,.20)!important}
-footer{position:relative;overflow:hidden}
-/* Mobile: submenu stays visually attached to the opened tab, never a floating orphan. */
+/* Tabs are colorful, translucent and still obviously clickable. */
+.berita-tabs{position:relative!important;gap:10px!important;padding:10px!important;border-radius:22px!important;background:linear-gradient(135deg,rgba(239,251,255,.74),rgba(248,243,255,.68) 55%,rgba(255,248,233,.72))!important;border:1px solid rgba(201,225,233,.8)!important;box-shadow:0 8px 24px rgba(8,70,100,.07)!important;overflow:hidden!important;backdrop-filter:blur(8px)!important}
+.berita-tabs:before{content:""!important;position:absolute!important;inset:0!important;background:url('ornamen-muhammadiyah.svg') left -55px center/145px no-repeat!important;opacity:.035!important;pointer-events:none!important}
+.berita-tab{position:relative!important;border:1px solid #d4e6ed!important;background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(245,251,253,.68))!important;color:#17456d!important;border-radius:999px!important;padding:10px 18px!important;box-shadow:0 4px 11px rgba(8,70,100,.06)!important}
+.berita-tab:before{content:""!important;display:inline-block!important;width:7px!important;height:7px!important;margin-right:7px!important;border-radius:50%!important;background:linear-gradient(135deg,#ffd447,#ff6b6b)!important;box-shadow:0 0 0 3px #ffd44722!important;vertical-align:middle!important}
+.berita-tab:nth-child(2n):before{background:linear-gradient(135deg,#12a8b8,#0877b9)!important}.berita-tab:nth-child(3n):before{background:linear-gradient(135deg,#d92f7a,#6d3fb5)!important}
+.berita-tab.active{background:linear-gradient(135deg,#0877b9,#0b9b9b)!important;border-color:#0877b9!important;color:#fff!important;box-shadow:0 8px 18px rgba(8,119,185,.24)!important}
+footer{position:relative!important;overflow:hidden!important}
+footer:before{content:"";position:absolute;right:-25px;top:-45px;width:140px;height:140px;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat;opacity:.04;pointer-events:none}
+/* Mobile: submenu is attached to the nav and never becomes a detached block below the page. */
 @media(max-width:700px){
  .main-nav{position:sticky!important;top:0!important;z-index:5000!important;padding-bottom:2px!important}
  .nav-inner{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;padding:9px!important}
- .nav-drop{display:flex!important;align-items:stretch!important;position:static!important;min-width:0!important}
- .nav-parent{flex:1 1 auto!important;min-width:0!important}
- .nav-caret{flex:0 0 42px!important;width:42px!important}
- .nav-drop.v6-open>.nav-parent,.nav-drop.v6-open>.nav-caret{background:linear-gradient(145deg,#fff,#edf9ff)!important;color:#075aa4!important;box-shadow:inset 0 0 0 2px #ffd447!important}
- .submenu,.nav-drop:hover>.submenu,.nav-drop:focus-within>.submenu,.nav-drop.v6-open>.submenu{position:absolute!important;left:8px!important;right:8px!important;top:calc(100% + 7px)!important;width:auto!important;min-width:0!important;max-width:none!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important;padding:12px!important;transform:none!important}
+ .nav-drop{display:block!important;position:relative!important;min-width:0!important}
+ .nav-item{width:100%!important;min-height:46px!important;justify-content:center!important;padding:10px 9px!important;font-size:.88rem!important}
+ .nav-parent{cursor:pointer!important}
+ .submenu,.nav-drop:hover>.submenu,.nav-drop:focus-within>.submenu,.nav-drop.v6-open>.submenu{position:absolute!important;left:0!important;right:0!important;top:calc(100% + 7px)!important;width:auto!important;min-width:0!important;max-width:none!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important;padding:12px!important;transform:none!important}
  .nav-drop.v6-open>.submenu{opacity:1!important;visibility:visible!important}
  .submenu a{margin:0!important;min-height:48px!important;padding:10px 9px 10px 35px!important;font-size:.84rem!important}
  .submenu a:before{left:9px!important}
- .main-nav:has(.nav-drop.v6-open):after{content:""!important;position:fixed!important;left:0!important;right:0!important;top:100%!important;bottom:0!important;background:rgba(3,25,48,.10)!important;backdrop-filter:blur(1px)!important;z-index:-1!important;pointer-events:none!important}
+ .main-nav:has(.nav-drop.v6-open):after{content:""!important;position:absolute!important;left:0!important;right:0!important;top:100%!important;height:calc(100vh - 100%)!important;background:rgba(3,25,48,.08)!important;z-index:-1!important;pointer-events:none!important}
+ main{padding:24px 10px!important}
+ article,.content-card,.history,.leader-card{backdrop-filter:blur(8px)!important}
 }
 @media(max-width:380px){.submenu{grid-template-columns:1fr!important}.nav-item{font-size:.83rem!important}.submenu a{font-size:.83rem!important}}
