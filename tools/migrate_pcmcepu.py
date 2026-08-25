@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# PCM Cepu -> Cloudinary staged migration; source fallback is retained in the site manifest.
 import json, os, re, sys, time
 from collections import deque
 from urllib.parse import urljoin, urlparse
