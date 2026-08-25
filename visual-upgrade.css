@@ -1,0 +1,53 @@
+:root{--v-ink:#082d58;--v-blue:#0877b9;--v-cyan:#12a8b8;--v-teal:#087e8d;--v-gold:#ffd447;--v-pink:#d92f7a;--v-purple:#6d3fb5;--v-bg:#f7fbff;--v-line:#d6e8ef;--v-mint:#e9fbf7;--v-peach:#fff4e8;--v-lilac:#f6efff}
+/* Visual system: intentionally excludes header and hero. */
+.main-nav{position:relative!important;background:linear-gradient(120deg,#063774 0%,#0874a8 42%,#079b99 100%)!important;border-top:3px solid var(--v-gold)!important;border-bottom:1px solid rgba(255,255,255,.25)!important;box-shadow:0 12px 32px rgba(5,60,95,.18)!important;overflow:visible!important}
+.main-nav:before,.main-nav:after{content:"";position:absolute;pointer-events:none;z-index:0;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat}
+.main-nav:before{width:210px;height:210px;left:-62px;top:-62px;opacity:.075;filter:saturate(1.2)}
+.main-nav:after{width:180px;height:180px;right:-42px;bottom:-65px;opacity:.06}
+.nav-inner{position:relative!important;z-index:2;gap:9px!important;padding:10px 18px 12px!important}
+.nav-item{position:relative!important;isolation:isolate;color:#fff!important;border:1px solid rgba(255,255,255,.16)!important;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.07))!important;border-radius:16px!important;box-shadow:0 5px 15px rgba(0,35,70,.12),inset 0 1px 0 rgba(255,255,255,.18)!important;backdrop-filter:blur(5px)!important;overflow:hidden!important}
+.nav-item:before{content:"";position:absolute;z-index:-1;width:34px;height:34px;left:-9px;top:-10px;border-radius:50%;background:radial-gradient(circle,#ffd447 0 18%,#ff8b3d 20% 35%,transparent 38%);opacity:.7}
+.nav-item:after{content:"";position:absolute;z-index:-1;width:54px;height:20px;right:-16px;bottom:-7px;border-radius:50%;background:linear-gradient(90deg,transparent,#ff4f9a88,transparent);transform:rotate(-18deg)}
+.nav-item:hover,.nav-item:focus-visible,.nav-drop:hover>.nav-parent,.nav-drop:focus-within>.nav-parent{transform:translateY(-2px)!important;background:linear-gradient(145deg,rgba(255,255,255,.30),rgba(255,255,255,.12))!important;box-shadow:0 9px 20px rgba(0,38,74,.20),inset 0 1px 0 rgba(255,255,255,.25)!important}
+.nav-drop{position:relative!important}
+.nav-parent{border-radius:15px 0 0 15px!important}
+.nav-caret{border-radius:0 15px 15px 0!important;background:rgba(255,255,255,.13)!important;border-left:1px solid rgba(255,255,255,.20)!important}
+.nav-caret:hover{background:rgba(255,255,255,.26)!important}
+.submenu{top:calc(100% + 10px)!important;min-width:285px!important;padding:12px!important;border:1px solid #cfe5ed!important;border-radius:20px!important;background:linear-gradient(145deg,#fff,#f2fbff)!important;box-shadow:0 24px 55px rgba(2,46,78,.25)!important;overflow:hidden!important}
+.submenu:before{content:"";display:block;height:5px;margin:-12px -12px 10px;background:linear-gradient(90deg,#ffd447,#ff7a59,#d92f7a,#6d3fb5,#079b99);border-radius:20px 20px 0 0}
+.submenu:after{content:"";position:absolute;right:-38px;bottom:-42px;width:120px;height:120px;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat;opacity:.055;pointer-events:none}
+.submenu a{position:relative!important;display:flex!important;align-items:center!important;min-height:46px!important;margin:5px 0!important;padding:10px 13px 10px 40px!important;border:1px solid #dcecf2!important;border-radius:13px!important;background:linear-gradient(110deg,#f8fcff,#edf9f8)!important;color:var(--v-ink)!important;box-shadow:0 3px 9px rgba(6,70,100,.05)!important;overflow:hidden!important}
+.submenu a:before{content:"✦";position:absolute;left:13px;top:50%;transform:translateY(-50%);width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#ffd447,#ff7a59);color:#fff;font-size:.72rem;box-shadow:0 2px 6px #ff8b3d44}
+.submenu a:nth-child(2n):before{background:linear-gradient(135deg,#12a8b8,#0877b9)}
+.submenu a:nth-child(3n):before{background:linear-gradient(135deg,#d92f7a,#6d3fb5)}
+.submenu a:hover,.submenu a:focus-visible{transform:translateX(3px)!important;background:linear-gradient(110deg,#fff8df,#edf8ff)!important;border-color:#b9dbe8!important;color:#075aa4!important;box-shadow:0 7px 15px rgba(6,80,120,.10)!important}
+/* Decorative tabs and common UI controls. */
+.berita-tabs{position:relative;gap:10px!important;padding:10px!important;border-radius:22px;background:linear-gradient(135deg,#effbff,#f8f3ff 55%,#fff8e9);border:1px solid #d9e9ef;box-shadow:0 8px 24px rgba(8,70,100,.07);overflow:hidden}
+.berita-tabs:before{content:"";position:absolute;inset:0;background:url('ornamen-muhammadiyah.svg') left -55px center/145px no-repeat;opacity:.035;pointer-events:none}
+.berita-tab{position:relative!important;border:1px solid #d4e6ed!important;background:linear-gradient(145deg,#fff,#f5fbfd)!important;color:#17456d!important;border-radius:999px!important;padding:10px 18px!important;box-shadow:0 4px 11px rgba(8,70,100,.06)!important;overflow:hidden!important}
+.berita-tab:before{content:"";display:inline-block;width:7px;height:7px;margin-right:7px;border-radius:50%;background:linear-gradient(135deg,#ffd447,#ff6b6b);box-shadow:0 0 0 3px #ffd44722;vertical-align:middle}
+.berita-tab:nth-child(2n):before{background:linear-gradient(135deg,#12a8b8,#0877b9)}
+.berita-tab:nth-child(3n):before{background:linear-gradient(135deg,#d92f7a,#6d3fb5)}
+.berita-tab.active{background:linear-gradient(135deg,#0877b9,#0b9b9b)!important;border-color:#0877b9!important;color:#fff!important;box-shadow:0 8px 18px rgba(8,119,185,.24)!important}
+/* Panels/cards receive restrained color and ornamental corners. */
+article,.content-card,.history,.leader-card{position:relative;overflow:hidden}
+article:before,.content-card:before,.history:before,.leader-card:before{content:"";position:absolute;right:-30px;top:-34px;width:110px;height:110px;background:url('ornamen-muhammadiyah.svg') center/contain no-repeat;opacity:.035;pointer-events:none}
+article:after,.content-card:after,.history:after,.leader-card:after{content:"";position:absolute;left:0;bottom:0;width:105px;height:42px;background:linear-gradient(135deg,transparent 0 45%,#ffd447 46% 52%,#ff6b6b 53% 58%,#12a8b8 59% 64%,transparent 65%);opacity:.28;pointer-events:none}
+input,select,textarea{border-color:#cfe2ea!important;background:linear-gradient(#fff,#f8fcff)!important;box-shadow:inset 0 1px 3px rgba(8,70,100,.04)!important}
+button:not(.nav-caret){border:1px solid #f0c52d!important;background:linear-gradient(135deg,#ffd447,#ffb83d)!important;box-shadow:0 6px 15px rgba(255,174,45,.20)!important}
+footer{position:relative;overflow:hidden}
+/* Mobile: submenu stays visually attached to the opened tab, never a floating orphan. */
+@media(max-width:700px){
+ .main-nav{position:sticky!important;top:0!important;z-index:5000!important;padding-bottom:2px!important}
+ .nav-inner{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;padding:9px!important}
+ .nav-drop{display:flex!important;align-items:stretch!important;position:static!important;min-width:0!important}
+ .nav-parent{flex:1 1 auto!important;min-width:0!important}
+ .nav-caret{flex:0 0 42px!important;width:42px!important}
+ .nav-drop.v6-open>.nav-parent,.nav-drop.v6-open>.nav-caret{background:linear-gradient(145deg,#fff,#edf9ff)!important;color:#075aa4!important;box-shadow:inset 0 0 0 2px #ffd447!important}
+ .submenu,.nav-drop:hover>.submenu,.nav-drop:focus-within>.submenu,.nav-drop.v6-open>.submenu{position:absolute!important;left:8px!important;right:8px!important;top:calc(100% + 7px)!important;width:auto!important;min-width:0!important;max-width:none!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important;padding:12px!important;transform:none!important}
+ .nav-drop.v6-open>.submenu{opacity:1!important;visibility:visible!important}
+ .submenu a{margin:0!important;min-height:48px!important;padding:10px 9px 10px 35px!important;font-size:.84rem!important}
+ .submenu a:before{left:9px!important}
+ .main-nav:has(.nav-drop.v6-open):after{content:""!important;position:fixed!important;left:0!important;right:0!important;top:100%!important;bottom:0!important;background:rgba(3,25,48,.10)!important;backdrop-filter:blur(1px)!important;z-index:-1!important;pointer-events:none!important}
+}
+@media(max-width:380px){.submenu{grid-template-columns:1fr!important}.nav-item{font-size:.83rem!important}.submenu a{font-size:.83rem!important}}
