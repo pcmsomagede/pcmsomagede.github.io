@@ -1,8 +1,6 @@
 name: Deploy visual upgrade
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -29,7 +27,7 @@ jobs:
             printf '\n/* VISUAL-UPGRADE-V7 */\n' >> style.css
             cat visual-upgrade.css >> style.css
             git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git config user.email '41898282+users.noreply.github.com'
             git add style.css
             git commit -m 'Apply vibrant ornamental visual system' || true
             git push || true
