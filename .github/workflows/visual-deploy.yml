@@ -1,0 +1,48 @@
+name: Deploy visual upgrade
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-visual
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Apply visual upgrade
+        shell: bash
+        run: |
+          set -e
+          if ! grep -q 'VISUAL-UPGRADE-V7' style.css; then
+            printf '\n/* VISUAL-UPGRADE-V7 */\n' >> style.css
+            cat visual-upgrade.css >> style.css
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add style.css
+            git commit -m 'Apply vibrant ornamental visual system' || true
+            git push || true
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
