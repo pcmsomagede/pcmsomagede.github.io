@@ -24,6 +24,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Apply V9 content visual layer
+        shell: bash
+        run: |
+          set -e
+          if ! grep -q 'VISUAL-UPGRADE-V9' style.css; then
+            printf '\n/* VISUAL-UPGRADE-V9 */\n' >> style.css
+            cat visual-upgrade-v9.css >> style.css
+          fi
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = 'PCM Somagede • Kabupaten Banyumas &nbsp; • &nbsp; Hidup-hiduplah Muhammadiyah &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupi Muhammadiyah'
+          new = 'PCM Somagede Kabupaten Banyumas Jawa Tengah. &nbsp; • &nbsp; Hidup hidupilah Muhammadiyah. &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupkan Muhammadiyah di masa yang akan datang (KH. Ahmad Dahlan).'
+          s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
