@@ -1,0 +1,45 @@
+name: Build offline content packs
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/build_pcmcepu_catalog.py'
+      - 'tools/build_quran_offline.py'
+      - 'pcmcepu-content-ui.js'
+      - 'quran-ui.js'
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pcm-offline-content
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Build PCM Cepu local pages
+        env:
+          PCMCEPU_MAX_PAGES: '900'
+          PCMCEPU_WORKERS: '12'
+        run: python tools/build_pcmcepu_catalog.py
+      - name: Build offline Quran corpus
+        run: python tools/build_quran_offline.py
+      - name: Publish packs
+        run: |
+          git config user.name "PCM Somagede Offline Content Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/pcmcepu-content.json data/quran-offline.json
+          if git diff --cached --quiet; then
+            echo "No offline content changes."
+            exit 0
+          fi
+          git commit -m "Refresh offline content packs [skip ci]"
+          git push
