@@ -1,0 +1,51 @@
+name: Migrate PCM Cepu media to Cloudinary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/migrate_pcmcepu.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pcmcepu-cloudinary-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install crawler dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+
+      - name: Migrate PCM Cepu assets in stages
+        env:
+          CLOUDINARY_CLOUD_NAME: v6hqki7m
+          CLOUDINARY_UPLOAD_PRESET: pcmsomagede_document
+          PCMCEPU_MAX_PAGES: '5000'
+        run: python tools/migrate_pcmcepu.py
+
+      - name: Publish migration manifest
+        run: |
+          git config user.name "PCM Somagede Migration Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/pcmcepu-media.json
+          if git diff --cached --quiet; then
+            echo "No manifest changes."
+            exit 0
+          fi
+          git commit -m "Update PCM Cepu Cloudinary migration manifest [skip ci]"
+          git push
