@@ -138,3 +138,66 @@ footer:before{content:"";position:absolute;right:-25px;top:-45px;width:140px;hei
  article,.content-card,.history,.leader-card{backdrop-filter:blur(8px)!important}
 }
 @media(max-width:380px){.submenu{grid-template-columns:1fr!important}.nav-item{font-size:.83rem!important}.submenu a{font-size:.83rem!important}}
+
+/* TICKER-V22 */
+/* TICKER-V22: one continuous marquee, no pause, no width calculation dependency. */
+.ticker.ticker.ticker .ticker-track.ticker-track{
+  display:flex!important;
+  width:max-content!important;
+  min-width:max-content!important;
+  height:35px!important;
+  align-items:center!important;
+  animation-name:tickerRunV22!important;
+  animation-duration:26s!important;
+  animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;
+  animation-direction:normal!important;
+  animation-fill-mode:none!important;
+  animation-play-state:running!important;
+  transform:translate3d(0,0,0);
+  will-change:transform;
+}
+.ticker.ticker.ticker .ticker-track.ticker-track span{
+  flex:0 0 auto!important;
+  min-width:max-content!important;
+  padding:4px 54px 4px 18px!important;
+  font-size:clamp(12px,1.05vw,15px)!important;
+  line-height:1.2!important;
+  font-weight:500!important;
+  font-style:italic!important;
+  letter-spacing:.015em!important;
+  color:#173d64!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.55)!important;
+}
+.ticker.ticker.ticker{
+  height:35px!important;
+  background:linear-gradient(90deg,#ffe477 0%,#f4f6a1 24%,#d8f4d2 50%,#c5edf1 76%,#dce9ff 100%)!important;
+  border-bottom:1px solid rgba(255,255,255,.7)!important;
+  box-shadow:inset 0 -1px 0 rgba(7,74,111,.10),0 2px 10px rgba(7,65,98,.08)!important;
+}
+.ticker.ticker.ticker:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.0) 38%,rgba(255,255,255,.34) 50%,rgba(255,255,255,0) 62%,transparent 100%)!important;
+  background-size:220% 100%!important;
+  animation:tickerGlowV22 7s linear infinite!important;
+}
+@keyframes tickerRunV22{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+@keyframes tickerGlowV22{
+  from{background-position:220% 0}
+  to{background-position:-40% 0}
+}
+@media(max-width:700px){
+  .ticker.ticker.ticker{height:34px!important}
+  .ticker.ticker.ticker .ticker-track.ticker-track{height:34px!important;animation-duration:22s!important}
+  .ticker.ticker.ticker .ticker-track.ticker-track span{padding:4px 42px 4px 13px!important;font-size:12px!important;letter-spacing:.01em!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .ticker.ticker.ticker .ticker-track.ticker-track{animation-duration:26s!important;animation-play-state:running!important}
+  .ticker.ticker.ticker:after{animation:none!important}
+}
