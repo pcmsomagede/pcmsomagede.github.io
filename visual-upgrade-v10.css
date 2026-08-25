@@ -1,5 +1,7 @@
 /* VISUAL-UPGRADE-V10: attached motif, real organization canvas, mobile menu, readable tabs. Header/hero intentionally untouched. */
 :root{--v10-ink:#082d58;--v10-blue:#0877b9;--v10-teal:#079b91;--v10-gold:#ffd447}
+#beranda .history{position:relative!important;isolation:isolate!important;overflow:hidden!important;background:rgba(255,255,255,.78)!important}
+#beranda .history:before{content:''!important;position:absolute!important;inset:0!important;background:url('motif-sudut-somagede.svg') left top/210px auto no-repeat,url('motif-sudut-somagede.svg') right bottom/230px auto no-repeat!important;opacity:.032!important;pointer-events:none!important;z-index:-1!important}
 #bmContent,#bmContent>div,#bmContent>.v6-org,#struktur,#struktur>.v6-org{display:block!important;width:100%!important;max-width:none!important;min-width:0!important;grid-template-columns:none!important;grid-column:auto!important;float:none!important;writing-mode:horizontal-tb!important;overflow:visible!important}
 #bmContent>.v6-org,#struktur>.v6-org{max-width:1220px!important;margin:0 auto!important;padding:18px 0 60px!important;position:relative!important}
 #bmContent>.v6-org:before,#struktur>.v6-org:before{content:'';position:absolute;inset:0;background:url('motif-sudut-somagede.svg') left top/180px auto no-repeat,url('motif-sudut-somagede.svg') right bottom/220px auto no-repeat;opacity:.035;pointer-events:none}
