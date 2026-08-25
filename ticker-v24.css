@@ -1,0 +1,58 @@
+/* TICKER-V24: single authoritative marquee. Overrides V22/V23 ticker rules. */
+.ticker.ticker.ticker.ticker {
+  position: relative !important;
+  overflow: hidden !important;
+  contain: paint !important;
+  white-space: nowrap !important;
+}
+.ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  height: 100% !important;
+  align-items: center !important;
+  transform: translate3d(0,0,0) !important;
+  animation-name: pcmTickerV24 !important;
+  animation-duration: 28s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+  animation-direction: normal !important;
+  animation-fill-mode: none !important;
+  animation-play-state: running !important;
+  will-change: transform !important;
+}
+.ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track > span {
+  display: block !important;
+  flex: 0 0 auto !important;
+  min-width: max-content !important;
+  padding: 4px 56px 4px 18px !important;
+  margin: 0 !important;
+  font-size: clamp(12px, 1vw, 14px) !important;
+  line-height: 1.2 !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  letter-spacing: .01em !important;
+}
+@keyframes pcmTickerV24 {
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-50%,0,0); }
+}
+@media (max-width:700px) {
+  .ticker.ticker.ticker.ticker { height: 34px !important; }
+  .ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track {
+    animation-duration: 22s !important;
+  }
+  .ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track > span {
+    padding: 4px 42px 4px 13px !important;
+    font-size: 12px !important;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track {
+    animation-name: pcmTickerV24 !important;
+    animation-duration: 28s !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+  }
+}
