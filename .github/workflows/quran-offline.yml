@@ -1,0 +1,34 @@
+name: Build offline Quran corpus
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/build_quran_offline.py'
+      - 'quran-ui.js'
+  schedule:
+    - cron: '17 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check requests
+      - run: python tools/build_quran_offline.py
+      - name: Commit corpus
+        run: |
+          git config user.name "PCM Somagede Offline Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/quran-offline.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Update offline Quran corpus [skip ci]"
+          git push
