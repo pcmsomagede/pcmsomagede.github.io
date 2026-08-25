@@ -46,6 +46,13 @@ jobs:
           p.write_text(s, encoding='utf-8')
           PY
 
+      - name: Force authoritative V24 ticker layer
+        shell: bash
+        run: |
+          set -e
+          printf '\n/* TICKER-V24-AUTHORITATIVE */\n' >> style.css
+          cat ticker-v24.css >> style.css
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
