@@ -71,3 +71,4 @@ def main():
     with open(OUT,'w',encoding='utf-8') as f:json.dump({'source':'PCM Cepu','generated':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'total':len(rows),'items':rows},f,ensure_ascii=False,indent=2)
     print('catalog pages',len(rows))
 if __name__=='__main__':main()
+# catalog refresh trigger
