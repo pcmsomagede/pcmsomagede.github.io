@@ -4,10 +4,10 @@ let mounted=false,active='bukhari',page=1,perPage=30,total=0,cache=new Map(),loa
 const API='https://api.hadith.gading.dev/books/';
 const books=[
  ['bukhari','Shahih Bukhari'],['muslim','Shahih Muslim'],['tirmidzi','Sunan Tirmidzi'],
- ['abudawud','Sunan Abu Dawud'],['nasai','Sunan an-Nasa’i'],['ibnumajah','Sunan Ibnu Majah'],
+ ['abu-daud','Sunan Abu Daud'],['nasai','Sunan an-Nasa’i'],['ibnu-majah','Sunan Ibnu Majah'],
  ['ahmad','Musnad Ahmad'],['malik','Al-Muwatta'],['darimi','Sunan ad-Darimi']
 ];
-const totals={bukhari:7563,muslim:7453,tirmidzi:3956,abudawud:5274,nasai:5758,ibnumajah:4341,ahmad:26363,malik:1594,darimi:3367};
+const totals={bukhari:6638,muslim:4930,tirmidzi:3625,'abu-daud':4419,nasai:5364,'ibnu-majah':4285,ahmad:4305,malik:1587,darimi:2949};
 const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function styles(){
  if($('#hadits-v14-style'))return;
