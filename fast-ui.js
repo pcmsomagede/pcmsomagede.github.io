@@ -4,7 +4,7 @@ const PANEL_IDS=new Set(['beranda','berita','pustaka','quran','kta','arsip','sua
 function loadScript(src,id){if(document.getElementById(id))return;const s=document.createElement('script');s.src=src;s.id=id;s.defer=true;document.body.appendChild(s)}
 function loadStyle(href,id){if(document.getElementById(id))return;const l=document.createElement('link');l.rel='stylesheet';l.href=href;l.id=id;document.head.appendChild(l)}
 function loadCore(){loadScript('quran-modern.js?v=20260827-02','quran-modern-loader');loadScript('hadits-ui.js?v=20260827-02','hadits-modern-loader');loadScript('site-v6.js?v=20260827-02','site-v6-loader');loadStyle('visual-upgrade-v10.css?v=20260827-02','site-v10-style-loader')}
-function loadPustaka(){loadScript('pustaka-modern.js?v=20260827-02','pustaka-modern-loader')}
+function loadPustaka(){loadScript('pustaka-modern.js?v=20260827-02','pustaka-modern-loader');loadScript('preview-content-only.js?v=20260827-01','preview-content-only-loader')}
 function loadRepair(){loadScript('repair-v11.js?v=20260827-02','repair-v11-loader')}
 function active(id,sub){const target=$('#'+id)||$('#beranda');$$('.panel').forEach(p=>p.classList.toggle('active',p===target));$$('.nav-item').forEach(a=>a.removeAttribute('aria-current'));const main=$(`.nav-item[href="#${id}"]`);if(main)main.setAttribute('aria-current','page');if(sub&&id==='berita')$(`#bmTabs [data-bm="${sub}"]`)?.click();if(sub&&id==='arsip')window.PCMArsip?.focus?.(sub);window.scrollTo({top:0,left:0,behavior:'auto'})}
 function ensureHaditsPanel(){let p=$('#hadits');if(p&&p.classList.contains('panel'))return p;if(p)p.remove();const main=$('main');if(!main)return null;p=document.createElement('section');p.id='hadits';p.className='panel';p.innerHTML='';main.appendChild(p);return p}
