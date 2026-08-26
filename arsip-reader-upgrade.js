@@ -1,0 +1,3 @@
+(()=>{'use strict';
+function run(){const root=document.querySelector('#arsip');if(!root||!window.PCMDocumentViewer)return;root.querySelectorAll('a[href]').forEach(a=>{if(a.dataset.dvBound)return;const u=a.getAttribute('href')||'';if(!/\.(pdf|docx?|odt)(?:$|[?#])/i.test(u))return;a.dataset.dvBound='1';a.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();window.PCMDocumentViewer.open({title:(a.textContent||'Dokumen').trim(),url:u,ext:(u.match(/\.(pdf|docx?|odt)/i)||[])[1]||''})},true)})}
+new MutationObserver(run).observe(document.body,{subtree:true,childList:true});setTimeout(run,1000);})();
