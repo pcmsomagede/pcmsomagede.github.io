@@ -1,0 +1,11 @@
+/* FULL DOCUMENT PREVIEW */
+.pm-reader .pm-dialog{width:min(1180px,98vw)!important;height:min(96vh,980px)!important;border-radius:18px!important}
+.pm-reader .pm-paper{padding:0!important;display:flex!important;overflow:hidden!important;background:#dfe8ee!important}
+.pm-reader .pm-doc{width:min(900px,94%)!important;max-width:none!important;min-height:100%!important;margin:0 auto!important;border-radius:0!important;padding:46px 56px!important;box-shadow:0 8px 30px rgba(8,45,88,.14)!important}
+.pm-reader .pm-doc iframe,.pm-reader .pm-doc img{display:block;width:100%;height:100%;min-height:calc(96vh - 82px);border:0;object-fit:contain;background:#fff}
+#arsipModal .dlg{width:min(1180px,98vw)!important;height:min(96vh,980px)!important}
+#arsipModal .pv{padding:0!important;display:flex!important;overflow:hidden!important}
+#arsipModal .paper{width:100%!important;max-width:none!important;min-height:100%!important;margin:0!important;padding:14px!important;border-radius:0!important;box-shadow:none!important;display:flex!important;flex-direction:column!important}
+#arsipModal .paper iframe{width:100%!important;height:calc(96vh - 130px)!important;min-height:560px!important;border:1px solid #cbdbe5!important;border-radius:10px!important;background:#fff!important;flex:1 1 auto!important}
+#arsipModal .paper .preview-link{display:none!important}
+@media(max-width:560px){.pm-reader{padding:0!important}.pm-reader .pm-dialog{height:100dvh!important;border-radius:0!important}.pm-reader .pm-doc{width:100%!important;padding:24px 18px!important}.pm-reader .pm-doc iframe,.pm-reader .pm-doc img{min-height:calc(100dvh - 72px)}#arsipModal .dlg{width:100vw!important;height:100dvh!important;border-radius:0!important}#arsipModal .paper{padding:6px!important}#arsipModal .paper iframe{height:calc(100dvh - 112px)!important;min-height:0!important}}
