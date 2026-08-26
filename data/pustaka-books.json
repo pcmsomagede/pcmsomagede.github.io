@@ -1,5 +1,5 @@
 {
-  "generated":"2026-08-25",
+  "generated":"2026-08-27",
   "items":[
     {"title":"Kode Indeks Surat Muhammadiyah","category":"Pedoman"},
     {"title":"Tanya Jawab Agama Jilid 1","category":"Referensi"},
@@ -53,6 +53,10 @@
     {"title":"Booklet AI Pedang Bermata Dua","category":"Teknologi"},
     {"title":"Booklet Rezeki & Zakat","category":"Booklet"},
     {"title":"Buku Naskah Khutbah Jum'at 1 Tahun","category":"Khutbah"},
-    {"title":"Khutbah Jumat Setahun","category":"Khutbah"}
+    {"title":"Khutbah Jumat Setahun","category":"Khutbah"},
+    {"title":"Risalah Islam Berkemajuan","category":"Muhammadiyah"},
+    {"title":"Negara Pancasila","category":"Muhammadiyah"},
+    {"title":"Dakwah Muhammadiyah dalam Masyarakat Digital: Peluang dan Tantangan","category":"Dakwah"},
+    {"title":"Khutbah Idul Fitri","category":"Khutbah"}
   ]
 }
