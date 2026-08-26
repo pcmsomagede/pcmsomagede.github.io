@@ -1,4 +1,4 @@
-/* TICKER-V25: final ticker fix. Do not declare transform: !important on animated track. */
+/* TICKER-V26: use CSS translate property, isolated from legacy transform rules. */
 .ticker.ticker.ticker.ticker {
   position: relative !important;
   overflow: hidden !important;
@@ -12,14 +12,11 @@
   min-width: max-content !important;
   height: 100% !important;
   align-items: center !important;
-  animation-name: pcmTickerV25 !important;
-  animation-duration: 28s !important;
-  animation-timing-function: linear !important;
-  animation-iteration-count: infinite !important;
-  animation-direction: normal !important;
-  animation-fill-mode: none !important;
+  transform: none !important;
+  translate: 0 0 !important;
+  animation: pcmTickerV26 26s linear infinite !important;
   animation-play-state: running !important;
-  will-change: transform !important;
+  will-change: translate !important;
 }
 .ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track > span {
   display: block !important;
@@ -33,25 +30,17 @@
   font-style: italic !important;
   letter-spacing: .01em !important;
 }
-@keyframes pcmTickerV25 {
-  from { transform: translate3d(0,0,0); }
-  to { transform: translate3d(-50%,0,0); }
+@keyframes pcmTickerV26 {
+  from { translate: 0 0; }
+  to { translate: -50% 0; }
 }
 @media (max-width:700px) {
   .ticker.ticker.ticker.ticker { height: 34px !important; }
   .ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track {
-    animation-duration: 22s !important;
+    animation-duration: 20s !important;
   }
   .ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track > span {
     padding: 4px 42px 4px 13px !important;
     font-size: 12px !important;
-  }
-}
-@media (prefers-reduced-motion:reduce) {
-  .ticker.ticker.ticker.ticker .ticker-track.ticker-track.ticker-track {
-    animation-name: pcmTickerV25 !important;
-    animation-duration: 28s !important;
-    animation-iteration-count: infinite !important;
-    animation-play-state: running !important;
   }
 }
