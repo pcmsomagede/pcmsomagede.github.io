@@ -1,17 +1,384 @@
 {
-  "generated": "2026-08-27T12:43:33Z",
-  "total": 1,
+  "generated": "2026-08-27T22:29:11Z",
+  "total": 61,
   "items": [
     {
-      "title": "Halal-Haram dalam Persoalan Kuliner di Luar Negeri",
+      "title": "Relasi Muhammadiyah dengan Negara",
+      "category": "buku",
+      "source_page": "https://muhammadiyah.or.id/2024/10/relasi-muhammadiyah-dengan-negara/",
+      "date": "2024-10-14T10:23:53",
+      "pdf_source": "https://muhammadiyah.or.id/wp-content/uploads/2020/07/kitab_masalah5.pdf",
+      "docx_source": "",
+      "source_group": "muhammadiyah"
+    },
+    {
+      "title": "Mengapa Bulan Muharram Disebut dengan Arba’atun Hurum?",
+      "category": "tafsir",
+      "source_page": "https://muhammadiyah.or.id/2024/07/mengapa-bulan-muharram-disebut-dengan-arbaatun-hurum/",
+      "date": "2024-07-05T11:04:40",
+      "pdf_source": "https://tarjih.or.id/wp-content/uploads/2020/08/Amal-Ibadah-di-Bulan-Muharram-converted.pdf",
+      "docx_source": "",
+      "source_group": "muhammadiyah"
+    },
+    {
+      "title": "Fatwa-Fatwa Ulama, Keterangan Para Ustadz dan Ahli Medis Di Indonesia Tentang Bolehnya Imunisasi-Vaksinasi",
+      "category": "khutbah",
+      "source_page": "https://muslimafiyah.com/fatwa-fatwa-ulama-keterangan-para-ustadz-dan-ahli-medis-di-indonesia-tentang-bolehnya-imunisasi-vaksinasi.html",
+      "date": "2012-04-08T11:20:04",
+      "pdf_source": "http://jambi.kemenag.go.id/file/dokumen/fatwavaksin.pdf",
+      "docx_source": "",
+      "source_group": "salafi"
+    },
+    {
+      "title": "Penjelasan Berita “Belum Ada Vaksin Yang Halal Untuk Bayi”",
+      "category": "buku",
+      "source_page": "https://muslimafiyah.com/penjelasan-berita-belum-ada-vaksin-yang-halal-untuk-bayi.html",
+      "date": "2015-05-13T20:07:11",
+      "pdf_source": "http://jambi.kemenag.go.id/file/dokumen/fatwavaksin.pdf",
+      "docx_source": "",
+      "source_group": "salafi"
+    },
+    {
+      "title": "Kode Indeks Surat Muhammadiyah",
+      "category": "Pedoman",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tanya Jawab Agama Jilid 1",
+      "category": "Referensi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tanya Jawab Agama Jilid 2",
+      "category": "Referensi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tanya Jawab Agama Jilid 3",
+      "category": "Referensi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tanya Jawab Agama Jilid 5",
+      "category": "Referensi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tanya Jawab Agama Jilid 6",
+      "category": "Referensi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tanya Jawab Agama Jilid 7",
+      "category": "Referensi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tanya Jawab Agama Jilid 8",
+      "category": "Referensi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Tuntunan Tabligh",
+      "category": "Dakwah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Dua Menyemai Damai",
+      "category": "Bacaan",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Himpunan Peraturan Organisasi Muhammadiyah 2022",
+      "category": "Pedoman",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Muhammadiyah Ahmad Dahlan Menemukan Kembali Otentitas Gerakan",
+      "category": "Sejarah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Muhammadiyah dalam Perspektif Sejarah, Organisasi dan Sistem Nilai",
+      "category": "Sejarah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Muhammadiyah Jawa — Ahmad Najib Burhani",
+      "category": "Sejarah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Pedoman Tata Naskah Dinas Muhammadiyah",
+      "category": "Pedoman",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Percik Pemikiran Tokoh Muhammadiyah untuk Indonesia Berkemajuan",
+      "category": "Bacaan",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Rezim Gender Muhammadiyah: Kontestasi Gender, Identitas dan Eksistensi",
+      "category": "Bacaan",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tafsir Al-Ma'un Abad II Muhammadiyah",
+      "category": "Tafsir",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku KHGT: Keunggulan dan Kritikan Kepadanya",
+      "category": "KHGT",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Kumpulan Doa Sehari-hari",
+      "category": "Ibadah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Hikmah Ramadhan",
+      "category": "Ramadhan",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Arah Kebijakan PWM",
+      "category": "Pedoman",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Retorika Dakwah",
+      "category": "Dakwah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Kajian Tafsir Ayat-Ayat Dakwah",
+      "category": "Tafsir",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Kitab As-Shiyam dan Zakat Fithri Menurut Putusan Muhammadiyah",
+      "category": "Ibadah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Pedoman Masjid Muhammadiyah",
+      "category": "Pedoman",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Fikih Salat Berjamaah — Dr. Ali Trigiyatno, M.Ag",
+      "category": "Ibadah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Himpunan Putusan Tarjih Buku 1",
       "category": "Tarjih",
-      "pdf_source": "https://tarjih.or.id/wp-content/uploads/2025/11/e-book-Halal-Haram-dalam-Persoalan-Kuliner-di-Luar-Negeri.pdf",
-      "pdf_url": "https://res.cloudinary.com/v6hqki7m/image/upload/v1787834613/e-book-Halal-Haram-dalam-Persoalan-Kuliner-di-Luar-Negeri_vxjwdh.pdf",
-      "cloudinary_url": "https://res.cloudinary.com/v6hqki7m/image/upload/v1787834613/e-book-Halal-Haram-dalam-Persoalan-Kuliner-di-Luar-Negeri_vxjwdh.pdf",
-      "status": "ready",
-      "cover_url": "https://res.cloudinary.com/v6hqki7m/image/upload/v1787834613/e-book-Halal-Haram-dalam-Persoalan-Kuliner-di-Luar-Negeri_vxjwdh.jpg",
-      "docx_status": "pending",
-      "docx_error": "401 Client Error: Unauthorized for url: https://res.cloudinary.com/v6hqki7m/image/upload/v1787834613/e-book-Halal-Haram-dalam-Persoalan-Kuliner-di-Luar-Negeri_vxjwdh.pdf"
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Himpunan Putusan Tarjih Ketikan Ulang",
+      "category": "Tarjih",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "AD/ART Muhammadiyah Tahun 2020",
+      "category": "Pedoman",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Pedoman Hidup Islami Warga Muhammadiyah",
+      "category": "Pedoman",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Tuntunan Perawatan Jenazah",
+      "category": "Ibadah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Pedoman Perkaderan di Perguruan Tinggi Muhammadiyah-'Aisyiyah",
+      "category": "Kaderisasi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Pedoman Pelaksanaan Perkaderan Muhammadiyah",
+      "category": "Kaderisasi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Modul Baitul Arqam",
+      "category": "Kaderisasi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Sistem Perkaderan Muhammadiyah",
+      "category": "Kaderisasi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Pedoman Perkaderan di Amal Usaha Kesehatan Muhammadiyah",
+      "category": "Kaderisasi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Sains Dunia sebagai I'jazul Qur'an",
+      "category": "Sains",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Praktek Python untuk Astronomi Islam",
+      "category": "Teknologi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Beda Manhaj Fikih NU Muhammadiyah",
+      "category": "Fikih",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Peta Jalan Persyarikatan Muhammadiyah",
+      "category": "Strategi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Panduan Dakwah Digital Muhammadiyah Era AI Sekolah Tabligh",
+      "category": "Dakwah Digital",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Kuliah Akhlaq",
+      "category": "Akhlak",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Kosmologi Nuzulul Qur'an",
+      "category": "Tafsir",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Fakta Sejarah dan Mitos Walisongo",
+      "category": "Sejarah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Booklet Membongkar Mitos Bulan Rajab",
+      "category": "Booklet",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Booklet Tipu Daya Setan yang Lemah",
+      "category": "Booklet",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Booklet Ringkasan Himpunan Putusan Tarjih Jilid 1",
+      "category": "Booklet",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Booklet Fikih Muamalah",
+      "category": "Booklet",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Booklet AI Pedang Bermata Dua",
+      "category": "Teknologi",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Booklet Rezeki & Zakat",
+      "category": "Booklet",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Buku Naskah Khutbah Jum'at 1 Tahun",
+      "category": "Khutbah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Khutbah Jumat Setahun",
+      "category": "Khutbah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Risalah Islam Berkemajuan",
+      "category": "Muhammadiyah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Negara Pancasila",
+      "category": "Muhammadiyah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Dakwah Muhammadiyah dalam Masyarakat Digital: Peluang dan Tantangan",
+      "category": "Dakwah",
+      "status": "index-only",
+      "source": "legacy-index"
+    },
+    {
+      "title": "Khutbah Idul Fitri",
+      "category": "Khutbah",
+      "status": "index-only",
+      "source": "legacy-index"
     }
   ]
 }
