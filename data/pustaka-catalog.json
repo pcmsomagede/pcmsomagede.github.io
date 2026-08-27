@@ -1,384 +1,150 @@
 {
-  "generated": "2026-08-27T22:29:11Z",
-  "total": 61,
+  "generated": "2026-08-27T23:06:39Z",
+  "total": 12,
   "items": [
     {
-      "title": "Relasi Muhammadiyah dengan Negara",
-      "category": "buku",
-      "source_page": "https://muhammadiyah.or.id/2024/10/relasi-muhammadiyah-dengan-negara/",
-      "date": "2024-10-14T10:23:53",
-      "pdf_source": "https://muhammadiyah.or.id/wp-content/uploads/2020/07/kitab_masalah5.pdf",
-      "docx_source": "",
-      "source_group": "muhammadiyah"
-    },
-    {
-      "title": "Mengapa Bulan Muharram Disebut dengan Arba’atun Hurum?",
-      "category": "tafsir",
-      "source_page": "https://muhammadiyah.or.id/2024/07/mengapa-bulan-muharram-disebut-dengan-arbaatun-hurum/",
-      "date": "2024-07-05T11:04:40",
-      "pdf_source": "https://tarjih.or.id/wp-content/uploads/2020/08/Amal-Ibadah-di-Bulan-Muharram-converted.pdf",
-      "docx_source": "",
-      "source_group": "muhammadiyah"
-    },
-    {
-      "title": "Fatwa-Fatwa Ulama, Keterangan Para Ustadz dan Ahli Medis Di Indonesia Tentang Bolehnya Imunisasi-Vaksinasi",
+      "title": "Khutbah Jumat: Bahaya Rokok dalam Perspektif Al-Qur’an dan Sunnah",
       "category": "khutbah",
-      "source_page": "https://muslimafiyah.com/fatwa-fatwa-ulama-keterangan-para-ustadz-dan-ahli-medis-di-indonesia-tentang-bolehnya-imunisasi-vaksinasi.html",
-      "date": "2012-04-08T11:20:04",
-      "pdf_source": "http://jambi.kemenag.go.id/file/dokumen/fatwavaksin.pdf",
-      "docx_source": "",
-      "source_group": "salafi"
+      "source_page": "https://muhammadiyah.or.id/2026/05/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-quran-dan-sunnah/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-qur-an-dan-sunnah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-qur-an-dan-sunnah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-qur-an-dan-sunnah.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-05-15T10:44:16"
     },
     {
-      "title": "Penjelasan Berita “Belum Ada Vaksin Yang Halal Untuk Bayi”",
-      "category": "buku",
-      "source_page": "https://muslimafiyah.com/penjelasan-berita-belum-ada-vaksin-yang-halal-untuk-bayi.html",
-      "date": "2015-05-13T20:07:11",
-      "pdf_source": "http://jambi.kemenag.go.id/file/dokumen/fatwavaksin.pdf",
-      "docx_source": "",
-      "source_group": "salafi"
+      "title": "Khutbah Jumat: Kemerdekaan dalam Bingkai Baldatun Thayyibatun Wa Rabbun Ghafur",
+      "category": "khutbah",
+      "source_page": "https://muhammadiyah.or.id/2026/08/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-08-12T20:28:17"
     },
     {
-      "title": "Kode Indeks Surat Muhammadiyah",
-      "category": "Pedoman",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Khutbah Jumat: Keutamaan Puasa Tasua dan Asyura",
+      "category": "khutbah",
+      "source_page": "https://muhammadiyah.or.id/2026/06/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-06-17T14:29:29"
     },
     {
-      "title": "Tanya Jawab Agama Jilid 1",
-      "category": "Referensi",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Khutbah Jumat: Menempatkan Amanah Jabatan Pada Ahlinya",
+      "category": "khutbah",
+      "source_page": "https://muhammadiyah.or.id/2026/06/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-06-11T10:07:49"
     },
     {
-      "title": "Tanya Jawab Agama Jilid 2",
-      "category": "Referensi",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Khutbah Jumat: Menjemput Ramadan dengan Puasa Sunah di Bulan Sya’ban",
+      "category": "khutbah",
+      "source_page": "https://muhammadiyah.or.id/2026/01/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-syaban/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-sya-ban.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-sya-ban.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-sya-ban.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-01-22T11:09:31"
     },
     {
-      "title": "Tanya Jawab Agama Jilid 3",
-      "category": "Referensi",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Khutbah Jumat: Menyelaraskan Qalb, ‘Aql, dan Nafs Menuju Jiwa yang Tenang",
+      "category": "khutbah",
+      "source_page": "https://muhammadiyah.or.id/2026/06/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-06-05T10:03:44"
     },
     {
-      "title": "Tanya Jawab Agama Jilid 5",
-      "category": "Referensi",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Khutbah Jumat: Mewujudkan Negara Pancasila sebagai Darul Ahdi wa Syahadah",
+      "category": "khutbah",
+      "source_page": "https://muhammadiyah.or.id/2025/08/khutbah-jumat-mewujudkan-negara-pancasila-sebagai-darul-ahdi-wa-syahadah/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-mewujudkan-negara-pancasila-sebagai-darul-ahdi-wa-syahadah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-mewujudkan-negara-pancasila-sebagai-darul-ahdi-wa-syahadah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-mewujudkan-negara-pancasila-sebagai-darul-ahdi-wa-syahadah.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2025-08-14T10:06:01"
     },
     {
-      "title": "Tanya Jawab Agama Jilid 6",
-      "category": "Referensi",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Khutbah Jumat: Ta’aruf sebagai Jalan Menuju Keluarga Sakinah",
+      "category": "khutbah",
+      "source_page": "https://muhammadiyah.or.id/2026/07/khutbah-jumat-taaruf-sebagai-jalan-menuju-keluarga-sakinah/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-ta-aruf-sebagai-jalan-menuju-keluarga-sakinah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-ta-aruf-sebagai-jalan-menuju-keluarga-sakinah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-ta-aruf-sebagai-jalan-menuju-keluarga-sakinah.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-07-28T09:49:43"
     },
     {
-      "title": "Tanya Jawab Agama Jilid 7",
-      "category": "Referensi",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Agar Kultum Ramadhan Tidak Terasa Membosankan",
+      "category": "kultum",
+      "source_page": "https://muhammadiyah.or.id/2024/02/agar-kultum-ramadhan-tidak-terasa-membosankan/",
+      "pdf_source": "/assets/pustaka-files/agar-kultum-ramadhan-tidak-terasa-membosankan.pdf",
+      "docx_source": "/assets/pustaka-docx/agar-kultum-ramadhan-tidak-terasa-membosankan.docx",
+      "cover_url": "/assets/pustaka-covers/agar-kultum-ramadhan-tidak-terasa-membosankan.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2024-02-19T09:14:43"
     },
     {
-      "title": "Tanya Jawab Agama Jilid 8",
-      "category": "Referensi",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Kultum Ramadan: Masjid Sebagai Pusat Kemanusiaan",
+      "category": "kultum",
+      "source_page": "https://muhammadiyah.or.id/2026/03/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan/",
+      "pdf_source": "/assets/pustaka-files/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan.pdf",
+      "docx_source": "/assets/pustaka-docx/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan.docx",
+      "cover_url": "/assets/pustaka-covers/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-03-02T10:09:52"
     },
     {
-      "title": "Buku Tuntunan Tabligh",
-      "category": "Dakwah",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Kultum Ramadan: Memaknai Amal Jariyah Lebih Luas",
+      "category": "kultum",
+      "source_page": "https://muhammadiyah.or.id/2026/02/kultum-ramadan-memaknai-amal-jariyah-lebih-luas/",
+      "pdf_source": "/assets/pustaka-files/kultum-ramadan-memaknai-amal-jariyah-lebih-luas.pdf",
+      "docx_source": "/assets/pustaka-docx/kultum-ramadan-memaknai-amal-jariyah-lebih-luas.docx",
+      "cover_url": "/assets/pustaka-covers/kultum-ramadan-memaknai-amal-jariyah-lebih-luas.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-02-27T09:04:25"
     },
     {
-      "title": "Dua Menyemai Damai",
-      "category": "Bacaan",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Himpunan Peraturan Organisasi Muhammadiyah 2022",
-      "category": "Pedoman",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Muhammadiyah Ahmad Dahlan Menemukan Kembali Otentitas Gerakan",
-      "category": "Sejarah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Muhammadiyah dalam Perspektif Sejarah, Organisasi dan Sistem Nilai",
-      "category": "Sejarah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Muhammadiyah Jawa — Ahmad Najib Burhani",
-      "category": "Sejarah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Pedoman Tata Naskah Dinas Muhammadiyah",
-      "category": "Pedoman",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Percik Pemikiran Tokoh Muhammadiyah untuk Indonesia Berkemajuan",
-      "category": "Bacaan",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Rezim Gender Muhammadiyah: Kontestasi Gender, Identitas dan Eksistensi",
-      "category": "Bacaan",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Tafsir Al-Ma'un Abad II Muhammadiyah",
-      "category": "Tafsir",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku KHGT: Keunggulan dan Kritikan Kepadanya",
-      "category": "KHGT",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Kumpulan Doa Sehari-hari",
-      "category": "Ibadah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Hikmah Ramadhan",
-      "category": "Ramadhan",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Arah Kebijakan PWM",
-      "category": "Pedoman",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Retorika Dakwah",
-      "category": "Dakwah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Kajian Tafsir Ayat-Ayat Dakwah",
-      "category": "Tafsir",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Kitab As-Shiyam dan Zakat Fithri Menurut Putusan Muhammadiyah",
-      "category": "Ibadah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Pedoman Masjid Muhammadiyah",
-      "category": "Pedoman",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Fikih Salat Berjamaah — Dr. Ali Trigiyatno, M.Ag",
-      "category": "Ibadah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Himpunan Putusan Tarjih Buku 1",
-      "category": "Tarjih",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Himpunan Putusan Tarjih Ketikan Ulang",
-      "category": "Tarjih",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "AD/ART Muhammadiyah Tahun 2020",
-      "category": "Pedoman",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Pedoman Hidup Islami Warga Muhammadiyah",
-      "category": "Pedoman",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Tuntunan Perawatan Jenazah",
-      "category": "Ibadah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Pedoman Perkaderan di Perguruan Tinggi Muhammadiyah-'Aisyiyah",
-      "category": "Kaderisasi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Pedoman Pelaksanaan Perkaderan Muhammadiyah",
-      "category": "Kaderisasi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Modul Baitul Arqam",
-      "category": "Kaderisasi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Sistem Perkaderan Muhammadiyah",
-      "category": "Kaderisasi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Pedoman Perkaderan di Amal Usaha Kesehatan Muhammadiyah",
-      "category": "Kaderisasi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Sains Dunia sebagai I'jazul Qur'an",
-      "category": "Sains",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Praktek Python untuk Astronomi Islam",
-      "category": "Teknologi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Beda Manhaj Fikih NU Muhammadiyah",
-      "category": "Fikih",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Peta Jalan Persyarikatan Muhammadiyah",
-      "category": "Strategi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Panduan Dakwah Digital Muhammadiyah Era AI Sekolah Tabligh",
-      "category": "Dakwah Digital",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Kuliah Akhlaq",
-      "category": "Akhlak",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Kosmologi Nuzulul Qur'an",
-      "category": "Tafsir",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Fakta Sejarah dan Mitos Walisongo",
-      "category": "Sejarah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Booklet Membongkar Mitos Bulan Rajab",
-      "category": "Booklet",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Booklet Tipu Daya Setan yang Lemah",
-      "category": "Booklet",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Booklet Ringkasan Himpunan Putusan Tarjih Jilid 1",
-      "category": "Booklet",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Booklet Fikih Muamalah",
-      "category": "Booklet",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Booklet AI Pedang Bermata Dua",
-      "category": "Teknologi",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Booklet Rezeki & Zakat",
-      "category": "Booklet",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Buku Naskah Khutbah Jum'at 1 Tahun",
-      "category": "Khutbah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Khutbah Jumat Setahun",
-      "category": "Khutbah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Risalah Islam Berkemajuan",
-      "category": "Muhammadiyah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Negara Pancasila",
-      "category": "Muhammadiyah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Dakwah Muhammadiyah dalam Masyarakat Digital: Peluang dan Tantangan",
-      "category": "Dakwah",
-      "status": "index-only",
-      "source": "legacy-index"
-    },
-    {
-      "title": "Khutbah Idul Fitri",
-      "category": "Khutbah",
-      "status": "index-only",
-      "source": "legacy-index"
+      "title": "Kultum Ramadan: Ukhuwah di Bulan yang Suci",
+      "category": "kultum",
+      "source_page": "https://muhammadiyah.or.id/2026/02/kultum-ramadan-ukhuwah-di-bulan-yang-suci/",
+      "pdf_source": "/assets/pustaka-files/kultum-ramadan-ukhuwah-di-bulan-yang-suci.pdf",
+      "docx_source": "/assets/pustaka-docx/kultum-ramadan-ukhuwah-di-bulan-yang-suci.docx",
+      "cover_url": "/assets/pustaka-covers/kultum-ramadan-ukhuwah-di-bulan-yang-suci.jpg",
+      "source_group": "muhammadiyah",
+      "language": "id",
+      "type": "article-export",
+      "date": "2026-02-25T22:26:56"
     }
   ]
 }
