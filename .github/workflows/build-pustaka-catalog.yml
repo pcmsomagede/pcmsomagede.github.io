@@ -6,8 +6,8 @@ on:
     paths:
       - 'tools/build_pustaka_catalog.py'
       - 'data/pustaka-books.json'
-      - 'pustaka-modern-v4.js'
-      - 'document-viewer-v2.js'
+      - 'pustaka-modern-v6.js'
+      - 'document-viewer-v3.js'
   schedule:
     - cron: '23 3 * * 2'
   workflow_dispatch:
@@ -36,8 +36,8 @@ jobs:
         env:
           CLOUDINARY_CLOUD_NAME: v6hqki7m
           CLOUDINARY_UPLOAD_PRESET: pcmsomagede_document
-          PUSTAKA_MAX_PAGES: '1000'
-          PUSTAKA_MAX_ITEMS: '100000'
+          PUSTAKA_MAX_PAGES: '10000'
+          PUSTAKA_MAX_ITEMS: '1000000'
           PUSTAKA_GENERATE_DOCX: '1'
         run: python tools/build_pustaka_catalog.py
       - name: Commit catalog
