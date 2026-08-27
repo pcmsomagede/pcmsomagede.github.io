@@ -6,7 +6,8 @@ on:
     paths:
       - 'tools/build_pustaka_catalog.py'
       - 'data/pustaka-books.json'
-      - 'pustaka-ui.js'
+      - 'pustaka-modern-v4.js'
+      - 'document-viewer-v2.js'
   schedule:
     - cron: '23 3 * * 2'
   workflow_dispatch:
@@ -21,18 +22,20 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+      - name: Install catalog dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 pdf2docx
       - name: Build and migrate PustakaMu assets
         env:
           CLOUDINARY_CLOUD_NAME: v6hqki7m
           CLOUDINARY_UPLOAD_PRESET: pcmsomagede_document
-          PUSTAKA_MAX_ITEMS: '180'
+          PUSTAKA_MAX_ITEMS: '1000'
+          PUSTAKA_GENERATE_DOCX: '1'
         run: python tools/build_pustaka_catalog.py
       - name: Commit catalog
         run: |
