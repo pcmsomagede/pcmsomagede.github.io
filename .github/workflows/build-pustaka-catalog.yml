@@ -34,7 +34,8 @@ jobs:
         env:
           CLOUDINARY_CLOUD_NAME: v6hqki7m
           CLOUDINARY_UPLOAD_PRESET: pcmsomagede_document
-          PUSTAKA_MAX_ITEMS: '1000'
+          PUSTAKA_MAX_PAGES: '1000'
+          PUSTAKA_MAX_ITEMS: '100000'
           PUSTAKA_GENERATE_DOCX: '1'
         run: python tools/build_pustaka_catalog.py
       - name: Commit catalog
