@@ -5,9 +5,10 @@ on:
     branches: [main]
     paths:
       - 'tools/build_pustaka_catalog.py'
+      - 'tools/pustaka_catalog_guard.py'
       - 'data/pustaka-books.json'
-      - 'pustaka-modern-v6.js'
-      - 'document-viewer-v3.js'
+      - 'pustaka-modern-v13.js'
+      - 'document-viewer-v5.js'
   schedule:
     - cron: '23 3 * * 2'
   workflow_dispatch:
@@ -39,7 +40,9 @@ jobs:
           PUSTAKA_MAX_PAGES: '10000'
           PUSTAKA_MAX_ITEMS: '1000000'
           PUSTAKA_GENERATE_DOCX: '1'
-        run: python tools/build_pustaka_catalog.py
+        run: |
+          python tools/build_pustaka_catalog.py
+          python tools/pustaka_catalog_guard.py
       - name: Commit catalog
         run: |
           git config user.name "PCM Somagede Pustaka Bot"
