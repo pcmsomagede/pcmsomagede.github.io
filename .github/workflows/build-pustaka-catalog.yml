@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'tools/build_pustaka_catalog_v2.py'
+      - 'tools/build_pustaka_catalog_v3.py'
       - 'tools/pustaka_catalog_guard.py'
       - 'data/pustaka-books.json'
   schedule:
@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: pustaka-catalog-v2
+  group: pustaka-catalog-v3
   cancel-in-progress: true
 
 jobs:
@@ -31,17 +31,19 @@ jobs:
           python-version: '3.12'
       - name: Install catalog dependencies
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4 pymupdf python-docx
-      - name: Build strict PustakaMu catalog
+      - name: Build local PustakaMu documents
         env:
           PUSTAKA_MAX_ITEMS: '1000000'
-        run: python tools/build_pustaka_catalog_v2.py
-      - name: Commit catalog and local documents safely
+        run: python tools/build_pustaka_catalog_v3.py
+      - name: Enforce usable catalog records
+        run: python tools/pustaka_catalog_guard.py
+      - name: Commit generated catalog and assets safely
         run: |
           git config user.name "PCM Somagede Pustaka Bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/pustaka-catalog.json assets/pustaka-files assets/pustaka-covers assets/pustaka-docx
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "Build local PustakaMu documents and covers [skip ci]"
+          git commit -m "Build usable PustakaMu documents [skip ci]"
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
