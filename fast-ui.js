@@ -2,8 +2,8 @@
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const PANELS=new Set(['beranda','berita','pustaka','quran','kta','arsip','suara','kontak','struktur']);
 function load(src,id){if(document.getElementById(id))return;const s=document.createElement('script');s.src=src;s.id=id;s.defer=true;s.onload=()=>window.dispatchEvent(new CustomEvent('pcm:script-ready',{detail:{id}}));document.body.appendChild(s)}
-function core(){load('quran-modern.js?v=20260828-08','quran-modern-loader');load('hadits-ui.js?v=20260828-08','hadits-modern-loader');load('site-v6.js?v=20260828-08','site-v6-loader');load('document-viewer-v7.js?v=20260828-01','document-viewer-loader')}
-function pustaka(){load('pustaka-final-v4.js?v=20260828-01','pustaka-final-loader');load('document-viewer-v7.js?v=20260828-01','document-viewer-loader')}
+function core(){load('quran-modern.js?v=20260828-08','quran-modern-loader');load('hadits-ui.js?v=20260828-08','hadits-modern-loader');load('site-v6.js?v=20260828-08','site-v6-loader');load('document-viewer-v7.js?v=20260828-02','document-viewer-loader')}
+function pustaka(){load('pustaka-final-v4.js?v=20260828-44','pustaka-final-loader');load('document-viewer-v7.js?v=20260828-02','document-viewer-loader')}
 function archives(){load('arsip-ui.js?v=20260828-08','arsip-v28-loader')}
 function active(id){const p=$('#'+id)||$('#beranda');$$('.panel').forEach(x=>x.classList.toggle('active',x===p));window.scrollTo(0,0)}
 function tickerLock(){const t=$('.ticker-track');if(!t||t.__pcmTickerLock)return;t.__pcmTickerLock=true;const st=document.createElement('style');st.id='pcm-ticker-final';st.textContent=`.ticker{height:35px!important;overflow:hidden!important;position:relative!important;white-space:nowrap!important}.ticker-track{display:flex!important;width:max-content!important;min-width:max-content!important;height:35px!important;will-change:transform!important;animation:pcmTickerFinal 28s linear infinite!important}.ticker-track>*{flex:0 0 auto!important}@keyframes pcmTickerFinal{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}`;document.head.appendChild(st)}
