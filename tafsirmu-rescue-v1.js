@@ -1,1 +1,15 @@
-(()=>{'use strict';function mount(){const p=document.querySelector('#tafsir');if(!p)return;const id='tafsirmu-static-loader-v2';let s=document.getElementById(id);const run=()=>window.PCMTafsirStatic?.mount?.();if(window.PCMTafsirStatic)return run();if(!s){s=document.createElement('script');s.id=id;s.src='tafsirmu-static-v1.js?v=20260828-02';s.onload=run;s.onerror=()=>{};document.head.appendChild(s)}}window.PCMTafsirRescue={mount};})();
+(()=>{
+'use strict';
+async function load(src,id){
+ const old=document.getElementById(id); if(old && window[id+'__loaded']) return;
+ if(old) old.remove();
+ await new Promise((ok,no)=>{const s=document.createElement('script');s.id=id;s.src=src;s.onload=()=>{window[id+'__loaded']=true;ok()};s.onerror=no;document.head.appendChild(s)});
+}
+async function mount(){
+ const p=document.querySelector('#tafsir'); if(!p)return;
+ await load('tafsirmu-manifest.js?v=20260828-01','tafsirmu-manifest-loader');
+ await load('tafsirmu-static-v1.js?v=20260828-02','tafsirmu-static-loader');
+ if(window.PCMTafsirStatic?.mount) return window.PCMTafsirStatic.mount();
+}
+window.PCMTafsirRescue={mount};
+})();
