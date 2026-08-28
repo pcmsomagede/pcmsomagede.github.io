@@ -5,6 +5,7 @@ on:
     paths:
       - 'data/tafsir-40-targets.json'
       - 'scripts/build_tafsir_release_v3.py'
+      - 'tafsirmu-final.js'
       - '.github/workflows/build-tafsir-assets.yml'
   workflow_dispatch:
 
