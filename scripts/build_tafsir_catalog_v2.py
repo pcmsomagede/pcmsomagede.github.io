@@ -8,8 +8,9 @@ DATA=ROOT/'data'; OUT=ROOT/'media'/'tafsir'
 TARGETS=DATA/'tafsir-40-targets.json'
 MANIFEST=DATA/'tafsir-assets.json'
 API='https://api.quranpedia.net/v1'
+BASE_WEB='https://quranpedia.net'
 TIMEOUT=90
-HEADERS={'User-Agent':'PustakaMu-TafsirMu/4.2 (PCM Somagede)'}
+HEADERS={'User-Agent':'PustakaMu-TafsirMu/4.3 (PCM Somagede)'}
 
 
 def slug(s):
@@ -29,6 +30,11 @@ def get_json(url, tries=4):
     raise last
 
 
+def get_html(url):
+    r=requests.get(url,headers=HEADERS,timeout=TIMEOUT)
+    r.raise_for_status(); return r.text
+
+
 def book_items(data):
     if isinstance(data,dict):
         if isinstance(data.get('items'),list): return data['items']
@@ -41,8 +47,7 @@ def norm(s): return re.sub(r'[^a-z0-9\u0600-\u06ff]+','',str(s).lower())
 
 
 def pick_book(items,target):
-    q=norm(target.get('query','')); a=norm(target.get('author',''))
-    scored=[]
+    q=norm(target.get('query','')); a=norm(target.get('author','')); scored=[]
     for x in items or []:
         info=x.get('book_info') if isinstance(x.get('book_info'),dict) else x
         name=norm(info.get('name','')); auth=norm(info.get('author','')); typ=norm(info.get('type','')); cat=norm(info.get('category',''))
@@ -56,14 +61,21 @@ def pick_book(items,target):
     return scored[0][1] if scored and scored[0][0]>=5 else None
 
 
+def scrape_book_assets(book_id):
+    html=get_html(f'{BASE_WEB}/book/{book_id}')
+    pdfs=[]; docs=[]
+    for raw in re.findall(r'href=[\"\']([^\"\']+)[\"\']',html,re.I):
+        u=urljoin(BASE_WEB+'/',raw); low=u.lower().split('?')[0]
+        if low.endswith('.pdf') and u not in pdfs: pdfs.append(u)
+        elif low.endswith(('.docx','.doc')) and u not in docs: docs.append(u)
+    return pdfs,docs
+
+
 def fetch_detail(target):
-    q=quote(target['query'],safe='')
-    data=get_json(f'{API}/search/{q}/books')
-    book=pick_book(book_items(data),target)
+    q=quote(target['query'],safe=''); data=get_json(f'{API}/search/{q}/books'); book=pick_book(book_items(data),target)
     if not book: raise RuntimeError('kitab tidak ditemukan pada indeks kitab tafsir')
     detail=get_json(f'{API}/book/{book["id"]}')
-    typ=str(detail.get('type','')).lower(); cat=detail.get('category') or {}
-    catname=str(cat.get('name','') if isinstance(cat,dict) else cat).lower()
+    typ=str(detail.get('type','')).lower(); cat=detail.get('category') or {}; catname=str(cat.get('name','') if isinstance(cat,dict) else cat).lower()
     if typ!='tafsir' and 'tafsir' not in catname and 'تفسير' not in catname: raise RuntimeError('hasil bukan kitab tafsir')
     attachments=[]
     for a in detail.get('book_attachments') or []:
@@ -73,6 +85,8 @@ def fetch_detail(target):
         if low.endswith(('.pdf','.docx','.doc')): attachments.append({'url':u,'part':a.get('part',1)})
     pdfs=sorted({x['url'] for x in attachments if x['url'].lower().split('?')[0].endswith('.pdf')})
     docs=sorted({x['url'] for x in attachments if x['url'].lower().split('?')[0].endswith(('.docx','.doc'))})
+    if not pdfs and not docs:
+        pdfs,docs=scrape_book_assets(book['id'])
     return detail,pdfs,docs
 
 
@@ -141,17 +155,10 @@ def build_from_contents(detail,target,pdf_out,docx_out,cover_out):
 def make_docx_from_pdf(pdf,out):
     with tempfile.TemporaryDirectory() as td:
         t=Path(td)
-        try:
-            run(['libreoffice','--headless','--convert-to','docx','--outdir',str(t),str(pdf)])
-            made=t/(pdf.stem+'.docx')
-            if made.exists() and made.stat().st_size>1000: shutil.copy2(made,out); return
-        except Exception: pass
-        text=t/(pdf.stem+'.txt'); run(['pdftotext','-layout',str(pdf),str(text)])
-        from docx import Document
-        from docx.shared import Pt
-        d=Document(); d.styles['Normal'].font.name='Noto Sans'; d.styles['Normal'].font.size=Pt(10)
-        for line in text.read_text(errors='ignore').splitlines(): d.add_paragraph(line)
-        d.save(out)
+        run(['libreoffice','--headless','--convert-to','docx','--outdir',str(t),str(pdf)])
+        made=t/(pdf.stem+'.docx')
+        if not made.exists(): raise RuntimeError('DOCX generation failed')
+        shutil.copy2(made,out)
 
 
 def make_cover(pdf,out): run(['pdftoppm','-f','1','-singlefile','-png','-r','150',str(pdf),str(out.with_suffix(''))])
@@ -159,15 +166,14 @@ def make_cover(pdf,out): run(['pdftoppm','-f','1','-singlefile','-png','-r','150
 
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
-    targets=json.loads(TARGETS.read_text(encoding='utf-8'))['items']
-    results=[]; failures=[]
+    targets=json.loads(TARGETS.read_text(encoding='utf-8'))['items']; results=[]; failures=[]
     stage=OUT.with_name('tafsir-build-stage')
     if stage.exists(): shutil.rmtree(stage)
     stage.mkdir(parents=True,exist_ok=True)
     for idx,target in enumerate(targets,1):
         try:
             detail,pdfs,docs=fetch_detail(target)
-            s=slug(target['title']); pdf_local=stage/f'{s}.pdf'; docx_local=stage/f'{s}.docx'; cover_local=stage/f'{s}.png'
+            s=f'{slug(target["title"])}-{idx:02d}'; pdf_local=stage/f'{s}.pdf'; docx_local=stage/f'{s}.docx'; cover_local=stage/f'{s}.png'
             try:
                 if pdfs:
                     combine_pdfs(pdfs,pdf_local)
@@ -175,16 +181,14 @@ def main():
                         if docs[0].lower().split('?')[0].endswith('.docx'): download(docs[0],docx_local)
                         else:
                             with tempfile.TemporaryDirectory() as td:
-                                f=Path(td)/'source.doc'; download(docs[0],f)
-                                run(['libreoffice','--headless','--convert-to','docx','--outdir',td,str(f)])
-                                shutil.copy2(Path(td)/'source.docx',docx_local)
+                                f=Path(td)/'source.doc'; download(docs[0],f); run(['libreoffice','--headless','--convert-to','docx','--outdir',td,str(f)]); shutil.copy2(Path(td)/'source.docx',docx_local)
                     else: make_docx_from_pdf(pdf_local,docx_local)
-                    make_cover(pdf_local,cover_local)
-                    mode='source-pdf'
-                else: raise RuntimeError('no source PDF')
+                    make_cover(pdf_local,cover_local); mode='source-pdf'
+                else:
+                    build_from_contents(detail,target,pdf_local,docx_local,cover_local); mode='book-content-pdf'
             except Exception:
-                mode='book-content-pdf'
-                build_from_contents(detail,target,pdf_local,docx_local,cover_local)
+                # Retry using the structured book-content endpoint before rejecting the title.
+                build_from_contents(detail,target,pdf_local,docx_local,cover_local); mode='book-content-pdf'
             if min(pdf_local.stat().st_size,docx_local.stat().st_size,cover_local.stat().st_size)<1000: raise RuntimeError('asset tidak valid')
             results.append({'title':target['title'],'author':target.get('author',''),'language':detail.get('language',{}).get('code','ar') if isinstance(detail.get('language'),dict) else 'ar','category':'tafsir','type':'tafsir-book','quranpedia_book_id':detail.get('id'),'publish_year':detail.get('publish_year',''),'parts':detail.get('parts',1),'source_page':f'https://quranpedia.net/book/{detail.get("id")}','pdf_url':f'/media/tafsir/{s}.pdf','docx_url':f'/media/tafsir/{s}.docx','cover_url':f'/media/tafsir/{s}.png','build_mode':mode})
             print('OK',idx,target['title'],mode)
