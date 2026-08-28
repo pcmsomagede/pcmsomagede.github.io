@@ -3,8 +3,8 @@ name: Build TafsirMu Assets
 on:
   push:
     paths:
-      - 'data/pustaka-tafsir.json'
-      - 'scripts/build_tafsir_assets.py'
+      - 'data/tafsir-40-targets.json'
+      - 'scripts/build_tafsir_catalog_v2.py'
       - '.github/workflows/build-tafsir-assets.yml'
   workflow_dispatch:
 
@@ -14,7 +14,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,15 +27,15 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install requests pypdf pymupdf python-docx
 
-      - name: Build verified TafsirMu assets
-        run: python scripts/build_tafsir_assets.py
+      - name: Build 40 verified TafsirMu books
+        run: python scripts/build_tafsir_catalog_v2.py
 
-      - name: Publish asset manifest
+      - name: Publish TafsirMu assets
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/tafsir-assets.json media/tafsir
           git diff --cached --quiet && exit 0
-          git commit -m 'Build verified TafsirMu PDF DOCX and covers'
+          git commit -m 'Build 40 complete TafsirMu books'
           git pull --rebase origin main
           git push origin HEAD:main
