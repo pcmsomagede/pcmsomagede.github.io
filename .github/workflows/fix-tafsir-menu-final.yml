@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 env:
-  TAFSIR_SCRIPT: tafsirmu-final.js?v=20260829-01
+  TAFSIR_SCRIPT: tafsirmu-final.js?v=20260829-02
 
 jobs:
   patch-menu-and-deploy:
@@ -34,13 +34,15 @@ jobs:
           s = p.read_text(encoding='utf-8')
           old_patterns = [r'<div class="nav-drop"><a class="nav-item nav-parent" href="#pustaka">PustakaMu <span>▾</span></a><div class="submenu">.*?</div></div>']
           new = '<div class="nav-drop"><a class="nav-item nav-parent" href="#pustaka">PustakaMu <span>▾</span></a><div class="submenu"><a href="#khutbah" data-pcm-route="khutbah">KhutbahMu</a><a href="#kultum" data-pcm-route="kultum">KultumMu</a><a href="#buku" data-pcm-route="buku">BukuMu</a><a href="#hadits" data-pcm-route="hadits">HaditsMu</a><a href="#quran" data-pcm-route="quran">Al-Qur\'anMu</a><a href="#tafsir" data-pcm-route="tafsir">TafsirMu</a></div></div>'
-          for pat in old_patterns: s = re.sub(pat, new, s, count=1, flags=re.S)
-          s = s.replace('pustaka-tafsir-live-v3.js?v=final-20260828', 'tafsirmu-final.js?v=20260829-01')
+          for pat in old_patterns:
+              s = re.sub(pat, new, s, count=1, flags=re.S)
+          s = re.sub(r'(tafsirmu-final\.js\?v=)[^\'\"]+', r'\g<1>20260829-02', s)
+          s = s.replace('pustaka-tafsir-live-v3.js?v=final-20260828', 'tafsirmu-final.js?v=20260829-02')
           if 'id="pcm-tafsir-direct-fix"' not in s:
               fix = r'''<script id="pcm-tafsir-direct-fix">
           (()=>{
-            const load=(src,id)=>{if(document.getElementById(id))return;const x=document.createElement('script');x.id=id;x.src=src;x.defer=true;x.onload=()=>window.dispatchEvent(new CustomEvent('pcm:script-ready',{detail:{id}}));document.body.appendChild(x)};
-            const route=()=>{document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='pustaka'));const p=document.getElementById('pustaka');if(!p)return;load('tafsirmu-final.js?v=20260829-01','pcm-tafsir-direct-loader');const mount=()=>window.PCMTafsirFinal?.mount?.();if(window.PCMTafsirFinal?.mount)mount();else window.addEventListener('pcm:script-ready',e=>{if(e.detail?.id==='pcm-tafsir-direct-loader')mount()},{once:true})};
+            const load=(src,id)=>{if(document.getElementById(id))return;const x=document.createElement('script');x.id=id;x.src=src;x.onload=()=>window.dispatchEvent(new CustomEvent('pcm:script-ready',{detail:{id}}));document.body.appendChild(x)};
+            const route=()=>{const p=document.getElementById('pustaka');if(!p)return;document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x===p));history.replaceState(null,'','#tafsir');load('tafsirmu-final.js?v=20260829-02','pcm-tafsir-direct-loader');const mount=()=>window.PCMTafsirFinal?.mount?.();if(window.PCMTafsirFinal?.mount)mount();else window.addEventListener('pcm:script-ready',e=>{if(e.detail?.id==='pcm-tafsir-direct-loader')mount()},{once:true})};
             const bind=()=>document.querySelectorAll('a[href="#tafsir"],a[data-pcm-route="tafsir"]').forEach(a=>{if(a.dataset.pcmTafsirDirect)return;a.dataset.pcmTafsirDirect='1';a.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();route()},{capture:true})});
             if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();new MutationObserver(bind).observe(document.documentElement,{childList:true,subtree:true});
           })();
@@ -55,7 +57,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "fix: route TafsirMu to final renderer"
+          git commit -m "fix: route TafsirMu to current renderer"
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v5
