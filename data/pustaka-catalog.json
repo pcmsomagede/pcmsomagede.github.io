@@ -1,7 +1,62 @@
 {
-  "generated": "2026-08-28T06:38:23Z",
-  "total": 207,
+  "generated": "2026-08-28T10:34:36Z",
+  "total": 247,
   "items": [
+    {
+      "title": "Aplikasi Manhaj Tarjih: Tanawwu Fil Ibadah",
+      "category": "buku",
+      "source_page": "https://tarjih.or.id/wp-content/uploads/2022/12/KONSEP-AT-TANAWWU-FIL-IBADAH-DAN-CONTOH-CONTOHNYA-DALAM-HPT.pdf",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "pdf_source": "/assets/pustaka-files/aplikasi-manhaj-tarjih-tanawwu-fil-ibadah.pdf",
+      "docx_source": "/assets/pustaka-docx/aplikasi-manhaj-tarjih-tanawwu-fil-ibadah.docx",
+      "cover_url": "/assets/pustaka-covers/aplikasi-manhaj-tarjih-tanawwu-fil-ibadah.jpg",
+      "type": "pdf"
+    },
+    {
+      "title": "Kajian Tarjih Fidyah dan Zakat Fitri",
+      "category": "buku",
+      "source_page": "https://tarjih.or.id/wp-content/uploads/2021/05/Kajian-Tarjih-Fidyah-Zakat-FITRI-Idul-Fitri-Ali.pdf",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "pdf_source": "/assets/pustaka-files/kajian-tarjih-fidyah-dan-zakat-fitri.pdf",
+      "docx_source": "/assets/pustaka-docx/kajian-tarjih-fidyah-dan-zakat-fitri.docx",
+      "cover_url": "/assets/pustaka-covers/kajian-tarjih-fidyah-dan-zakat-fitri.jpg",
+      "type": "pdf"
+    },
+    {
+      "title": "Manhaj Tarjih Muhammadiyah",
+      "category": "buku",
+      "source_page": "https://tarjih.or.id/wp-content/uploads/2020/09/Manhaj-Tarjih-Pengajian-Masjid-Gede-Edisi-2-Tahun-2018-a-1.pdf",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "pdf_source": "/assets/pustaka-files/manhaj-tarjih-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/manhaj-tarjih-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/manhaj-tarjih-muhammadiyah.jpg",
+      "type": "pdf"
+    },
+    {
+      "title": "Memahami Paham Agama Muhammadiyah",
+      "category": "buku",
+      "source_page": "https://tarjih.or.id/wp-content/uploads/2021/05/Makalah-Posisi-Paham-Agama-Muhammadiyah-dari-Manhaj-Tarjih-Terbaru.pdf",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "pdf_source": "/assets/pustaka-files/memahami-paham-agama-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/memahami-paham-agama-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/memahami-paham-agama-muhammadiyah.jpg",
+      "type": "pdf"
+    },
+    {
+      "title": "Tajdid Muhammadiyah untuk Pencerahan Peradaban",
+      "category": "buku",
+      "source_page": "https://tarjih.or.id/wp-content/uploads/2020/08/TAJDID-MUHAMMADIYAH-UNTUK-PENCERAHAN-PERADABAN.pdf",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "pdf_source": "/assets/pustaka-files/tajdid-muhammadiyah-untuk-pencerahan-peradaban.pdf",
+      "docx_source": "/assets/pustaka-docx/tajdid-muhammadiyah-untuk-pencerahan-peradaban.docx",
+      "cover_url": "/assets/pustaka-covers/tajdid-muhammadiyah-untuk-pencerahan-peradaban.jpg",
+      "type": "pdf"
+    },
     {
       "title": "Ali Imran Ayat 7–9: Tafsir tentang Muhkam dan Mutasyabihat",
       "category": "tafsir",
@@ -12,6 +67,19 @@
       "pdf_source": "/assets/pustaka-files/ali-imran-ayat-7-9-tafsir-tentang-muhkam-dan-mutasyabihat.pdf",
       "docx_source": "/assets/pustaka-docx/ali-imran-ayat-7-9-tafsir-tentang-muhkam-dan-mutasyabihat.docx",
       "cover_url": "/assets/pustaka-covers/ali-imran-ayat-7-9-tafsir-tentang-muhkam-dan-mutasyabihat.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Ali Imran Ayat 7–9: Tafsir tentang Muhkam dan Mutasyabihat | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/04/ali-imran-ayat-7-9-tafsir-tentang-muhkam-dan-mutasyabihat/",
+      "pdf_source": "/assets/pustaka-files/ali-imran-ayat-7-9-tafsir-tentang-muhkam-dan-mutasyabihat-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/ali-imran-ayat-7-9-tafsir-tentang-muhkam-dan-mutasyabihat-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/ali-imran-ayat-7-9-tafsir-tentang-muhkam-dan-mutasyabihat-muhammadiyah.jpg",
+      "date": "2026-04-20T09:17:43+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -27,6 +95,19 @@
       "type": "article-export"
     },
     {
+      "title": "Apakah Seorang Khatib Wajib Memegang Tongkat Saat Khutbah Jumat? | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/07/apakah-seorang-khatib-wajib-memegang-tongkat-saat-khutbah-jumat/",
+      "pdf_source": "/assets/pustaka-files/apakah-seorang-khatib-wajib-memegang-tongkat-saat-khutbah-jumat-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/apakah-seorang-khatib-wajib-memegang-tongkat-saat-khutbah-jumat-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/apakah-seorang-khatib-wajib-memegang-tongkat-saat-khutbah-jumat-muhammadiyah.jpg",
+      "date": "2026-07-29T12:56:07+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Busyro Muqoddas Ajak Tafsirkan Islam dari Agama Langit untuk Manfaat Kehidupan Bumi",
       "category": "tafsir",
       "source_page": "https://muhammadiyah.or.id/2026/01/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi/",
@@ -36,6 +117,19 @@
       "pdf_source": "/assets/pustaka-files/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi.pdf",
       "docx_source": "/assets/pustaka-docx/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi.docx",
       "cover_url": "/assets/pustaka-covers/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Busyro Muqoddas Ajak Tafsirkan Islam dari Agama Langit untuk Manfaat Kehidupan Bumi | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/01/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi/",
+      "pdf_source": "/assets/pustaka-files/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/busyro-muqoddas-ajak-tafsirkan-islam-dari-agama-langit-untuk-manfaat-kehidupan-bumi-muhammadiyah.jpg",
+      "date": "2026-01-21T16:35:43+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -60,6 +154,45 @@
       "pdf_source": "/assets/pustaka-files/kepergian-hamim-ilyas-syamsul-anwar-muhammadiyah-kehilangan-tokoh-tafsir-yang-tenang.pdf",
       "docx_source": "/assets/pustaka-docx/kepergian-hamim-ilyas-syamsul-anwar-muhammadiyah-kehilangan-tokoh-tafsir-yang-tenang.docx",
       "cover_url": "/assets/pustaka-covers/kepergian-hamim-ilyas-syamsul-anwar-muhammadiyah-kehilangan-tokoh-tafsir-yang-tenang.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Kepergian Hamim Ilyas, Syamsul Anwar: Muhammadiyah Kehilangan Tokoh Tafsir yang Tenang | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/05/kepergian-hamim-ilyas-syamsul-anwar-muhammadiyah-kehilangan-tokoh-tafsir-yang-tenang/",
+      "pdf_source": "/assets/pustaka-files/kepergian-hamim-ilyas-syamsul-anwar-muhammadiyah-kehilangan-tokoh-tafsir-yang-tenang-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/kepergian-hamim-ilyas-syamsul-anwar-muhammadiyah-kehilangan-tokoh-tafsir-yang-tenang-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/kepergian-hamim-ilyas-syamsul-anwar-muhammadiyah-kehilangan-tokoh-tafsir-yang-tenang-muhammadiyah.jpg",
+      "date": "2026-05-24T22:06:14+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Iduladha 1447 H: Meneladani Nabi Ibrahim untuk Menjadi Muslim al-Mukhbitin | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/05/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-untuk-menjadi-muslim-al-mukhbitin/",
+      "pdf_source": "/assets/pustaka-files/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-untuk-menjadi-muslim-al-mukhbitin-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-untuk-menjadi-muslim-al-mukhbitin-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-untuk-menjadi-muslim-al-mukhbitin-muhammadiyah.jpg",
+      "date": "2026-05-26T11:18:13+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Iduladha 1447 H: Meneladani Nabi Ibrahim, Melahirkan Kepedulian Sosial di Era Digital | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/05/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-melahirkan-kepedulian-sosial-di-era-digital/",
+      "pdf_source": "/assets/pustaka-files/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-melahirkan-kepedulian-sosial-di-era-digital-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-melahirkan-kepedulian-sosial-di-era-digital-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-iduladha-1447-h-meneladani-nabi-ibrahim-melahirkan-kepedulian-sosial-di-era-digital-muhammadiyah.jpg",
+      "date": "2026-05-26T10:21:02+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -111,6 +244,19 @@
       "type": "article-export"
     },
     {
+      "title": "Khutbah Jumat: Bahaya Rokok dalam Perspektif Al-Qur’an dan Sunnah | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/05/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-quran-dan-sunnah/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-qur-an-dan-sunnah-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-qur-an-dan-sunnah-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-bahaya-rokok-dalam-perspektif-al-qur-an-dan-sunnah-muhammadiyah.jpg",
+      "date": "2026-05-15T10:44:16+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Khutbah Jumat: Kemerdekaan dalam Bingkai Baldatun Thayyibatun Wa Rabbun Ghafur",
       "category": "khutbah",
       "source_page": "https://muhammadiyah.or.id/2026/08/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur/",
@@ -120,6 +266,19 @@
       "pdf_source": "/assets/pustaka-files/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur.pdf",
       "docx_source": "/assets/pustaka-docx/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur.docx",
       "cover_url": "/assets/pustaka-covers/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jumat: Kemerdekaan dalam Bingkai Baldatun Thayyibatun Wa Rabbun Ghafur | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/08/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-kemerdekaan-dalam-bingkai-baldatun-thayyibatun-wa-rabbun-ghafur-muhammadiyah.jpg",
+      "date": "2026-08-12T20:28:17+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -135,6 +294,19 @@
       "type": "article-export"
     },
     {
+      "title": "Khutbah Jumat: Keutamaan Puasa Tasua dan Asyura | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/06/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-keutamaan-puasa-tasua-dan-asyura-muhammadiyah.jpg",
+      "date": "2026-06-17T14:29:29+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Khutbah Jumat: Mari Kita Berkurban di Iduladha!",
       "category": "khutbah",
       "source_page": "https://muhammadiyah.or.id/2026/05/khutbah-jumat-mari-kita-berkurban-di-iduladha/",
@@ -144,6 +316,19 @@
       "pdf_source": "/assets/pustaka-files/khutbah-jumat-mari-kita-berkurban-di-iduladha.pdf",
       "docx_source": "/assets/pustaka-docx/khutbah-jumat-mari-kita-berkurban-di-iduladha.docx",
       "cover_url": "/assets/pustaka-covers/khutbah-jumat-mari-kita-berkurban-di-iduladha.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jumat: Mari Kita Berkurban di Iduladha! | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/05/khutbah-jumat-mari-kita-berkurban-di-iduladha/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-mari-kita-berkurban-di-iduladha-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-mari-kita-berkurban-di-iduladha-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-mari-kita-berkurban-di-iduladha-muhammadiyah.jpg",
+      "date": "2026-05-05T12:16:01+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -159,6 +344,19 @@
       "type": "article-export"
     },
     {
+      "title": "Khutbah Jumat: Menempatkan Amanah Jabatan Pada Ahlinya | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/06/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-menempatkan-amanah-jabatan-pada-ahlinya-muhammadiyah.jpg",
+      "date": "2026-06-11T10:07:49+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Khutbah Jumat: Menjemput Ramadan dengan Puasa Sunah di Bulan Sya’ban",
       "category": "khutbah",
       "source_page": "https://muhammadiyah.or.id/2026/01/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-syaban/",
@@ -171,6 +369,19 @@
       "type": "article-export"
     },
     {
+      "title": "Khutbah Jumat: Menjemput Ramadan dengan Puasa Sunah di Bulan Sya’ban | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/01/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-syaban/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-sya-ban-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-sya-ban-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-menjemput-ramadan-dengan-puasa-sunah-di-bulan-sya-ban-muhammadiyah.jpg",
+      "date": "2026-01-22T11:09:31+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Khutbah Jumat: Menyelaraskan Qalb, ‘Aql, dan Nafs Menuju Jiwa yang Tenang",
       "category": "khutbah",
       "source_page": "https://muhammadiyah.or.id/2026/06/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang/",
@@ -180,6 +391,32 @@
       "pdf_source": "/assets/pustaka-files/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang.pdf",
       "docx_source": "/assets/pustaka-docx/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang.docx",
       "cover_url": "/assets/pustaka-covers/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jumat: Menyelaraskan Qalb, ‘Aql, dan Nafs Menuju Jiwa yang Tenang | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/06/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-menyelaraskan-qalb-aql-dan-nafs-menuju-jiwa-yang-tenang-muhammadiyah.jpg",
+      "date": "2026-06-05T10:03:44+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jumat: Ta'aruf sebagai Jalan Menuju Keluarga Sakinah | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/07/khutbah-jumat-taaruf-sebagai-jalan-menuju-keluarga-sakinah/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jumat-ta-aruf-sebagai-jalan-menuju-keluarga-sakinah-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jumat-ta-aruf-sebagai-jalan-menuju-keluarga-sakinah-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jumat-ta-aruf-sebagai-jalan-menuju-keluarga-sakinah-muhammadiyah.jpg",
+      "date": "2026-07-28T09:49:43+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -207,6 +444,19 @@
       "type": "article-export"
     },
     {
+      "title": "Khutbah Jum’at : Pendidikan Agama sebagai Modal Utama Tercapainya Kebahagiaan Dunia Akhirat | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/08/khutbah-jumat-pendidikan-agama-sebagai-modal-utama-tercapainya-kebahagiaan-dunia-akhirat/",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-pendidikan-agama-sebagai-modal-utama-tercapainya-kebahagiaan-dunia-akhirat-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-pendidikan-agama-sebagai-modal-utama-tercapainya-kebahagiaan-dunia-akhirat-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-pendidikan-agama-sebagai-modal-utama-tercapainya-kebahagiaan-dunia-akhirat-muhammadiyah.jpg",
+      "date": "2026-08-04T13:36:50+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Khutbah Salat Gerhana: Pantulan Cahaya, Pantulan Iman",
       "category": "khutbah",
       "source_page": "https://muhammadiyah.or.id/2026/03/khutbah-salat-gerhana-pantulan-cahaya-pantulan-iman-2/",
@@ -231,6 +481,19 @@
       "type": "article-export"
     },
     {
+      "title": "Kultum Ramadan: Masjid Sebagai Pusat Kemanusiaan | Muhammadiyah",
+      "category": "kultum",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/03/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan/",
+      "pdf_source": "/assets/pustaka-files/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/kultum-ramadan-masjid-sebagai-pusat-kemanusiaan-muhammadiyah.jpg",
+      "date": "2026-03-02T10:09:52+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Kultum Ramadan: Memaknai Amal Jariyah Lebih Luas",
       "category": "kultum",
       "source_page": "https://muhammadiyah.or.id/2026/02/kultum-ramadan-memaknai-amal-jariyah-lebih-luas/",
@@ -240,6 +503,19 @@
       "pdf_source": "/assets/pustaka-files/kultum-ramadan-memaknai-amal-jariyah-lebih-luas.pdf",
       "docx_source": "/assets/pustaka-docx/kultum-ramadan-memaknai-amal-jariyah-lebih-luas.docx",
       "cover_url": "/assets/pustaka-covers/kultum-ramadan-memaknai-amal-jariyah-lebih-luas.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Kultum Ramadan: Memaknai Amal Jariyah Lebih Luas | Muhammadiyah",
+      "category": "kultum",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/02/kultum-ramadan-memaknai-amal-jariyah-lebih-luas/",
+      "pdf_source": "/assets/pustaka-files/kultum-ramadan-memaknai-amal-jariyah-lebih-luas-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/kultum-ramadan-memaknai-amal-jariyah-lebih-luas-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/kultum-ramadan-memaknai-amal-jariyah-lebih-luas-muhammadiyah.jpg",
+      "date": "2026-02-27T09:04:25+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -255,6 +531,19 @@
       "type": "article-export"
     },
     {
+      "title": "Kultum Ramadan: Ukhuwah di Bulan yang Suci | Muhammadiyah",
+      "category": "kultum",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/02/kultum-ramadan-ukhuwah-di-bulan-yang-suci/",
+      "pdf_source": "/assets/pustaka-files/kultum-ramadan-ukhuwah-di-bulan-yang-suci-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/kultum-ramadan-ukhuwah-di-bulan-yang-suci-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/kultum-ramadan-ukhuwah-di-bulan-yang-suci-muhammadiyah.jpg",
+      "date": "2026-02-25T22:26:56+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Membelakangi Mimbar Ketika Khutbah Berlangsung, Bolehkah?",
       "category": "khutbah",
       "source_page": "https://muhammadiyah.or.id/2026/06/membelakangi-mimbar-ketika-khutbah-berlangsung-bolehkah/",
@@ -267,6 +556,19 @@
       "type": "article-export"
     },
     {
+      "title": "Membelakangi Mimbar Ketika Khutbah Berlangsung, Bolehkah? | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/06/membelakangi-mimbar-ketika-khutbah-berlangsung-bolehkah/",
+      "pdf_source": "/assets/pustaka-files/membelakangi-mimbar-ketika-khutbah-berlangsung-bolehkah-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/membelakangi-mimbar-ketika-khutbah-berlangsung-bolehkah-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/membelakangi-mimbar-ketika-khutbah-berlangsung-bolehkah-muhammadiyah.jpg",
+      "date": "2026-06-12T13:27:04+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Menjaga Harta dengan Jalan yang Halal, Tafsir An-Nisa Ayat 29",
       "category": "tafsir",
       "source_page": "https://muhammadiyah.or.id/2026/04/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29/",
@@ -276,6 +578,19 @@
       "pdf_source": "/assets/pustaka-files/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29.pdf",
       "docx_source": "/assets/pustaka-docx/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29.docx",
       "cover_url": "/assets/pustaka-covers/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Menjaga Harta dengan Jalan yang Halal, Tafsir An-Nisa Ayat 29 | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/04/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29/",
+      "pdf_source": "/assets/pustaka-files/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/menjaga-harta-dengan-jalan-yang-halal-tafsir-an-nisa-ayat-29-muhammadiyah.jpg",
+      "date": "2026-04-21T12:58:44+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -315,6 +630,19 @@
       "type": "article-export"
     },
     {
+      "title": "Syamsul Anwar Dorong Tafsir At-Tanwir Perkuat Pendekatan Tematik dan Etos Kemajuan | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/05/syamsul-anwar-dorong-tafsir-at-tanwir-perkuat-pendekatan-tematik-dan-etos-kemajuan/",
+      "pdf_source": "/assets/pustaka-files/syamsul-anwar-dorong-tafsir-at-tanwir-perkuat-pendekatan-tematik-dan-etos-kemajuan-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/syamsul-anwar-dorong-tafsir-at-tanwir-perkuat-pendekatan-tematik-dan-etos-kemajuan-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/syamsul-anwar-dorong-tafsir-at-tanwir-perkuat-pendekatan-tematik-dan-etos-kemajuan-muhammadiyah.jpg",
+      "date": "2026-05-09T10:47:22+07:00",
+      "year": 2026,
+      "type": "article-export"
+    },
+    {
       "title": "Tafsir Ali Imran Ayat 21–22: Tiga Kejahatan Besar dan Ancaman bagi Peradaban yang Mengabaikan Keadilan",
       "category": "tafsir",
       "source_page": "https://muhammadiyah.or.id/2026/08/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan/",
@@ -324,6 +652,19 @@
       "pdf_source": "/assets/pustaka-files/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan.pdf",
       "docx_source": "/assets/pustaka-docx/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan.docx",
       "cover_url": "/assets/pustaka-covers/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Tafsir Ali Imran Ayat 21–22: Tiga Kejahatan Besar dan Ancaman bagi Peradaban yang Mengabaikan Keadilan | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2026/08/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan/",
+      "pdf_source": "/assets/pustaka-files/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/tafsir-ali-imran-ayat-21-22-tiga-kejahatan-besar-dan-ancaman-bagi-peradaban-yang-mengabaikan-keadilan-muhammadiyah.jpg",
+      "date": "2026-08-13T14:06:47+07:00",
+      "year": 2026,
       "type": "article-export"
     },
     {
@@ -687,6 +1028,19 @@
       "type": "article-export"
     },
     {
+      "title": "Mengedarkan Kotak Infak Saat Khutbah Jumat, Bolehkah? | Muhammadiyah",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2025/12/mengedarkan-kotak-infak-saat-khutbah-jumat-bolehkah/",
+      "pdf_source": "/assets/pustaka-files/mengedarkan-kotak-infak-saat-khutbah-jumat-bolehkah-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/mengedarkan-kotak-infak-saat-khutbah-jumat-bolehkah-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/mengedarkan-kotak-infak-saat-khutbah-jumat-bolehkah-muhammadiyah.jpg",
+      "date": "2025-12-11T10:32:32+07:00",
+      "year": 2025,
+      "type": "article-export"
+    },
+    {
       "title": "Menjadi Mukhlis di Tengah Godaan Munafik: Tafsir Al-Baqarah ayat 204-207",
       "category": "tafsir",
       "source_page": "https://muhammadiyah.or.id/2025/07/menjadi-mukhlis-di-tengah-godaan-munafik-tafsir-al-baqarah-ayat-204-207/",
@@ -723,6 +1077,19 @@
       "type": "article-export"
     },
     {
+      "title": "Perkembangan Tafsir At-Tanwir, Ditargetkan Selesai 30 Juz Tahun 2027 | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2025/09/perkembangan-tafsir-at-tanwir-ditargetkan-selesai-30-juz-tahun-2027/",
+      "pdf_source": "/assets/pustaka-files/perkembangan-tafsir-at-tanwir-ditargetkan-selesai-30-juz-tahun-2027-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/perkembangan-tafsir-at-tanwir-ditargetkan-selesai-30-juz-tahun-2027-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/perkembangan-tafsir-at-tanwir-ditargetkan-selesai-30-juz-tahun-2027-muhammadiyah.jpg",
+      "date": "2025-09-08T09:17:14+07:00",
+      "year": 2025,
+      "type": "article-export"
+    },
+    {
       "title": "Sejumlah Mufasir Perempuan Ambil Peran dalam Penulisan Tafsir at-Tanwir",
       "category": "tafsir",
       "source_page": "https://muhammadiyah.or.id/2025/08/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir/",
@@ -732,6 +1099,19 @@
       "pdf_source": "/assets/pustaka-files/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir.pdf",
       "docx_source": "/assets/pustaka-docx/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir.docx",
       "cover_url": "/assets/pustaka-covers/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Sejumlah Mufasir Perempuan Ambil Peran dalam Penulisan Tafsir at-Tanwir | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2025/08/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir/",
+      "pdf_source": "/assets/pustaka-files/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/sejumlah-mufasir-perempuan-ambil-peran-dalam-penulisan-tafsir-at-tanwir-muhammadiyah.jpg",
+      "date": "2025-08-29T11:45:29+07:00",
+      "year": 2025,
       "type": "article-export"
     },
     {
@@ -795,6 +1175,19 @@
       "type": "article-export"
     },
     {
+      "title": "Tafsir at-Tanwir Harus Responsif, Dinamis, dan Menghidupkan Ruh | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2025/08/tafsir-at-tanwir-harus-responsif-dinamis-dan-menghidupkan-ruh/",
+      "pdf_source": "/assets/pustaka-files/tafsir-at-tanwir-harus-responsif-dinamis-dan-menghidupkan-ruh-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/tafsir-at-tanwir-harus-responsif-dinamis-dan-menghidupkan-ruh-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/tafsir-at-tanwir-harus-responsif-dinamis-dan-menghidupkan-ruh-muhammadiyah.jpg",
+      "date": "2025-08-30T10:05:55+07:00",
+      "year": 2025,
+      "type": "article-export"
+    },
+    {
       "title": "Tafsir At-Tanwir Upaya Kolektif Membangun Tafsir Responsif dan Moderat",
       "category": "tafsir",
       "source_page": "https://muhammadiyah.or.id/2025/08/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat/",
@@ -804,6 +1197,19 @@
       "pdf_source": "/assets/pustaka-files/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat.pdf",
       "docx_source": "/assets/pustaka-docx/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat.docx",
       "cover_url": "/assets/pustaka-covers/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Tafsir At-Tanwir Upaya Kolektif Membangun Tafsir Responsif dan Moderat | Muhammadiyah",
+      "category": "tafsir",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2025/08/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat/",
+      "pdf_source": "/assets/pustaka-files/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/tafsir-at-tanwir-upaya-kolektif-membangun-tafsir-responsif-dan-moderat-muhammadiyah.jpg",
+      "date": "2025-08-29T10:19:10+07:00",
+      "year": 2025,
       "type": "article-export"
     },
     {
@@ -840,6 +1246,19 @@
       "pdf_source": "/assets/pustaka-files/agar-kultum-ramadhan-tidak-terasa-membosankan.pdf",
       "docx_source": "/assets/pustaka-docx/agar-kultum-ramadhan-tidak-terasa-membosankan.docx",
       "cover_url": "/assets/pustaka-covers/agar-kultum-ramadhan-tidak-terasa-membosankan.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Agar Kultum Ramadhan Tidak Terasa Membosankan | Muhammadiyah",
+      "category": "kultum",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2024/02/agar-kultum-ramadhan-tidak-terasa-membosankan/",
+      "pdf_source": "/assets/pustaka-files/agar-kultum-ramadhan-tidak-terasa-membosankan-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/agar-kultum-ramadhan-tidak-terasa-membosankan-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/agar-kultum-ramadhan-tidak-terasa-membosankan-muhammadiyah.jpg",
+      "date": "2024-02-19T09:14:43+07:00",
+      "year": 2024,
       "type": "article-export"
     },
     {
@@ -948,6 +1367,19 @@
       "pdf_source": "/assets/pustaka-files/hukum-kultum-sebelum-salat-tarawih.pdf",
       "docx_source": "/assets/pustaka-docx/hukum-kultum-sebelum-salat-tarawih.docx",
       "cover_url": "/assets/pustaka-covers/hukum-kultum-sebelum-salat-tarawih.jpg",
+      "type": "article-export"
+    },
+    {
+      "title": "Hukum Kultum Sebelum Salat Tarawih | Muhammadiyah",
+      "category": "kultum",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2024/02/hukum-kultum-sebelum-salat-tarawih/",
+      "pdf_source": "/assets/pustaka-files/hukum-kultum-sebelum-salat-tarawih-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/hukum-kultum-sebelum-salat-tarawih-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/hukum-kultum-sebelum-salat-tarawih-muhammadiyah.jpg",
+      "date": "2024-02-19T08:50:03+07:00",
+      "year": 2024,
       "type": "article-export"
     },
     {
@@ -2031,6 +2463,19 @@
       "type": "article-export"
     },
     {
+      "title": "Kultum Zuhur, Sekretaris PP Muhammadiyah: Maknai Bekerja juga sebagai Beribadah | Muhammadiyah",
+      "category": "kultum",
+      "language": "id",
+      "source_group": "muhammadiyah",
+      "source_page": "https://muhammadiyah.or.id/2022/12/kultum-zuhur-sekretaris-pp-muhammadiyah-maknai-bekerja-juga-sebagai-beribadah/",
+      "pdf_source": "/assets/pustaka-files/kultum-zuhur-sekretaris-pp-muhammadiyah-maknai-bekerja-juga-sebagai-beribadah-muhammadiyah.pdf",
+      "docx_source": "/assets/pustaka-docx/kultum-zuhur-sekretaris-pp-muhammadiyah-maknai-bekerja-juga-sebagai-beribadah-muhammadiyah.docx",
+      "cover_url": "/assets/pustaka-covers/kultum-zuhur-sekretaris-pp-muhammadiyah-maknai-bekerja-juga-sebagai-beribadah-muhammadiyah.jpg",
+      "date": "2022-12-19T21:25:21+07:00",
+      "year": 2022,
+      "type": "article-export"
+    },
+    {
       "title": "Meski Tafsirnya Banyak, Umat Islam Beruntung Karena Al Qurannya Satu",
       "category": "tafsir",
       "source_page": "https://muhammadiyah.or.id/2022/04/meski-tafsirnya-banyak-umat-islam-beruntung-karena-al-qurannya-satu/",
@@ -2391,50 +2836,6 @@
       "type": "article-export"
     },
     {
-      "title": "Aplikasi Manhaj Tarjih: Tanawwu Fil Ibadah",
-      "category": "buku",
-      "source_page": "https://tarjih.or.id/wp-content/uploads/2022/12/KONSEP-AT-TANAWWU-FIL-IBADAH-DAN-CONTOH-CONTOHNYA-DALAM-HPT.pdf",
-      "language": "id",
-      "source_group": "muhammadiyah",
-      "pdf_source": "/assets/pustaka-files/aplikasi-manhaj-tarjih-tanawwu-fil-ibadah.pdf",
-      "docx_source": "/assets/pustaka-docx/aplikasi-manhaj-tarjih-tanawwu-fil-ibadah.docx",
-      "cover_url": "/assets/pustaka-covers/aplikasi-manhaj-tarjih-tanawwu-fil-ibadah.jpg",
-      "type": "pdf"
-    },
-    {
-      "title": "Kajian Tarjih Fidyah dan Zakat Fitri",
-      "category": "buku",
-      "source_page": "https://tarjih.or.id/wp-content/uploads/2021/05/Kajian-Tarjih-Fidyah-Zakat-FITRI-Idul-Fitri-Ali.pdf",
-      "language": "id",
-      "source_group": "muhammadiyah",
-      "pdf_source": "/assets/pustaka-files/kajian-tarjih-fidyah-dan-zakat-fitri.pdf",
-      "docx_source": "/assets/pustaka-docx/kajian-tarjih-fidyah-dan-zakat-fitri.docx",
-      "cover_url": "/assets/pustaka-covers/kajian-tarjih-fidyah-dan-zakat-fitri.jpg",
-      "type": "pdf"
-    },
-    {
-      "title": "Manhaj Tarjih Muhammadiyah",
-      "category": "buku",
-      "source_page": "https://tarjih.or.id/wp-content/uploads/2020/09/Manhaj-Tarjih-Pengajian-Masjid-Gede-Edisi-2-Tahun-2018-a-1.pdf",
-      "language": "id",
-      "source_group": "muhammadiyah",
-      "pdf_source": "/assets/pustaka-files/manhaj-tarjih-muhammadiyah.pdf",
-      "docx_source": "/assets/pustaka-docx/manhaj-tarjih-muhammadiyah.docx",
-      "cover_url": "/assets/pustaka-covers/manhaj-tarjih-muhammadiyah.jpg",
-      "type": "pdf"
-    },
-    {
-      "title": "Memahami Paham Agama Muhammadiyah",
-      "category": "buku",
-      "source_page": "https://tarjih.or.id/wp-content/uploads/2021/05/Makalah-Posisi-Paham-Agama-Muhammadiyah-dari-Manhaj-Tarjih-Terbaru.pdf",
-      "language": "id",
-      "source_group": "muhammadiyah",
-      "pdf_source": "/assets/pustaka-files/memahami-paham-agama-muhammadiyah.pdf",
-      "docx_source": "/assets/pustaka-docx/memahami-paham-agama-muhammadiyah.docx",
-      "cover_url": "/assets/pustaka-covers/memahami-paham-agama-muhammadiyah.jpg",
-      "type": "pdf"
-    },
-    {
       "title": "Tafsir At-Tanwir: Al-Baqarah 130–134",
       "category": "tafsir",
       "source_page": "https://tarjih.or.id/wp-content/uploads/2021/03/Tafsir-al-Baqarah-Ayat-130-134-materi-pengajian-tarjih-edisi-120.pdf",
@@ -2443,17 +2844,6 @@
       "pdf_source": "/assets/pustaka-files/tafsir-at-tanwir-al-baqarah-130-134.pdf",
       "docx_source": "/assets/pustaka-docx/tafsir-at-tanwir-al-baqarah-130-134.docx",
       "cover_url": "/assets/pustaka-covers/tafsir-at-tanwir-al-baqarah-130-134.jpg",
-      "type": "pdf"
-    },
-    {
-      "title": "Tajdid Muhammadiyah untuk Pencerahan Peradaban",
-      "category": "buku",
-      "source_page": "https://tarjih.or.id/wp-content/uploads/2020/08/TAJDID-MUHAMMADIYAH-UNTUK-PENCERAHAN-PERADABAN.pdf",
-      "language": "id",
-      "source_group": "muhammadiyah",
-      "pdf_source": "/assets/pustaka-files/tajdid-muhammadiyah-untuk-pencerahan-peradaban.pdf",
-      "docx_source": "/assets/pustaka-docx/tajdid-muhammadiyah-untuk-pencerahan-peradaban.docx",
-      "cover_url": "/assets/pustaka-covers/tajdid-muhammadiyah-untuk-pencerahan-peradaban.jpg",
       "type": "pdf"
     },
     {
@@ -2477,6 +2867,136 @@
       "docx_source": "/assets/pustaka-docx/tuntunan-walimah.docx",
       "cover_url": "/assets/pustaka-covers/tuntunan-walimah.jpg",
       "type": "pdf"
+    },
+    {
+      "title": "Khutbah Jum'at: Dosa Digital",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-dosa-digital",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-dosa-digital.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-dosa-digital.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-dosa-digital.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum'at: Mengokohkan Bangunan Keluarga",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-mengokohkan-bangunan-keluarga",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-mengokohkan-bangunan-keluarga.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-mengokohkan-bangunan-keluarga.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-mengokohkan-bangunan-keluarga.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum'at: Menyelamatkan Waktu Dari Jajahan Distraksi",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-menyelamatkan-waktu-dari-jajahan-distraksi",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-menyelamatkan-waktu-dari-jajahan-distraksi.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-menyelamatkan-waktu-dari-jajahan-distraksi.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-menyelamatkan-waktu-dari-jajahan-distraksi.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum'at: Model Teladan Agung Rasulullah Muhammad Saw",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-model-teladan-agung-rasulullah-muhammad-saw",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-model-teladan-agung-rasulullah-muhammad-saw.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-model-teladan-agung-rasulullah-muhammad-saw.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-model-teladan-agung-rasulullah-muhammad-saw.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum'at: Piala Dunia Sepak Bola, Berkah Atau Maksiat?",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-piala-dunia-sepak-bola-berkah-atau-maksiat",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-piala-dunia-sepak-bola-berkah-atau-maksiat.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-piala-dunia-sepak-bola-berkah-atau-maksiat.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-piala-dunia-sepak-bola-berkah-atau-maksiat.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum’at: Bulan Safar Bukan Bulan Sial",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-bulan-safar-bukan-bulan-sial",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-bulan-safar-bukan-bulan-sial.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-bulan-safar-bukan-bulan-sial.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-bulan-safar-bukan-bulan-sial.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum’at: Di Balik Kemarau, Rahmat Allah Dinanti",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-di-balik-kemarau-rahmat-allah-dinanti",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-di-balik-kemarau-rahmat-allah-dinanti.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-di-balik-kemarau-rahmat-allah-dinanti.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-di-balik-kemarau-rahmat-allah-dinanti.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum’at: Memeriahkan HUT RI Tanpa Terjerumus Maksiat",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-memeriahkan-hut-ri-tanpa-terjerumus-maksiat",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-memeriahkan-hut-ri-tanpa-terjerumus-maksiat.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-memeriahkan-hut-ri-tanpa-terjerumus-maksiat.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-memeriahkan-hut-ri-tanpa-terjerumus-maksiat.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum’at: Memilih Sekolah Anak untuk Kebaikan Dunia dan Akhirat",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-memilih-sekolah-anak-untuk-kebaikan-dunia-dan-akhirat",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-memilih-sekolah-anak-untuk-kebaikan-dunia-dan-akhirat.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-memilih-sekolah-anak-untuk-kebaikan-dunia-dan-akhirat.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-memilih-sekolah-anak-untuk-kebaikan-dunia-dan-akhirat.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
+    },
+    {
+      "title": "Khutbah Jum’at: Optimisme Religius Atasi Frustasi Kolektif",
+      "category": "khutbah",
+      "language": "id",
+      "source_group": "suara-muhammadiyah",
+      "source_page": "https://www.suaramuhammadiyah.id/read/khutbah-jum-at-optimisme-religius-atasi-frustasi-kolektif",
+      "pdf_source": "/assets/pustaka-files/khutbah-jum-at-optimisme-religius-atasi-frustasi-kolektif.pdf",
+      "docx_source": "/assets/pustaka-docx/khutbah-jum-at-optimisme-religius-atasi-frustasi-kolektif.docx",
+      "cover_url": "/assets/pustaka-covers/khutbah-jum-at-optimisme-religius-atasi-frustasi-kolektif.jpg",
+      "date": "",
+      "year": 0,
+      "type": "article-export"
     }
   ]
 }
