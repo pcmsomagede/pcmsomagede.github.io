@@ -40,7 +40,7 @@
   const route=()=>{
     document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='pustaka'));
     const p=document.getElementById('pustaka'); if(!p)return;
-    load('pustaka-tafsir-live-v3.js?v=final-20260828','pcm-tafsir-direct-loader');
+    load('tafsirmu-final.js?v=20260829-01','pcm-tafsir-direct-loader');
     const mount=()=>window.PCMTafsirFinal?.mount?.();
     if(!mount()) window.addEventListener('pcm:script-ready',e=>{if(e.detail?.id==='pcm-tafsir-direct-loader')mount()},{once:true});
   };
