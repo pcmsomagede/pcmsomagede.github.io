@@ -8,6 +8,7 @@ on:
       - 'tools/repair_khutbah_exports.py'
       - 'tools/pustaka_catalog_guard.py'
       - 'data/pustaka-books.json'
+      - 'data/pustaka-tafsir.json'
   schedule:
     - cron: '23 3 * * 2'
   workflow_dispatch:
