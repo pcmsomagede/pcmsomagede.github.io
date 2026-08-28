@@ -1,0 +1,66 @@
+name: Fix TafsirMu Menu
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch-menu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Patch TafsirMu menu and direct route
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old_patterns = [
+              r'<div class="nav-drop"><a class="nav-item nav-parent" href="#pustaka">PustakaMu <span>▾</span></a><div class="submenu">.*?</div></div>',
+          ]
+          new = '<div class="nav-drop"><a class="nav-item nav-parent" href="#pustaka">PustakaMu <span>▾</span></a><div class="submenu"><a href="#khutbah" data-pcm-route="khutbah">KhutbahMu</a><a href="#kultum" data-pcm-route="kultum">KultumMu</a><a href="#buku" data-pcm-route="buku">BukuMu</a><a href="#hadits" data-pcm-route="hadits">HaditsMu</a><a href="#quran" data-pcm-route="quran">Al-Qur\'anMu</a><a href="#tafsir" data-pcm-route="tafsir">TafsirMu</a></div></div>'
+          changed = False
+          for pat in old_patterns:
+              s2, n = re.subn(pat, new, s, count=1, flags=re.S)
+              if n:
+                  s = s2
+                  changed = True
+          if 'id="pcm-tafsir-direct-fix"' not in s:
+              fix = r'''<script id="pcm-tafsir-direct-fix">
+          (()=>{
+            const load=(src,id)=>{if(document.getElementById(id))return;const x=document.createElement('script');x.id=id;x.src=src;x.defer=true;document.body.appendChild(x)};
+            const route=()=>{
+              document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='pustaka'));
+              const p=document.getElementById('pustaka'); if(!p)return;
+              load('pustaka-tafsir-live-v3.js?v=final-20260828','pcm-tafsir-direct-loader');
+              const mount=()=>window.PCMTafsirFinal?.mount?.();
+              if(!mount()) window.addEventListener('pcm:script-ready',e=>{if(e.detail?.id==='pcm-tafsir-direct-loader')mount()},{once:true});
+            };
+            const bind=()=>document.querySelectorAll('a[href="#tafsir"],a[data-pcm-route="tafsir"]').forEach(a=>{
+              if(a.dataset.pcmTafsirDirect)return; a.dataset.pcmTafsirDirect='1';
+              a.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();route()},{capture:true});
+            });
+            if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();
+            new MutationObserver(bind).observe(document.documentElement,{childList:true,subtree:true});
+          })();
+          </script>'''
+              s = s.replace('</body>', fix + '</body>')
+              changed = True
+          if changed:
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "fix: make TafsirMu submenu clickable"
+          git push
