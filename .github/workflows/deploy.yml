@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -23,6 +23,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Build authoritative TafsirMu manifest
+        shell: bash
+        run: |
+          set -e
+          python -m pip install requests -q
+          python scripts/build_tafsir_manifest.py
+          test -s tafsirmu-manifest.js
 
       - name: Apply V9 content visual layer and V22 ticker
         shell: bash
