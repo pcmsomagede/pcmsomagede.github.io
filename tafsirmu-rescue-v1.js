@@ -7,9 +7,8 @@ async function load(src,id){
 }
 async function mount(){
  const p=document.querySelector('#tafsir'); if(!p)return;
- await load('tafsirmu-manifest.js?v=20260828-01','tafsirmu-manifest-loader');
- await load('tafsirmu-static-v1.js?v=20260828-02','tafsirmu-static-loader');
- if(window.PCMTafsirStatic?.mount) return window.PCMTafsirStatic.mount();
+ await load('tafsirmu-rescue-v2.js?v=20260828-01','tafsirmu-rescue-v2-loader');
+ if(window.PCMTafsirRescueV2?.mount) return window.PCMTafsirRescueV2.mount();
 }
 window.PCMTafsirRescue={mount};
 })();
