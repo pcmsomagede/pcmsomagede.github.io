@@ -32,7 +32,7 @@ jobs:
           import re
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          s = re.sub(r'(tafsirmu-final\\.js\\?v=)[^\'\"]+', r'\\g<1>20260829-03', s)
+          s = re.sub(r"tafsirmu-final\.js\?v=[^'\"]+", "tafsirmu-final.js?v=20260829-03", s)
           s = s.replace('pustaka-tafsir-live-v3.js?v=final-20260828', 'tafsirmu-final.js?v=20260829-03')
           if 'id="pcm-tafsir-direct-fix"' not in s:
               fix = r'''<script id="pcm-tafsir-direct-fix">
