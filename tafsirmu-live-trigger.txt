@@ -1,0 +1,1 @@
+TafsirMu deployment trigger — keep scope limited to TafsirMu.
