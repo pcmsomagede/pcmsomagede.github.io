@@ -8,7 +8,8 @@ async function load(src,id){
 async function mount(){
  const p=document.querySelector('#tafsir'); if(!p)return;
  await load('tafsirmu-rescue-v2.js?v=20260828-01','tafsirmu-rescue-v2-loader');
- if(window.PCMTafsirRescueV2?.mount) return window.PCMTafsirRescueV2.mount();
+ const child=window.PCMTafsirRescue?.mount;
+ if(typeof child==='function' && child!==mount) return child();
 }
 window.PCMTafsirRescue={mount};
 })();
