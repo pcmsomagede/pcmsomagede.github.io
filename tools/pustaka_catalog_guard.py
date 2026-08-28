@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Guard published PustakaMu records; Arabic-safe Khutbah repair runs before this.
 import json,re
 from pathlib import Path
 CAT=Path('data/pustaka-catalog.json')
