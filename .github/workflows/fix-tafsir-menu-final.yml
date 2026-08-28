@@ -6,15 +6,23 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+env:
+  TAFSIR_SCRIPT: tafsirmu-final.js?v=20260829-01
 
 jobs:
-  patch-menu:
+  patch-menu-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Patch TafsirMu menu and direct route
+      - name: Patch only TafsirMu route
         shell: bash
         run: |
           python - <<'PY'
@@ -26,22 +34,20 @@ jobs:
               r'<div class="nav-drop"><a class="nav-item nav-parent" href="#pustaka">PustakaMu <span>▾</span></a><div class="submenu">.*?</div></div>',
           ]
           new = '<div class="nav-drop"><a class="nav-item nav-parent" href="#pustaka">PustakaMu <span>▾</span></a><div class="submenu"><a href="#khutbah" data-pcm-route="khutbah">KhutbahMu</a><a href="#kultum" data-pcm-route="kultum">KultumMu</a><a href="#buku" data-pcm-route="buku">BukuMu</a><a href="#hadits" data-pcm-route="hadits">HaditsMu</a><a href="#quran" data-pcm-route="quran">Al-Qur\'anMu</a><a href="#tafsir" data-pcm-route="tafsir">TafsirMu</a></div></div>'
-          changed = False
           for pat in old_patterns:
-              s2, n = re.subn(pat, new, s, count=1, flags=re.S)
-              if n:
-                  s = s2
-                  changed = True
+              s = re.sub(pat, new, s, count=1, flags=re.S)
+          # Replace the obsolete TafsirMu loader with the final renderer.
+          s = s.replace('pustaka-tafsir-live-v3.js?v=final-20260828', 'tafsirmu-final.js?v=20260829-01')
           if 'id="pcm-tafsir-direct-fix"' not in s:
               fix = r'''<script id="pcm-tafsir-direct-fix">
           (()=>{
-            const load=(src,id)=>{if(document.getElementById(id))return;const x=document.createElement('script');x.id=id;x.src=src;x.defer=true;document.body.appendChild(x)};
+            const load=(src,id)=>{if(document.getElementById(id))return;const x=document.createElement('script');x.id=id;x.src=src;x.defer=true;x.onload=()=>window.dispatchEvent(new CustomEvent('pcm:script-ready',{detail:{id}}));document.body.appendChild(x)};
             const route=()=>{
               document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='pustaka'));
               const p=document.getElementById('pustaka'); if(!p)return;
-              load('pustaka-tafsir-live-v3.js?v=final-20260828','pcm-tafsir-direct-loader');
+              load('tafsirmu-final.js?v=20260829-01','pcm-tafsir-direct-loader');
               const mount=()=>window.PCMTafsirFinal?.mount?.();
-              if(!mount()) window.addEventListener('pcm:script-ready',e=>{if(e.detail?.id==='pcm-tafsir-direct-loader')mount()},{once:true});
+              if(window.PCMTafsirFinal?.mount) mount(); else window.addEventListener('pcm:script-ready',e=>{if(e.detail?.id==='pcm-tafsir-direct-loader')mount()},{once:true});
             };
             const bind=()=>document.querySelectorAll('a[href="#tafsir"],a[data-pcm-route="tafsir"]').forEach(a=>{
               if(a.dataset.pcmTafsirDirect)return; a.dataset.pcmTafsirDirect='1';
@@ -52,15 +58,23 @@ jobs:
           })();
           </script>'''
               s = s.replace('</body>', fix + '</body>')
-              changed = True
-          if changed:
-              p.write_text(s, encoding='utf-8')
+          p.write_text(s, encoding='utf-8')
           PY
-      - name: Commit patch
+      - name: Commit TafsirMu route patch
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "fix: make TafsirMu submenu clickable"
+          git commit -m "fix: route TafsirMu to final renderer"
           git push
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy TafsirMu fix
+        id: deployment
+        uses: actions/deploy-pages@v4
