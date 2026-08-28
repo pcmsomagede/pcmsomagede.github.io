@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'tools/build_pustaka_catalog_v5.py'
+      - 'tools/repair_khutbah_exports.py'
       - 'tools/pustaka_catalog_guard.py'
       - 'data/pustaka-books.json'
   schedule:
@@ -39,6 +40,8 @@ jobs:
           PUSTAKA_MAX_ITEMS: '1000000'
           PUSTAKA_LOCAL_MAX_MB: '25'
         run: python tools/build_pustaka_catalog_v5.py
+      - name: Repair and verify Arabic Khutbah exports
+        run: python tools/repair_khutbah_exports.py
       - name: Validate catalog records
         run: python tools/pustaka_catalog_guard.py
       - name: Commit generated catalog and assets safely
@@ -47,7 +50,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/pustaka-catalog.json assets/pustaka-files assets/pustaka-covers assets/pustaka-docx
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "Rebuild PustakaMu catalog with Arabic-safe documents [skip ci]"
+          git commit -m "Rebuild PustakaMu with Arabic-safe Khutbah previews [skip ci]"
           for i in 1 2 3; do
             git fetch origin main
             git rebase origin/main
