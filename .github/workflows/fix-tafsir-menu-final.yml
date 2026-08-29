@@ -7,6 +7,9 @@ permissions:
   contents: write
   pages: write
   id-token: write
+concurrency:
+  group: tafsirmu-deploy
+  cancel-in-progress: true
 jobs:
   patch-menu-and-deploy:
     runs-on: ubuntu-latest
@@ -17,33 +20,33 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Install only the authoritative TafsirMu route
+      - name: Install authoritative TafsirMu as the only Tafsir renderer
         shell: bash
         run: |
+          set -e
           python - <<'PY'
           from pathlib import Path
           import re
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          s=re.sub(r'<script[^>]+src=["\'][^"\']*(?:tafsirmu|pustaka-tafsir)[^"\']*["\'][^>]*></script>','',s,flags=re.I)
-          s=re.sub(r'<script id=["\']pcm-tafsir-direct-fix["\'][\s\S]*?</script>','',s,flags=re.I)
-          tag='<script id="pcm-tafsir-authoritative" src="tafsirmu-authoritative.js?v=20260829-04"></script>'
-          s=s.replace(tag,'')
-          s=s.replace('</body>',tag+'</body>')
-          p.write_text(s,encoding='utf-8')
+          # Remove every external Tafsir/Pustaka-Tafsir renderer, including old v1-v4/live/final/rescue scripts.
+          s=re.sub(r'<script[^>]+src=["\'][^"\']*(?:tafsir|pustaka-tafsir)[^"\']*["\'][^>]*></script>', '', s, flags=re.I)
+          # Remove previous authoritative tags so only one fresh, cache-busted loader remains.
+          s=re.sub(r'<script[^>]+id=["\']pcm-tafsir-authoritative["\'][^>]*></script>', '', s, flags=re.I)
+          tag='<script id="pcm-tafsir-authoritative" src="/tafsirmu-authoritative.js?v=20260829-06"></script>'
+          if '</body>' not in s:
+              raise SystemExit('index.html has no closing body tag')
+          s=s.replace('</body>', tag+'</body>', 1)
+          p.write_text(s, encoding='utf-8')
           PY
-      - name: Commit route if changed
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "fix: make TafsirMu authoritative renderer last"
-          git push
+          test -f tafsirmu-authoritative.js
+          grep -q 'PDF ASLI' tafsirmu-authoritative.js
+          grep -q 'pcm-tafsir-authoritative' index.html
+          # Make sure the generated artifact contains no legacy Tafsir renderer reference.
+          ! grep -Eiq 'pustaka-tafsir-live|tafsirmu-final|tafsirmu-rescue|tafsirmu-static' index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload site
+      - name: Upload patched site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
