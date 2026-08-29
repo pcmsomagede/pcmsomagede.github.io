@@ -1,8 +1,11 @@
 (()=>{'use strict';
+const sortCards=()=>{const g=document.querySelector('#pustaka .tfml-grid');if(!g)return;[...g.children].sort((a,b)=>{const ok=x=>!!x.querySelector?.('.tfml-pdf,.tfml-read');return Number(ok(b))-Number(ok(a))}).forEach(x=>g.appendChild(x))};
 const mount=()=>{const p=document.getElementById('pustaka');if(!p)return;document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x===p));p.classList.add('active');if(window.PCMTafsirLive?.mount){window.PCMTafsirLive.mount();return}const s=document.createElement('script');s.src='/tafsirmu-live.js?v=20260830-01';s.onload=()=>window.PCMTafsirLive?.mount?.();document.head.appendChild(s)};
 const route=e=>{const a=e.target.closest?.('a[href="#tafsir"],a[data-pcm-route="tafsir"]');if(!a)return;e.preventDefault();e.stopPropagation();if(e.stopImmediatePropagation)e.stopImmediatePropagation();history.replaceState(null,'','#tafsir');mount()};
 document.addEventListener('click',route,true);
 window.addEventListener('hashchange',()=>{if(location.hash.replace('#','').toLowerCase()==='tafsir')mount()});
 if(location.hash.replace('#','').toLowerCase()==='tafsir')setTimeout(mount,0);
+const watch=()=>{const p=document.getElementById('pustaka');if(!p)return;new MutationObserver(()=>{if(location.hash.replace('#','').toLowerCase()!=='tafsir')return;const bad=[...p.querySelectorAll('button,a')].some(x=>/\bDOCX\b/i.test(x.textContent||''));if(bad){mount();return}sortCards()}).observe(p,{childList:true,subtree:true})};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch);else watch();
 window.PCMTafsirBoot={mount};
 })();
