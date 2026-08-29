@@ -37,16 +37,18 @@ jobs:
           s=s.replace(old,new)
           s=re.sub(r'<script[^>]+src=["\'][^"\']*(?:tafsir|pustaka-tafsir)[^"\']*["\'][^>]*></script>', '', s, flags=re.I)
           s=re.sub(r'<script[^>]+id=["\']pcm-tafsir-authoritative["\'][^>]*></script>', '', s, flags=re.I)
-          tags='<script id="pcm-tafsir-live" src="/tafsirmu-live.js?v=20260829-02"></script><script id="pcm-tafsir-order" src="/tafsirmu-order-hotfix.js?v=20260829-01"></script>'
+          tags='<script id="pcm-tafsir-live" src="/tafsirmu-live.js?v=20260830-01"></script><script id="pcm-tafsir-order" src="/tafsirmu-order-hotfix.js?v=20260829-01"></script><script id="pcm-tafsir-boot" src="/tafsirmu-boot-v38.js?v=20260830-01"></script>'
           if '</body>' not in s: raise SystemExit('index.html has no closing body tag')
           s=s.replace('</body>',tags+'</body>',1)
           p.write_text(s,encoding='utf-8')
           PY
           test -f tafsirmu-live.js
           test -f tafsirmu-order-hotfix.js
+          test -f tafsirmu-boot-v38.js
           grep -q 'tfml-grid' tafsirmu-live.js
           grep -q 'archive.org/metadata' tafsirmu-live.js
           grep -q 'TafsirMuOrderHotfix' tafsirmu-order-hotfix.js
+          grep -q 'PCMTafsirBoot' tafsirmu-boot-v38.js
           ! grep -Eiq 'pustaka-tafsir-live|tafsirmu-final|tafsirmu-rescue|tafsirmu-static|pcm-tafsir-authoritative' index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
