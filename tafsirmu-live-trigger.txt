@@ -1,1 +1,2 @@
 TafsirMu live deployment trigger — final renderer only.
+Deployment verification: 2026-08-29.
