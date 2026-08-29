@@ -19,45 +19,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Apply V9 content visual layer and V22 ticker
+      - name: Apply visual layers and ticker
         shell: bash
         run: |
           set -e
           if ! grep -q 'VISUAL-UPGRADE-V9' style.css; then printf '\n/* VISUAL-UPGRADE-V9 */\n' >> style.css; cat visual-upgrade-v9.css >> style.css; fi
           if ! grep -q 'TICKER-V22' style.css; then printf '\n/* TICKER-V22 */\n' >> style.css; cat ticker-v22.css >> style.css; fi
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('index.html'); s=p.read_text(encoding='utf-8')
-          old='PCM Somagede • Kabupaten Banyumas &nbsp; • &nbsp; Hidup-hiduplah Muhammadiyah &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupi Muhammadiyah'
-          new='PCM Somagede Kabupaten Banyumas Jawa Tengah. &nbsp; • &nbsp; Hidup hidupilah Muhammadiyah. &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupkan Muhammadiyah di masa yang akan datang (KH. Ahmad Dahlan).'
-          p.write_text(s.replace(old,new),encoding='utf-8')
-          PY
-      - name: Force authoritative V24 ticker layer
-        shell: bash
-        run: |
-          set -e
           printf '\n/* TICKER-V24-AUTHORITATIVE */\n' >> style.css
           cat ticker-v24.css >> style.css
-      - name: Force authoritative TafsirMu renderer
-        shell: bash
-        run: |
-          set -e
           python - <<'PY'
           from pathlib import Path
           import re
-          p=Path('index.html'); s=p.read_text(encoding='utf-8')
-          s=re.sub(r'<script[^>]+src=["\'][^"\']*(?:tafsirmu|pustaka-tafsir)[^"\']*["\'][^>]*></script>','',s,flags=re.I)
-          tag='<script id="pcm-tafsir-authoritative" src="/tafsirmu-authoritative.js?v=20260829-05"></script>'
-          s=s.replace(tag,'').replace('</body>',tag+'</body>',1)
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          old='PCM Somagede • Kabupaten Banyumas &nbsp; • &nbsp; Hidup-hiduplah Muhammadiyah &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupi Muhammadiyah'
+          new='PCM Somagede Kabupaten Banyumas Jawa Tengah. &nbsp; • &nbsp; Hidup hidupilah Muhammadiyah. &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupkan Muhammadiyah di masa yang akan datang (KH. Ahmad Dahlan).'
+          s=s.replace(old,new)
+          # TafsirMu must have exactly one renderer: the authoritative one.
+          s=re.sub(r'<script[^>]+src=["\'][^"\']*(?:tafsir|pustaka-tafsir)[^"\']*["\'][^>]*></script>', '', s, flags=re.I)
+          s=re.sub(r'<script[^>]+id=["\']pcm-tafsir-authoritative["\'][^>]*></script>', '', s, flags=re.I)
+          tag='<script id="pcm-tafsir-authoritative" src="/tafsirmu-authoritative.js?v=20260829-06"></script>'
+          if '</body>' not in s:
+              raise SystemExit('index.html has no closing body tag')
+          s=s.replace('</body>', tag+'</body>', 1)
           p.write_text(s,encoding='utf-8')
           PY
           test -f tafsirmu-authoritative.js
           grep -q 'resolvePdf' tafsirmu-authoritative.js
           grep -q 'archive.org/metadata' tafsirmu-authoritative.js
-          grep -q 'tafsirmu-authoritative.js?v=20260829-05' index.html
+          grep -q 'tafsirmu-authoritative.js?v=20260829-06' index.html
+          ! grep -Eiq 'pustaka-tafsir-live|tafsirmu-final|tafsirmu-rescue|tafsirmu-static' index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload site
+      - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
