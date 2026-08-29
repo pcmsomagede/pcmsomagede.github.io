@@ -53,6 +53,27 @@ jobs:
           printf '\n/* TICKER-V24-AUTHORITATIVE */\n' >> style.css
           cat ticker-v24.css >> style.css
 
+      - name: Force authoritative TafsirMu renderer
+        shell: bash
+        run: |
+          set -e
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          tag = '<script src="/tafsirmu-authoritative.js?v=20260829"></script>'
+          if tag not in s:
+              marker = '</body>'
+              if marker in s:
+                  s = s.replace(marker, tag + marker, 1)
+              else:
+                  s += tag
+          p.write_text(s, encoding='utf-8')
+          PY
+          test -f tafsirmu-authoritative.js
+          grep -q 'TAFSIRMU-AUTHORITATIVE-20260829' tafsirmu-authoritative.js
+          grep -q 'tafsirmu-authoritative.js?v=20260829' index.html
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
