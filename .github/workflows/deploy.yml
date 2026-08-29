@@ -35,20 +35,21 @@ jobs:
           old='PCM Somagede • Kabupaten Banyumas &nbsp; • &nbsp; Hidup-hiduplah Muhammadiyah &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupi Muhammadiyah'
           new='PCM Somagede Kabupaten Banyumas Jawa Tengah. &nbsp; • &nbsp; Hidup hidupilah Muhammadiyah. &nbsp; • &nbsp; Carilah penghidupan yang layak untuk menghidupkan Muhammadiyah di masa yang akan datang (KH. Ahmad Dahlan).'
           s=s.replace(old,new)
-          # TafsirMu must have exactly one renderer: the authoritative one.
+          # TafsirMu is rendered by exactly one script, mounted inside #pustaka.
           s=re.sub(r'<script[^>]+src=["\'][^"\']*(?:tafsir|pustaka-tafsir)[^"\']*["\'][^>]*></script>', '', s, flags=re.I)
           s=re.sub(r'<script[^>]+id=["\']pcm-tafsir-authoritative["\'][^>]*></script>', '', s, flags=re.I)
-          tag='<script id="pcm-tafsir-authoritative" src="/tafsirmu-authoritative.js?v=20260829-06"></script>'
+          s=s.replace('<script src="fast-ui.js?v=20260825-3" defer></script>','<script src="fast-ui.js?v=20260825-3" defer></script>')
+          tag='<script id="pcm-tafsir-live" src="/tafsirmu-live.js?v=20260829-01"></script>'
           if '</body>' not in s:
               raise SystemExit('index.html has no closing body tag')
           s=s.replace('</body>', tag+'</body>', 1)
           p.write_text(s,encoding='utf-8')
           PY
-          test -f tafsirmu-authoritative.js
-          grep -q 'resolvePdf' tafsirmu-authoritative.js
-          grep -q 'archive.org/metadata' tafsirmu-authoritative.js
-          grep -q 'tafsirmu-authoritative.js?v=20260829-06' index.html
-          ! grep -Eiq 'pustaka-tafsir-live|tafsirmu-final|tafsirmu-rescue|tafsirmu-static' index.html
+          test -f tafsirmu-live.js
+          grep -q 'tfml-grid' tafsirmu-live.js
+          grep -q 'archive.org/metadata' tafsirmu-live.js
+          grep -q 'tafsirmu-live.js?v=20260829-01' index.html
+          ! grep -Eiq 'pustaka-tafsir-live|tafsirmu-final|tafsirmu-rescue|tafsirmu-static|pcm-tafsir-authoritative' index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
