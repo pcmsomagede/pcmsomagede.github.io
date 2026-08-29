@@ -47,13 +47,14 @@ jobs:
           import re
           p=Path('index.html'); s=p.read_text(encoding='utf-8')
           s=re.sub(r'<script[^>]+src=["\'][^"\']*(?:tafsirmu|pustaka-tafsir)[^"\']*["\'][^>]*></script>','',s,flags=re.I)
-          tag='<script id="pcm-tafsir-authoritative" src="/tafsirmu-authoritative.js?v=20260829-04"></script>'
+          tag='<script id="pcm-tafsir-authoritative" src="/tafsirmu-authoritative.js?v=20260829-05"></script>'
           s=s.replace(tag,'').replace('</body>',tag+'</body>',1)
           p.write_text(s,encoding='utf-8')
           PY
           test -f tafsirmu-authoritative.js
-          grep -q 'PDF ASLI' tafsirmu-authoritative.js
-          grep -q 'tafsirmu-authoritative.js?v=20260829-04' index.html
+          grep -q 'resolvePdf' tafsirmu-authoritative.js
+          grep -q 'archive.org/metadata' tafsirmu-authoritative.js
+          grep -q 'tafsirmu-authoritative.js?v=20260829-05' index.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
