@@ -1,6 +1,1 @@
-(()=>{'use strict';
-const load=()=>{if(window.PCMTafsirLive?.mount){window.PCMTafsirLive.mount();return}if(document.getElementById('tfm-live-loader'))return;const s=document.createElement('script');s.id='tfm-live-loader';s.src='/tafsirmu-live.js?v=20260829-01';s.onload=()=>window.PCMTafsirLive?.mount?.();document.head.appendChild(s)};
-window.PCMTafsirAuthoritative={mount:load};
-document.addEventListener('click',e=>{const a=e.target.closest?.('a[href="#tafsir"],a[data-pcm-route="tafsir"]');if(!a)return;setTimeout(load,0)},true);
-if(location.hash.replace('#','').toLowerCase()==='tafsir')document.addEventListener('DOMContentLoaded',load);
-})();
+(()=>{'use strict';const load=()=>{const p=document.getElementById('pustaka');if(!p)return;document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x===p));p.innerHTML='<div style="padding:16px"><h2>TafsirMu</h2><div id="tfm-grid"></div></div>';const s=document.createElement('script');s.src='/tafsirmu-live.js?v=20260830-99';s.onload=()=>window.PCMTafsirLive?.mount?.();document.head.appendChild(s)};const route=e=>{const a=e.target.closest?.('a[href="#tafsir"],a[data-pcm-route="tafsir"]');if(!a)return;e.preventDefault();e.stopImmediatePropagation?.();history.replaceState(null,'','#tafsir');load()};document.addEventListener('click',route,true);if(location.hash.slice(1).toLowerCase()==='tafsir')document.addEventListener('DOMContentLoaded',load);window.PCMTafsirAuthoritative={mount:load}})();
